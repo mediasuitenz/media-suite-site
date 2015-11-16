@@ -13,7 +13,7 @@ As a rule, don't make changes to anything in `_site` directory as it will just g
 
 ### Adding/Editing Pages
 
-Home page (`/index.html`) is stored in root directory. To add pages, create a directory with the page name (i.e. new-page) and create an index.html file within it (this allows for us to drop the file extension when visiting the page - so I can go to /new-page instead of /new-page.html).
+Home page (`/index.html`) is stored in root directory. To add pages, create a directory with the name of the intended path (i.e. new-page) and create an index.html file within it (this allows for us to drop the file extension when visiting the page - so I can go to `/new-page` instead of `/new-page.html`).
 
 To create a sub-page, follow the same process within the parent page directory. For example, to create a sub-page of new-page, I'd create a directory called `/sub-page` within the `/new-page` directory and add an index.html file. I'd then be able to access the sub-page at `/new-page/sub-page`.
 
