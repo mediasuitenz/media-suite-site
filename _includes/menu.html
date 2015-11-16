@@ -1,0 +1,18 @@
+<nav id="main-menu">
+  <a href="#" id="close-menu-link" class="lowercase js-menu-trigger">
+    <i class="icon icon-close"></i>
+    Close
+  </a>
+  <div id="menu-inner" class="faux-table">
+    <div class="faux-table-cell">
+      <ul id="menu-list" class="lowercase fancy-pants-font">
+      {% assign pages = site.pages | sort: "menuorder" %}
+      {% for p in pages %}
+        {% if p.menutitle %}
+        <li><a href="{{ p.url | prepend: site.baseurl }}" class="menu-link{% if p.url == page.url %} active{% endif %}">{{ p.menutitle }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>
