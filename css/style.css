@@ -32,16 +32,16 @@ body {
 }
 
 .clearfix:after,
-.max-1500:after {
+.max-1200:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.max-1500 {
+.max-1200 {
   max-width: 1200px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
   position: relative;
   height: 100%;
 }
@@ -159,7 +159,7 @@ a {
   height:100%;
   background: linear-gradient(45deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%);
   opacity:0;
-  transition: all 1500ms cubic-bezier(.1, 0.68, 0.25, 1.2);
+  transition: all 1200ms cubic-bezier(.1, 0.68, 0.25, 1.2);
   left:-100%;
   top:0;
   position:absolute;
@@ -925,6 +925,11 @@ a {
 /* iPhone 6 (portrait) */
 @media only screen and (min-width: 375px) {
 
+  .max-1200 {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
   .value-title {
     font-size: 1.2rem;
     line-height: 1.2;
@@ -1584,7 +1589,7 @@ a {
 
 @media only screen and (min-width: 1540px) {
 
-  .max-1500 {
+  .max-1200 {
     margin-left: auto;
     margin-right: auto;
   }
@@ -1700,6 +1705,7 @@ body, .onepage-wrapper, html {
 .disabled-onepage-scroll,
 .disabled-onepage-scroll .wrapper {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .disabled-onepage-scroll .onepage-wrapper .section {
