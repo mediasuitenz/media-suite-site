@@ -6,6 +6,7 @@ html,
 body,
 #container {
   height: 100%;
+  width: 100%;
 }
 
 html {
@@ -1670,15 +1671,12 @@ a {
   (https://github.com/peachananr/onepage-scroll)
 ======================================================*/
 
-body, html {
+.one-pager {
   margin: 0;
   overflow: hidden;
   -webkit-transition: opacity 400ms;
   -moz-transition: opacity 400ms;
   transition: opacity 400ms;
-}
-
-body, .onepage-wrapper, html {
   display: block;
   position: static;
   padding: 0;

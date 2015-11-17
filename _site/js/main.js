@@ -40,8 +40,12 @@ function init () {
           else menu.addClass('on');
         });
       }
-      if(!_isHomePage()){
+      if(_isHomePage()){
+        $('body, html').addClass('one-pager');
+      } else {
         $('#page-header').addClass('on');
+        $('body, html').removeClass('one-pager');
+        _destroyOnePageScroll();
       }
     };
 
