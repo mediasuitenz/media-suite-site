@@ -153,6 +153,7 @@ function init () {
         afterMove: _afterPanelMove,
         easing: 'ease',
         loop: false,
+        animationTime: 500,
         responsiveFallback : function() {
           var doDisable = $(window).width() < 768 || $(window).height() < 700;
           if(doDisable){
@@ -221,13 +222,13 @@ function init () {
       bannerEl.css('width', newBannerWidth + 'px');
       setTimeout(function(){
         titleSectionEl.css('opacity', '1');
-      }, 1200);
+      }, 600);
       if(doIterate) {
         var nextSection = titleSectionEl.next();
         if(nextSection.length) {
           setTimeout(function(){
             _animateTitleIn(bannerEl, newBannerWidth, nextSection, true);
-          }, 700);
+          }, 600);
         } else {
           _initAltTitlesAnimation(bannerEl);
         }
@@ -244,7 +245,7 @@ function init () {
             setTimeout(function(){
               var activeAlt = alts.filter('.active');
               _animateAltTitleIn(alts.eq(1), activeAlt);
-            }, 1700);
+            },800);
           }
         });
       }
@@ -254,12 +255,12 @@ function init () {
       setTimeout(function(){
         if(activeAlt.length){
           activeAlt.css({
-            'transform': 'translateY(-92px)',
+            'transform': 'translateY(-60px)',
             'opacity' : '0'
           });
           setTimeout(function(){
             activeAlt.removeClass('active');
-          }, 1000);
+          }, 500);
         }
         alt.css({
           'transform': 'translateY(0)',
@@ -271,8 +272,8 @@ function init () {
           if(nextAlt.length){
             _animateAltTitleIn(alt.next(), alt);
           }
-        }, 1000);
-      }, 800);
+        }, 500);
+      }, 500);
     };
 
     // Handle contact panel expand on hover:
