@@ -7,6 +7,8 @@ Uses [Jekyll](https://jekyllrb.com/) static site generator.
 1. Install Jekyll: `gem install jekyll`
 2. Once in site directory, run `jekyll serve`. This will watch all files and compile any changes to `_site` directory. Site will be served up at `http://localhost:4000/`.
 
+\* `baseurl` setting in `_config.yml` will need editing if uploading site to sandbox (change to `'/meowmeowmeow'`)
+
 ## Making Changes
 
 As a rule, don't make changes to anything in `_site` directory as it will just get overwritten when changes are made and site is compiled into the `_site` directory.
