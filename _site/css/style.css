@@ -5,7 +5,7 @@
 html,
 body,
 #container {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -191,7 +191,6 @@ a {
 
 #page-header {
   display: block;
-  position: fixed;
   top: 0;
   left: 0;
   height: 0;
@@ -426,7 +425,7 @@ a {
 }
 
 .internal-page {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 /*=====================================================
@@ -1198,6 +1197,14 @@ a {
 
   #hello-panel .panel-inner {
     padding-top: 70px;
+  }
+
+  #page-header {
+    position: fixed;
+  }
+
+  .internal-page {
+    padding-top: 100px;
   }
 
 }

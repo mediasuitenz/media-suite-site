@@ -40,8 +40,10 @@ function init () {
           else menu.addClass('on');
         });
       }
+      // If home page, add relevant styles for one page scroll plugin:
       if(_isHomePage()){
         $('body, html').addClass('one-pager');
+      // Otherwise, destroy plugin and remove specific styles:
       } else {
         $('#page-header').addClass('on');
         $('body, html').removeClass('one-pager');
