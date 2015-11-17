@@ -60,6 +60,7 @@ h1, h2, h3, h4, .fancy-pants-font {
   font-family: 'chelthmitc_bk_btbold_italic', serif;
 }
 
+h1,
 h2 {
   font-size: 6.2rem;
   line-height: 1;
@@ -100,6 +101,10 @@ a {
 
 .text-semi {
   font-weight: 600;
+}
+
+.align-center {
+  text-align: center;
 }
 
 .underline-orange {
@@ -146,30 +151,32 @@ a {
   line-height: 1;
   font-size: 2.4rem;
   transition: all 400ms ease;
-  border-bottom:2px solid #e84a04;
+  border-bottom: 2px solid #e84a04;
   overflow:hidden;
 }
+
 .drop-btn:hover {
   text-shadow: -2px 1px 2px rgba(0,0,0,0.3);
   box-shadow: -1px 2px 1px rgba(0,0,0,0.3);
 }
+
 .drop-btn:after{
   content:'';
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(45deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%);
-  opacity:0;
+  opacity: 0;
   transition: all 1200ms cubic-bezier(.1, 0.68, 0.25, 1.2);
-  left:-100%;
-  top:0;
-  position:absolute;
-  display:block;
+  left: -100%;
+  top: 0;
+  position: absolute;
+  display: block;
  }
 
 .drop-btn:hover:after{
-  left:100%;
-  opacity:1;
-  }
+  left: 100%;
+  opacity: 1;
+}
 
 .orange-bg {
   background: #ff632e;
@@ -182,13 +189,70 @@ a {
 ======================================================*/
 
 #page-header {
-  display: none;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 0;
   width: 100%;
+  overflow: hidden;
+  border-top: 4px solid #f27c00;
   color: #000;
+  z-index: 99;
+}
+
+#page-header .trigger-icon {
+  font-size: 4rem;
 }
 
 #page-header a {
   color: inherit;
+}
+
+#hd-inner {
+  height: 66px;
+  padding: 16px 0;
+  transform: translateY(-66px);
+  transition: transform 700ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  transition-delay: 300ms;
+}
+
+#page-header.on {
+  height: 70px;
+}
+
+#page-header.on #hd-inner {
+  transform: translateY(0);
+}
+
+#menu-bar-logo {
+  float: left;
+  height: 100%;
+  min-width: 200px;
+}
+
+.menu-logo {
+  display: inline-block;
+  height: 100%;
+  margin-right: 5px;
+}
+
+#menu-bar-logo span {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 40px;
+}
+
+#menu-bar-trigger {
+  float: right;
+}
+
+#menu-bar-trigger .icon,
+#menu-bar-trigger .menu-trigger-text {
+  vertical-align: middle;
+  line-height: 34px;
 }
 
 #nav-wrap {
@@ -360,6 +424,10 @@ a {
   z-index: 10;
 }
 
+.internal-page {
+  padding-top: 100px;
+}
+
 /*=====================================================
   Home Page: #banner-panel
 ======================================================*/
@@ -476,9 +544,10 @@ a {
   display: inline-block;
   vertical-align: top;
 }
-.col.middle{
+
+.middle {
   vertical-align: middle;
- }
+}
 
 .col-half {
   width: 45%;
@@ -864,6 +933,7 @@ a {
     min-height: 100%;
   }
 
+  h1,
   h2 {
     font-size: 4.2rem;
   }
@@ -884,8 +954,10 @@ a {
     height: 80px;
   }
 
-  #menu-inner {
-    padding: 0 85px;
+  .menu-link {
+    display: block;
+    padding: 10px 0;
+    margin: 0 30px 5px 30px;
   }
 
   .col-half {
@@ -1065,60 +1137,6 @@ a {
     left: 0;
     padding-left: 30px;
     text-align: left;
-  }
-
-  #page-header {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 70px;
-    width: 100%;
-    overflow: hidden;
-    border-top: 4px solid #f27c00;
-    z-index: 99;
-  }
-
-  #hd-inner {
-    height: 66px;
-    padding: 16px 0;
-    transform: translateY(-66px);
-    transition: transform 700ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-    transition-delay: 300ms;
-  }
-
-  #page-header.on #hd-inner {
-    transform: translateY(0);
-  }
-
-  #menu-bar-logo {
-    float: left;
-    height: 100%;
-    min-width: 200px;
-  }
-
-  .menu-logo {
-    display: inline-block;
-    height: 100%;
-    margin-right: 5px;
-  }
-
-  #menu-bar-logo span {
-    display: inline-block;
-    vertical-align: top;
-    font-weight: 600;
-    font-size: 1.8rem;
-    line-height: 40px;
-  }
-
-  #menu-bar-trigger {
-    float: right;
-  }
-
-  #menu-bar-trigger .icon,
-  #menu-bar-trigger .menu-trigger-text {
-    vertical-align: middle;
-    line-height: 34px;
   }
 
   .js-fade-in-up {
@@ -1583,6 +1601,15 @@ a {
 
   .contact-blocks {
     height: calc(100% - 142px);
+  }
+
+}
+
+@media only screen and (min-width: 1300px) {
+
+  .max-1200 {
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
