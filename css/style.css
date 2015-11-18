@@ -1323,13 +1323,8 @@ a {
   }
 
   #csi-tmp .item-image img {
-    margin-right: -85px;
-    margin-top: -15px;
-  }
-
-  #csi-llur .item-image img {
-    margin-right: -45px;
-    margin-top: -33px;
+    margin-right: 20px;
+    margin-top: -20px;
   }
 
   .item-text-body {
@@ -1718,6 +1713,16 @@ a {
 
   .hello-oslo .contact-block-text {
     top: 0;
+  }
+
+  #csi-tmp .item-image img {
+    margin-right: -85px;
+    margin-top: -15px;
+  }
+
+  #csi-llur .item-image img {
+    margin-right: -45px;
+    margin-top: -33px;
   }
 
 }
