@@ -924,6 +924,22 @@ a {
   max-width: 361px;
 }
 
+#csi-forward-works .item-image img {
+  max-width: 353px;
+}
+
+#csi-appraisal-connector .item-image img {
+  max-width: 320px;
+}
+
+#csi-tmp .item-image img {
+  max-width: 435px;
+}
+
+#csi-lurr .item-image img {
+  max-width: 456px;
+}
+
 .item-text-head {
   margin-bottom: 20px;
 }
@@ -1270,17 +1286,19 @@ a {
     padding-top: 100px;
   }
 
-  .internal-page h1 {
-    margin-bottom: 80px;
+  .internal-page h1,
+  .case-study-item {
+    margin-bottom: 100px;
   }
 
   .case-study-item {
-    margin-bottom: 50px;
+    min-height: 360px;
   }
 
   .item-image {
     float: left;
     width: 41%;
+    margin-bottom: 0;
   }
 
   .item-text {
@@ -1292,8 +1310,26 @@ a {
     margin-left: -30px;
   }
 
-  #csi-tfc .item-image {
+  #csi-tfc .item-image img {
     margin-top: 32px;
+  }
+
+  #csi-forward-works .item-image img {
+    margin-top: -40px;
+  }
+
+  #csi-appraisal-connector .item-image img {
+    float: left;
+  }
+
+  #csi-tmp .item-image img {
+    margin-right: -85px;
+    margin-top: -15px;
+  }
+
+  #csi-llur .item-image img {
+    margin-right: -45px;
+    margin-top: -33px;
   }
 
   .item-text-body {
