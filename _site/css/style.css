@@ -56,6 +56,11 @@ body {
   max-width: 1000px;
 }
 
+.max-1200 .max-1000 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .image-max-100 {
   display: block;
   max-width: 100%;
@@ -119,6 +124,10 @@ a {
 
 .align-center {
   text-align: center;
+}
+
+.align-left {
+  text-align: left;
 }
 
 .underline-orange {
@@ -789,67 +798,66 @@ a {
   left: 17%;
 }
 
-.levitate{
-  -webkit-animation:
-    levitate 3s infinite;  
-  -moz-animation:
-    levitate 3s infinite;
-  -webkit-transform:rotate(360deg);
-  -webkit-transition:-webkit-transform 0.5s ease-in;
+.levitate {
+  -webkit-animation: levitate 3s infinite;
+  -moz-animation: levitate 3s infinite;
+  -webkit-transform: rotate(360deg);
+  -webkit-transition: -webkit-transform 0.5s ease-in;
 }
-.wheel-shadow{
-  -webkit-animation:
-    wheel-shadow 3s infinite;  
-  -moz-animation:
-    wheel-shadow 3s infinite;
+
+.wheel-shadow {
+  -webkit-animation: wheel-shadow 3s infinite;
+  -moz-animation: wheel-shadow 3s infinite;
   -webkit-transform: translateY(-20px);
 }
 
-@-webkit-keyframes levitate{
+@-webkit-keyframes levitate {
   0% {
     -webkit-transform: translateY(-5px);
-   } 
+  }
   50% {
     -webkit-transform: translateY(0px);
-   }
-  100%{
+  }
+  100% {
     -webkit-transform: translateY(-5px);
   }
 }
-@-moz-keyframes levitate{
-  0% {  
+
+@-moz-keyframes levitate {
+  0% {
     -moz-transform: translateY(-5px);
-   }
+  }
   50% {
     -moz-transform: translateY(3px);
-   }
-  100%{
+  }
+  100% {
      -moz-transform: translateY(-5px);
   }
 }
 
-@-webkit-keyframes wheel-shadow{
+@-webkit-keyframes wheel-shadow {
   0% {
     -webkit-transform: scale(.9,.95);
     opacity: .8;
-   } 
+  }
   50% {
     -webkit-transform: scale(1,1);
     opacity: 1;
-   }
-  100%{
+  }
+  100% {
     -webkit-transform: scale(.9,.95);
     opacity: .8;
   }
 }
-@-moz-keyframes wheel-shadow{
+
+@-moz-keyframes wheel-shadow {
   0% {
     -moz-transform: scale(1,1);
-   }
+  }
   50% {
     -moz-transform: scale(.8,.9);
-   }
-  100%{
+  }
+  100% {
      -moz-transform: scale(1,1);
   }
 }
@@ -1040,6 +1048,70 @@ a {
 }
 
 /*=====================================================
+  Individual Case Study Page:
+======================================================*/
+
+.case-study h1 {
+  margin-bottom: 40px;
+}
+
+.case-study-intro {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.case-study-icons {
+  margin-bottom: 40px;
+}
+
+.case-study-tech {
+  display: inline-block;
+  padding-right: 20px;
+  border-right: 3px solid #f36d21;
+  margin-right: 20px;
+}
+
+.tech-icon {
+  display: inline-block;
+  height: 34px;
+  margin: 0 5px;
+}
+
+.tech-icon img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.case-study-platforms {
+  display: inline-block;
+}
+
+.case-study-platforms i {
+  font-size: 2.8rem;
+  line-height: 1;
+  vertical-align: top;
+  margin: 0 5px;
+}
+
+.case-study-image {
+  margin-bottom: 30px;
+}
+
+.image-caption,
+.space-below-please {
+  margin-bottom: 60px;
+}
+
+.all-the-space-below {
+  margin-bottom: 100px;
+}
+
+.case-study h2 {
+  font-size: 3.5rem;
+}
+
+/*=====================================================
   Media Queries:
 ======================================================*/
 
@@ -1148,6 +1220,17 @@ a {
 
   .third-col {
     margin-bottom: 60px;
+  }
+
+  .case-study-tech {
+    display: block;
+    padding: 0;
+    border-right: none;
+    margin: 0 0 20px 0;
+  }
+
+  .tech-icon {
+    height: 30px;
   }
 
 }
@@ -1347,11 +1430,11 @@ a {
     position: fixed;
   }
 
-  .internal-page {
+  .case-studies-landing-page {
     padding-top: 100px;
   }
 
-  .internal-page h1,
+  .case-studies-landing-page h1,
   .case-study-item {
     margin-bottom: 100px;
   }
@@ -1398,6 +1481,10 @@ a {
 
   .item-image img {
     float: right;
+  }
+
+  .case-study {
+    padding-top: 180px;
   }
 
 }
