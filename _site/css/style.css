@@ -829,66 +829,109 @@ a {
   left: 17%;
 }
 
-.levitate {
-  -webkit-animation: levitate 3s infinite;
-  -moz-animation: levitate 3s infinite;
-  -webkit-transform: rotate(360deg);
-  -webkit-transition: -webkit-transform 0.5s ease-in;
+.rotate {
+  animation-duration: 30s;
+  animation-name: rotateWheel;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.value-wheel .segment {
+  cursor: pointer;
+}
+.segment:hover .segment-bg use {
+  transition: all .3s ease-in-out;
+}
+.segment:hover .segment-bg use {
+  fill: #f27c00 !important;
 }
 
-.wheel-shadow {
-  -webkit-animation: wheel-shadow 3s infinite;
-  -moz-animation: wheel-shadow 3s infinite;
+.value-wheel-wrap:hover .rotate {
+  animation-play-state: paused;
+}
+@keyframes rotateWheel {
+  0% {
+    transform: rotate(0deg);
+   }
+  20% {
+    transform: rotate(72deg);
+   }
+  40% {
+    transform: rotate(144deg);
+   }
+  60% {
+    transform: rotate(216deg);
+   }
+  80% {
+    transform: rotate(288deg);
+   }
+  100% {
+    transform: rotate(360deg);
+   }
+
+}
+
+.levitate{
+  -webkit-animation:
+    levitate 3s infinite;  
+  -moz-animation:
+    levitate 3s infinite;
+  -webkit-transform:rotate(360deg);
+  -webkit-transition:-webkit-transform 0.5s ease-in;
+}
+.wheel-shadow{
+  -webkit-animation:
+    wheel-shadow 3s infinite;  
+  -moz-animation:
+    wheel-shadow 3s infinite;
   -webkit-transform: translateY(-20px);
 }
 
-@-webkit-keyframes levitate {
+@-webkit-keyframes levitate{
   0% {
     -webkit-transform: translateY(-5px);
-  }
+   } 
   50% {
     -webkit-transform: translateY(0px);
-  }
-  100% {
+   }
+  100%{
     -webkit-transform: translateY(-5px);
   }
 }
-
-@-moz-keyframes levitate {
-  0% {
+@-moz-keyframes levitate{
+  0% {  
     -moz-transform: translateY(-5px);
-  }
+   }
   50% {
     -moz-transform: translateY(3px);
-  }
-  100% {
+   }
+  100%{
      -moz-transform: translateY(-5px);
   }
 }
 
-@-webkit-keyframes wheel-shadow {
+@-webkit-keyframes wheel-shadow{
   0% {
     -webkit-transform: scale(.9,.95);
     opacity: .8;
-  }
+   } 
   50% {
     -webkit-transform: scale(1,1);
     opacity: 1;
-  }
-  100% {
+   }
+  100%{
     -webkit-transform: scale(.9,.95);
     opacity: .8;
   }
 }
-
-@-moz-keyframes wheel-shadow {
+@-moz-keyframes wheel-shadow{
   0% {
     -moz-transform: scale(1,1);
-  }
+   }
   50% {
     -moz-transform: scale(.8,.9);
-  }
-  100% {
+   }
+  100%{
      -moz-transform: scale(1,1);
   }
 }
