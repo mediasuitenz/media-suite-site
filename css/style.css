@@ -183,8 +183,8 @@ a {
   box-shadow: -1px 2px 1px rgba(0,0,0,0.3);
 }
 
-.drop-btn:after{
-  content:'';
+.drop-btn:after {
+  content: '';
   width: 100%;
   height: 100%;
   background: linear-gradient(45deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%);
@@ -196,7 +196,7 @@ a {
   display: block;
  }
 
-.drop-btn:hover:after{
+.drop-btn:hover:after {
   left: 100%;
   opacity: 1;
 }
@@ -206,6 +206,30 @@ a {
   color: #fff;
 }
 
+.text-sheen {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding-left: 3px;
+}
+
+.text-sheen:after {
+  content: '';
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%);
+  opacity: 0;
+  transition: all 1200ms cubic-bezier(.1, 0.68, 0.25, 1.2);
+  left: -100%;
+  top: 0;
+  position: absolute;
+  display: block;
+}
+
+.text-sheen:hover:after {
+  left: 100%;
+  opacity: 1;
+}
 
 /*=====================================================
   Header:
@@ -1019,12 +1043,14 @@ a {
 
 .item-main-heading {
   font-size: 3rem;
+  line-height: 1.1;
   color: #000;
   margin: 0;
 }
 
 .item-sub-heading {
   font-size: 1.8rem;
+  line-height: 1;
   color: #f36d21;
   margin: 0;
 }
@@ -1051,8 +1077,12 @@ a {
   Individual Case Study Page:
 ======================================================*/
 
-.case-study h1 {
+.internal-page h1 {
   margin-bottom: 40px;
+}
+
+.case-studies-landing h1 {
+  margin-bottom: 65px;
 }
 
 .case-study-intro {
@@ -1458,6 +1488,10 @@ a {
     margin-left: -30px;
   }
 
+  .internal-page {
+    padding-top: 180px;
+  }
+
   #csi-tfc .item-image img {
     margin-top: 32px;
   }
@@ -1481,10 +1515,6 @@ a {
 
   .item-image img {
     float: right;
-  }
-
-  .case-study {
-    padding-top: 180px;
   }
 
 }
@@ -1682,6 +1712,11 @@ a {
 
 /* Tablet Landscape Up: */
 @media only screen and (min-width: 1024px) {
+
+  .max-1000 {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .title-section {
     font-size: 6.2rem;
@@ -1920,8 +1955,7 @@ a {
 
 @media only screen and (min-width: 1300px) {
 
-  .max-1200,
-  .max-1000 {
+  .max-1200 {
     margin-left: auto;
     margin-right: auto;
   }
