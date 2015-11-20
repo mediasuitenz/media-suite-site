@@ -52,7 +52,7 @@ function init () {
     };
 
     var _isHomePage = function () {
-      return window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/';
+      return window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/';
     }
 
     /*
