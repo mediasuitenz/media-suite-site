@@ -41,7 +41,8 @@ body {
 }
 
 .max-1200,
-.max-1000 {
+.max-1000,
+.max-760 {
   margin-left: 20px;
   margin-right: 20px;
   position: relative;
@@ -56,7 +57,13 @@ body {
   max-width: 1000px;
 }
 
-.max-1200 .max-1000 {
+.max-760 {
+  max-width: 760px;
+}
+
+.max-1200 .max-1000,
+.max-1200 .max-760,
+.max-1000 .max-760 {
   margin-left: auto !important;
   margin-right: auto !important;
 }
@@ -1141,6 +1148,11 @@ a {
   font-size: 3.5rem;
 }
 
+.other-case-studies {
+  padding-top: 60px;
+  border-top: 5px solid #f36d21;
+}
+
 /*=====================================================
   Media Queries:
 ======================================================*/
@@ -1269,7 +1281,8 @@ a {
 @media only screen and (min-width: 375px) {
 
   .max-1200,
-  .max-1000 {
+  .max-1000,
+  .max-760 {
     margin-left: 50px;
     margin-right: 50px;
   }
@@ -1372,6 +1385,11 @@ a {
 
 /* Tablet Portrait Up: */
 @media only screen and (min-width: 768px) {
+
+  .max-760 {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .title-section {
     vertical-align: middle;
@@ -1515,6 +1533,33 @@ a {
 
   .item-image img {
     float: right;
+  }
+
+  .other-case-studies .case-study-item,
+  .other-case-studies .item-text {
+    min-height: 200px;
+  }
+
+  .other-case-studies .case-study-item {
+    margin-bottom: 50px;
+  }
+
+  .other-case-studies .item-image {
+    width: 35%;
+  }
+
+  .other-case-studies .item-image img {
+    float: left;
+  }
+
+  .other-case-studies .item-text {
+    width: 60%;
+    display: table;
+  }
+
+  .other-case-studies .item-text-head {
+    display: table-cell;
+    vertical-align: middle;
   }
 
 }
