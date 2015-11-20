@@ -10,8 +10,8 @@ title: Media Suite
 email: studio@mediasuite.co.nz
 description: > # this means to ignore newlines until "baseurl:"
   Build the right thing.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "localhost" # the base hostname & protocol for your site
+baseurl: "/media-suite-site" # the subpath of your site, e.g. /blog
+url: "http://mediasuitenz.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
