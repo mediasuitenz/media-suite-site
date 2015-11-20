@@ -340,9 +340,9 @@ function init () {
   SiteWide.init();
 
   // Home page initialisation:
-  if(window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/') HomePage.init();
+  if(window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/') HomePage.init();
 
   // Work page initialisation:
-  if(window.location.pathname == '/our-work/' || window.location.pathname == '/meowmeowmeow/our-work/') WorkPage.init();
+  if(window.location.pathname == '/our-work/' || window.location.pathname == '/meowmeowmeow/our-work/' || window.location.pathname == '/media-suite-site/our-work/') WorkPage.init();
 
 };
