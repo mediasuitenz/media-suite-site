@@ -321,8 +321,16 @@ function init () {
 
   var PeoplePage = (function () {
 
+    var _initPeopleSortPlugin = function () {
+      $('#js-mix-container').mixItUp({
+        selectors: {
+          target: '.js-mix-element'
+        }
+      });
+    };
+
     var init = function () {
-      console.log('peeeeeep el');
+      _initPeopleSortPlugin();
     };
 
     return {
