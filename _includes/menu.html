@@ -9,7 +9,6 @@
       {% assign pages = site.pages | sort: "menuorder" %}
       {% for p in pages %}
         {% if p.menutitle %}
-        <!-- {{ p.url }} -->
         <li><a href="{{ p.url | prepend: site.baseurl }}" class="menu-link{% if p.url == page.url %} active{% endif %}">{{ p.menutitle }}</a></li>
         {% endif %}
       {% endfor %}
