@@ -5,7 +5,8 @@
 html,
 body,
 #container {
-  height: 100%;
+  min-height: 100%;
+  width: 100%;
 }
 
 html {
@@ -32,18 +33,39 @@ body {
 }
 
 .clearfix:after,
-.max-1200:after {
+.max-1200:after,
+.max-1000:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.max-1200 {
-  max-width: 1200px;
+.max-1200,
+.max-1000,
+.max-760 {
   margin-left: 20px;
   margin-right: 20px;
   position: relative;
   height: 100%;
+}
+
+.max-1200 {
+  max-width: 1200px;
+}
+
+.max-1000 {
+  max-width: 1000px;
+}
+
+.max-760 {
+  max-width: 760px;
+}
+
+.max-1200 .max-1000,
+.max-1200 .max-760,
+.max-1000 .max-760 {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .image-max-100 {
@@ -54,6 +76,10 @@ body {
 .open-sans {
   font-family: 'Open Sans', serif;
   font-weight: 300;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: inherit;
 }
 
 h1, h2, h3, h4, .fancy-pants-font {
@@ -105,6 +131,10 @@ a {
 
 .align-center {
   text-align: center;
+}
+
+.align-left {
+  text-align: left;
 }
 
 .underline-orange {
@@ -160,8 +190,8 @@ a {
   box-shadow: -1px 2px 1px rgba(0,0,0,0.3);
 }
 
-.drop-btn:after{
-  content:'';
+.drop-btn:after {
+  content: '';
   width: 100%;
   height: 100%;
   background: linear-gradient(45deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%);
@@ -173,7 +203,7 @@ a {
   display: block;
  }
 
-.drop-btn:hover:after{
+.drop-btn:hover:after {
   left: 100%;
   opacity: 1;
 }
@@ -183,6 +213,30 @@ a {
   color: #fff;
 }
 
+.text-sheen {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding-left: 3px;
+}
+
+.text-sheen:after {
+  content: '';
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%);
+  opacity: 0;
+  transition: all 1200ms cubic-bezier(.1, 0.68, 0.25, 1.2);
+  left: -100%;
+  top: 0;
+  position: absolute;
+  display: block;
+}
+
+.text-sheen:hover:after {
+  left: 100%;
+  opacity: 1;
+}
 
 /*=====================================================
   Header:
@@ -190,7 +244,6 @@ a {
 
 #page-header {
   display: block;
-  position: fixed;
   top: 0;
   left: 0;
   height: 0;
@@ -425,7 +478,7 @@ a {
 }
 
 .internal-page {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 /*=====================================================
@@ -776,6 +829,113 @@ a {
   left: 17%;
 }
 
+.rotate {
+  animation-duration: 30s;
+  animation-name: rotateWheel;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.value-wheel .segment {
+  cursor: pointer;
+}
+.segment:hover .segment-bg use {
+  transition: all .3s ease-in-out;
+}
+.segment:hover .segment-bg use {
+  fill: #f27c00 !important;
+}
+
+.value-wheel-wrap:hover .rotate {
+  animation-play-state: paused;
+}
+@keyframes rotateWheel {
+  0% {
+    transform: rotate(0deg);
+   }
+  20% {
+    transform: rotate(72deg);
+   }
+  40% {
+    transform: rotate(144deg);
+   }
+  60% {
+    transform: rotate(216deg);
+   }
+  80% {
+    transform: rotate(288deg);
+   }
+  100% {
+    transform: rotate(360deg);
+   }
+
+}
+
+.levitate{
+  -webkit-animation:
+    levitate 3s infinite;  
+  -moz-animation:
+    levitate 3s infinite;
+  -webkit-transform:rotate(360deg);
+  -webkit-transition:-webkit-transform 0.5s ease-in;
+}
+.wheel-shadow{
+  -webkit-animation:
+    wheel-shadow 3s infinite;  
+  -moz-animation:
+    wheel-shadow 3s infinite;
+  -webkit-transform: translateY(-20px);
+}
+
+@-webkit-keyframes levitate{
+  0% {
+    -webkit-transform: translateY(-5px);
+   } 
+  50% {
+    -webkit-transform: translateY(0px);
+   }
+  100%{
+    -webkit-transform: translateY(-5px);
+  }
+}
+@-moz-keyframes levitate{
+  0% {  
+    -moz-transform: translateY(-5px);
+   }
+  50% {
+    -moz-transform: translateY(3px);
+   }
+  100%{
+     -moz-transform: translateY(-5px);
+  }
+}
+
+@-webkit-keyframes wheel-shadow{
+  0% {
+    -webkit-transform: scale(.9,.95);
+    opacity: .8;
+   } 
+  50% {
+    -webkit-transform: scale(1,1);
+    opacity: 1;
+   }
+  100%{
+    -webkit-transform: scale(.9,.95);
+    opacity: .8;
+  }
+}
+@-moz-keyframes wheel-shadow{
+  0% {
+    -moz-transform: scale(1,1);
+   }
+  50% {
+    -moz-transform: scale(.8,.9);
+   }
+  100%{
+     -moz-transform: scale(1,1);
+  }
+}
+
 /*=====================================================
   Home Page: #culture-panel
 ======================================================*/
@@ -885,16 +1045,156 @@ a {
   Case Studies Landing:
 ======================================================*/
 
+.case-study-item {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
 .item-image {
   display: block;
   max-width: 100%;
+  margin-bottom: 20px;
 }
 
 .item-image img {
   display: block;
   width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
 }
 
+#csi-cruisy .item-image img {
+  max-width: 428px;
+}
+
+#csi-tfc .item-image img {
+  max-width: 361px;
+}
+
+#csi-forward-works .item-image img {
+  max-width: 353px;
+}
+
+#csi-appraisal-connector .item-image img {
+  max-width: 320px;
+}
+
+#csi-tmp .item-image img {
+  max-width: 435px;
+}
+
+#csi-lurr .item-image img {
+  max-width: 456px;
+}
+
+.item-text-head {
+  margin-bottom: 20px;
+}
+
+.item-main-heading {
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #000;
+  margin: 0;
+}
+
+.item-sub-heading {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #f36d21;
+  margin: 0;
+}
+
+.item-icons i {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 3rem;
+  line-height: 1;
+  color: #f36d21;
+}
+
+.item-icons i:before {
+  vertical-align: bottom;
+}
+
+.item-link {
+  font-size: 1.8rem;
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+  color: #f36d21;
+}
+
+/*=====================================================
+  Individual Case Study Page:
+======================================================*/
+
+.internal-page h1 {
+  margin-bottom: 40px;
+}
+
+.case-studies-landing h1 {
+  margin-bottom: 65px;
+}
+
+.case-study-intro {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.case-study-icons {
+  margin-bottom: 40px;
+}
+
+.case-study-tech {
+  display: inline-block;
+  padding-right: 20px;
+  border-right: 3px solid #f36d21;
+  margin-right: 20px;
+}
+
+.tech-icon {
+  display: inline-block;
+  height: 34px;
+  margin: 0 5px;
+}
+
+.tech-icon img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.case-study-platforms {
+  display: inline-block;
+}
+
+.case-study-platforms i {
+  font-size: 2.8rem;
+  line-height: 1;
+  vertical-align: top;
+  margin: 0 5px;
+}
+
+.case-study-image {
+  margin-bottom: 30px;
+}
+
+.image-caption,
+.space-below-please {
+  margin-bottom: 60px;
+}
+
+.all-the-space-below {
+  margin-bottom: 100px;
+}
+
+.case-study h2 {
+  font-size: 3.5rem;
+}
+
+.other-case-studies {
+  padding-top: 60px;
+  border-top: 5px solid #f36d21;
+}
 
 /*=====================================================
   Media Queries:
@@ -1007,12 +1307,25 @@ a {
     margin-bottom: 60px;
   }
 
+  .case-study-tech {
+    display: block;
+    padding: 0;
+    border-right: none;
+    margin: 0 0 20px 0;
+  }
+
+  .tech-icon {
+    height: 30px;
+  }
+
 }
 
 /* iPhone 6 (portrait) */
 @media only screen and (min-width: 375px) {
 
-  .max-1200 {
+  .max-1200,
+  .max-1000,
+  .max-760 {
     margin-left: 50px;
     margin-right: 50px;
   }
@@ -1116,6 +1429,11 @@ a {
 /* Tablet Portrait Up: */
 @media only screen and (min-width: 768px) {
 
+  .max-760 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .title-section {
     vertical-align: middle;
   }
@@ -1197,6 +1515,94 @@ a {
 
   #hello-panel .panel-inner {
     padding-top: 70px;
+  }
+
+  #page-header {
+    position: fixed;
+  }
+
+  .case-studies-landing-page {
+    padding-top: 100px;
+  }
+
+  .case-studies-landing-page h1,
+  .case-study-item {
+    margin-bottom: 100px;
+  }
+
+  .case-study-item {
+    min-height: 360px;
+  }
+
+  .item-image {
+    float: left;
+    width: 41%;
+    margin-bottom: 0;
+  }
+
+  .item-text {
+    float: right;
+    width: 55%;
+  }
+
+  .item-text-head {
+    margin-left: -30px;
+  }
+
+  .internal-page {
+    padding-top: 180px;
+  }
+
+  #csi-tfc .item-image img {
+    margin-top: 32px;
+  }
+
+  #csi-forward-works .item-image img {
+    margin-top: -40px;
+  }
+
+  #csi-appraisal-connector .item-image img {
+    float: left;
+  }
+
+  #csi-tmp .item-image img {
+    margin-right: 20px;
+    margin-top: -20px;
+  }
+
+  .item-text-body {
+    font-size: 1.2rem;
+  }
+
+  .item-image img {
+    float: right;
+  }
+
+  .other-case-studies .case-study-item,
+  .other-case-studies .item-text {
+    min-height: 200px;
+  }
+
+  .other-case-studies .case-study-item {
+    margin-bottom: 50px;
+  }
+
+  .other-case-studies .item-image {
+    width: 35%;
+  }
+
+  .other-case-studies .item-image img {
+    float: left;
+  }
+
+  .other-case-studies .item-text {
+    width: 60%;
+    display: table;
+  }
+
+  .other-case-studies .item-text-head {
+    display: table-cell;
+    vertical-align: middle;
   }
 
 }
@@ -1395,6 +1801,11 @@ a {
 /* Tablet Landscape Up: */
 @media only screen and (min-width: 1024px) {
 
+  .max-1000 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .title-section {
     font-size: 6.2rem;
   }
@@ -1579,6 +1990,16 @@ a {
     top: 0;
   }
 
+  #csi-tmp .item-image img {
+    margin-right: -85px;
+    margin-top: -15px;
+  }
+
+  #csi-llur .item-image img {
+    margin-right: -45px;
+    margin-top: -33px;
+  }
+
 }
 
 /* Desktop: */
@@ -1631,7 +2052,8 @@ a {
 
 @media only screen and (min-width: 1540px) {
 
-  .max-1200 {
+  .max-1200,
+  .max-1000 {
     margin-left: auto;
     margin-right: auto;
   }
@@ -1670,19 +2092,20 @@ a {
   (https://github.com/peachananr/onepage-scroll)
 ======================================================*/
 
-body, html {
+.one-pager {
   margin: 0;
   overflow: hidden;
   -webkit-transition: opacity 400ms;
   -moz-transition: opacity 400ms;
   transition: opacity 400ms;
-}
-
-body, .onepage-wrapper, html {
   display: block;
   position: static;
   padding: 0;
   width: 100%;
+  height: 100%;
+}
+
+.one-pager #container {
   height: 100%;
 }
 

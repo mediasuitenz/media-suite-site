@@ -117,31 +117,13 @@ menuorder: 1
               <p>Custom software development is a big investment. We'll help you mitigate risk, make smart trade-offs, and get the maximum value for your budget.</p>
             </div>
             <div class="col col-half middle">
-              <div class="value-wheel-wrap">
-                <img class="value-wheel" src="{{ "/img/value-wheel.jpg" | prepend: site.baseurl }}" alt="" />
-                <div class="value-text">
-                  <div class="text-segment text-segment-1">
-                    <h3 class="value-title">Marketing website</h3>
-                    <p class="value-amount">10k - 20k</p>
-                  </div> <!-- .text-segment-1 -->
-                  <div class="text-segment text-segment-2">
-                    <h3 class="value-title">Prototype or demo software</h3>
-                    <p class="value-amount">20k - 50k</p>
-                  </div> <!-- .text-segment-2 -->
-                  <div class="text-segment text-segment-3">
-                    <h3 class="value-title">Simple mobile or web app <span class="mob-hide">(does a few things well)</span></h3>
-                    <p class="value-amount">50k - 125k</p>
-                  </div> <!-- .text-segment-3 -->
-                  <div class="text-segment text-segment-4">
-                    <h3 class="value-title">Full-featured mobile or web app</h3>
-                    <p class="value-amount">100k - 135k</p>
-                  </div> <!-- .text-segment-4 -->
-                  <div class="text-segment text-segment-5">
-                    <h3 class="value-title">Complex multi-phase, multi-platform project</h3>
-                    <p class="value-amount">500k - 750k+</p>
-                  </div> <!-- .text-segment-5 -->
-                </div> <!-- .value-text -->
+              <div class="value-wheel-wrap levitate">
+                <!-- <img class="value-wheel rotate" src="{{ "/img/value-wheel.jpg" | prepend: site.baseurl }}" alt="" /> -->
+                {% include value-wheel.html %}
               </div> <!-- .value-wheel-wrap -->
+              <div>
+                <img src="{{ "/img/wheel-shadow.png" | prepend: site.baseurl }}" width="425" class="wheel-shadow">
+              </div>
             </div> <!-- .col -->
           </div> <!-- .cols-wrap -->
         </div> <!-- .faux-table-cell -->

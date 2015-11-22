@@ -40,13 +40,19 @@ function init () {
           else menu.addClass('on');
         });
       }
-      if(!_isHomePage()){
+      // If home page, add relevant styles for one page scroll plugin:
+      if(_isHomePage()){
+        $('body, html').addClass('one-pager');
+      // Otherwise, destroy plugin and remove specific styles:
+      } else {
         $('#page-header').addClass('on');
+        $('body, html').removeClass('one-pager');
+        _destroyOnePageScroll();
       }
     };
 
     var _isHomePage = function () {
-      return window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/';
+      return window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/' || window.location.pathname == '/media-suite-site/index.html';
     }
 
     /*
@@ -334,9 +340,9 @@ function init () {
   SiteWide.init();
 
   // Home page initialisation:
-  if(window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/') HomePage.init();
+  if(window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/' || window.location.pathname == '/media-suite-site/index.html') HomePage.init();
 
   // Work page initialisation:
-  if(window.location.pathname == '/our-work/' || window.location.pathname == '/meowmeowmeow/our-work/') WorkPage.init();
+  if(window.location.pathname == '/our-work/' || window.location.pathname == '/meowmeowmeow/our-work/' || window.location.pathname == '/media-suite-site/our-work/') WorkPage.init();
 
 };
