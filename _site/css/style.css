@@ -239,6 +239,31 @@ a {
 }
 
 /*=====================================================
+  Giggle Animation:
+======================================================*/
+
+.jiggle:hover{
+  animation-name: jiggle;
+  animation-duration: .75s;
+  animation-direction: alternate;
+  animation-delay: 0;
+  timing-function: ease-in-out;
+}
+
+@-webkit-keyframes jiggle {
+  from { transform: scaleY(1) scaleX(1); }
+  10% { transform: scaleY(.98) scaleX(1.02);}
+  25% { transform: scaleY(1) scaleX(1);}
+  30% { transform: scaleY(1.15) scaleX(.85); }
+  40% { transform: scaleY(.99) scaleX(1.05); }
+  50% { transform: scaleY(1.05) scaleX(.9);}
+  60% { transform: scaleY(.995) scaleX(1.055); }
+  70% { transform: scaleY(1.02) scaleX(.95);}
+  80% { transform: scaleY(.99) scaleX(1.01); }
+  90% { transform: scaleY(1.01) scaleX(.99);}
+}
+
+/*=====================================================
   Header:
 ======================================================*/
 
@@ -394,10 +419,10 @@ a {
   overflow: hidden;
   background: #f36d21;
   color: #fff;
-  -webkit-transition: all 800ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
-  -moz-transition: all 800ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
-  -o-transition: all 800ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
-  transition: all 800ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
+  -webkit-transition: all 500ms cubic-bezier(0.73, -0.01, 0.28, 0.99);
+  -moz-transition: all 500ms cubic-bezier(0.73, -0.01, 0.28, 0.99);
+  -o-transition: all 500ms cubic-bezier(0.73, -0.01, 0.28, 0.99);
+  transition: all 500ms cubic-bezier(0.73, -0.01, 0.28, 0.99);
 }
 
 #main-menu.on {
@@ -445,10 +470,10 @@ a {
   bottom: 0;
   left: 50%;
   background: rgba(255,255,255,.8);
-  -webkit-transition: all 500ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
-  -moz-transition: all 500ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
-  -o-transition: all 500ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
-  transition: all 500ms cubic-bezier(0.640, 0.015, 0.310, 0.995);
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .menu-link:hover:after,
@@ -1898,11 +1923,13 @@ a {
     float: right;
     margin-right: 45px;
     text-align: right;
+    margin-top: 70px;
   }
 
   #culture-col-3 {
     float: left;
     margin-left: 45px;
+    margin-top: 70px;
   }
 
   #culture-col-2 h2 {
@@ -2156,15 +2183,19 @@ a {
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
-  transition: all;
-}
-.onepage-pagination li a.active:before {
-  background:#f36d21;
+  transition: all .1s ease-in-out;
 }
 
 .onepage-pagination li a.active:before {
   border: none;
-  background: #f36d21;
+  content: '1';
+  position: absolute;
+  text-align: center;
+  top: -4px;
+  height: 20px;
+  line-height: 20px;
+  font-weight: bold;
+  border: none;
 }
 
 .disabled-onepage-scroll,
