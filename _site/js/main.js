@@ -52,7 +52,7 @@ function init () {
     };
 
     var _isHomePage = function () {
-      return window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/' || window.location.pathname == '/media-suite-site/index.html';
+      return $('#main-wrap.home-page').length;
     }
 
     /*
@@ -316,13 +316,13 @@ function init () {
   })();
 
   /*===========================================================================
-    Work Page Module:
+    People Page Module:
   ===========================================================================*/
 
-  var WorkPage = (function () {
+  var PeoplePage = (function () {
 
     var init = function () {
-      console.log('work work');
+      console.log('peeeeeep el');
     };
 
     return {
@@ -339,10 +339,16 @@ function init () {
   // Always fire:
   SiteWide.init();
 
-  // Home page initialisation:
-  if(window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/' || window.location.pathname == '/media-suite-site/index.html') HomePage.init();
+  var main = $('#main-wrap');
 
-  // Work page initialisation:
-  if(window.location.pathname == '/our-work/' || window.location.pathname == '/meowmeowmeow/our-work/' || window.location.pathname == '/media-suite-site/our-work/') WorkPage.init();
+  if(main.length) {
+
+    // Home page initialisation:
+    if(main.hasClass('home-page')) HomePage.init();
+
+    // People page initialisation:
+    if(main.hasClass('people-page')) PeoplePage.init();
+
+  }
 
 };
