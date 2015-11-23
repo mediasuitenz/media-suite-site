@@ -1210,6 +1210,37 @@ a {
   display: none;
 }
 
+.people-controls {
+  margin-bottom: 80px;
+}
+
+.people-controls p {
+  font-size: 3.8rem;
+  line-height: 1;
+}
+
+.sort-btn {
+  display: inline-block;
+  position: relative;
+  color: #000;
+  font-size: 3rem;
+  line-height: 1;
+  padding-left: 50px;
+  margin: 0 20px;
+}
+
+.sort-btn:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 2px solid #f36d21;
+}
+
 .person-wrap {
   height: 380px;
   width: 230px;

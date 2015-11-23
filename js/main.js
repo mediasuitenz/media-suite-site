@@ -342,9 +342,16 @@ function init () {
       });
     };
 
+    var _initSortControls = function () {
+      $('.sort-btn').click(function(e){
+        e.preventDefault();
+      });
+    }
+
     var init = function () {
       _initPeopleSortPlugin();
       _initBioClickHandler();
+      _initSortControls();
     };
 
     return {
