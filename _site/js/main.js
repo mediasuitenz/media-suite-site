@@ -329,8 +329,22 @@ function init () {
       });
     };
 
+    var _initBioClickHandler = function () {
+      $('.js-show-bio').click(function(e){
+        e.preventDefault();
+        var parentEl = $(this).parent('.person-wrap');
+        if(parentEl.hasClass('on')) {
+          parentEl.removeClass('on');
+        } else {
+          $('.person-wrap.on').removeClass('on');
+          parentEl.addClass('on');
+        }
+      });
+    };
+
     var init = function () {
       _initPeopleSortPlugin();
+      _initBioClickHandler();
     };
 
     return {
