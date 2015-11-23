@@ -321,11 +321,26 @@ function init () {
 
   var PeoplePage = (function () {
 
+    var _isoContainer = $('.js-isotope');
+
     var _initPeopleSortPlugin = function () {
-      $('#js-mix-container').mixItUp({
-        selectors: {
-          target: '.js-mix-element'
-        }
+      _isoContainer.imagesLoaded( function() {
+        var imgs = _isoContainer.find('img');
+        imgs.css('visibility', 'visible');
+        setTimeout(function(){
+          var interval = 0;
+          imgs.each(function(){
+            var img = $(this);
+            interval += 50;
+            setTimeout(function(){
+              img.addClass('loaded');
+            }, interval);
+          });
+        }, 100);
+        // init Isotope after all images have loaded
+        _isoContainer.isotope({
+          itemSelector: '.js-iso-element'
+        });
       });
     };
 
@@ -339,6 +354,7 @@ function init () {
           $('.person-wrap.on').removeClass('on');
           parentEl.addClass('on');
         }
+        _isoContainer.isotope('layout');
       });
     };
 

@@ -248,7 +248,11 @@ a {
   Jiggle Animations:
 ------------------------------------------------------*/
 
-.jiggle:hover{
+.jiggle {
+  transform: scale(1);
+}
+
+.jiggle:hover {
   animation-name: jiggle;
   animation-duration: .75s;
   animation-direction: alternate;
@@ -269,7 +273,7 @@ a {
   90% { transform: scaleY(1.01) scaleX(.99);}
 }
 
-.alert-jiggle{
+.alert-jiggle {
   animation-name: alert-jiggle;
   animation-duration: 1.2s;
   timing-function: ease-in-out;
@@ -749,136 +753,6 @@ a {
   margin: 0 auto;
 }
 
-.value-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(104,77,82,.57);
-  text-align: left;
-  line-height: 1;
-}
-
-.value-title {
-  position: absolute;
-  font-family: 'Open Sans', serif;
-  font-weight: 600;
-  margin: 0;
-  display: block;
-  font-size: 1rem;
-}
-
-.value-amount {
-  position: absolute;
-  font-family: 'Open Sans', serif;
-  font-weight: 700;
-  margin: 0;
-  display: block;
-  font-size: 1.8rem;
-}
-
-.text-segment {
-  position: absolute;
-  width: 65%;
-  height: 47%;
-}
-
-.text-segment-1 {
-  right: 0;
-  top: 0;
-}
-
-.text-segment-1 .value-title {
-  top: 38%;
-  left: 27%;
-}
-
-.text-segment-1 .value-amount {
-  top: 21%;
-  left: 21%;
-}
-
-.text-segment-2 {
-  width: 45%;
-  height: 45%;
-  right: 0;
-  top: 27%;
-}
-
-.text-segment-2 .value-title {
-  right: 12%;
-  top: 52%;
-  text-align: center;
-  max-width: 65%;
-}
-
-.text-segment-2 .value-amount {
-  right: 5%;
-  top: 35%;
-  font-size: 1.6rem;
-}
-
-.text-segment-3 {
-  bottom: 7%;
-  left: 34%;
-  width: 57%;
-  height: 30%;
-}
-
-.text-segment-3 .value-title {
-  left: 6%;
-  top: 53%;
-  max-width: 65%;
-  text-align: center;
-}
-
-.text-segment-3 .value-amount {
-  left: 11%;
-  top: 27%;
-}
-
-.text-segment-4 {
-  height: 55%;
-  width: 32%;
-  top: 37%;
-  left: 3%;
-}
-
-.text-segment-4 .value-title {
-  top: 36%;
-  left: 12%;
-  text-align: center;
-  max-width: 75%;
-}
-
-.text-segment-4 .value-amount {
-  font-size: 1.5rem;
-  top: 23%;
-  left: 2%;
-}
-
-.text-segment-5 {
-  width: 50%;
-  height: 33%;
-  top: 5%;
-  left: 5%;
-}
-
-.text-segment-5 .value-title {
-  text-align: center;
-  max-width: 80%;
-  top: 52%;
-  left: 9%;
-}
-
-.text-segment-5 .value-amount {
-  top: 34%;
-  font-size: 1.5rem;
-  left: 17%;
-}
-
 .rotate {
   animation-duration: 30s;
   animation-name: rotateWheel;
@@ -886,12 +760,15 @@ a {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+
 .value-wheel .segment {
   cursor: pointer;
 }
+
 .segment:hover .segment-bg use {
   transition: all .3s ease-in-out;
 }
+
 .segment:hover .segment-bg use {
   fill: #f27c00 !important;
 }
@@ -899,41 +776,38 @@ a {
 .value-wheel-wrap:hover .rotate {
   animation-play-state: paused;
 }
+
 @keyframes rotateWheel {
   0% {
     transform: rotate(0deg);
-   }
+  }
   20% {
     transform: rotate(72deg);
-   }
+  }
   40% {
     transform: rotate(144deg);
-   }
+  }
   60% {
     transform: rotate(216deg);
-   }
+  }
   80% {
     transform: rotate(288deg);
-   }
+  }
   100% {
     transform: rotate(360deg);
-   }
-
+  }
 }
 
-.levitate{
-  -webkit-animation:
-    levitate 3s infinite;
-  -moz-animation:
-    levitate 3s infinite;
-  -webkit-transform:rotate(360deg);
-  -webkit-transition:-webkit-transform 0.5s ease-in;
+.levitate {
+  -webkit-animation: levitate 3s infinite;
+  -moz-animation: levitate 3s infinite;
+  -webkit-transform: rotate(360deg);
+  -webkit-transition: -webkit-transform 0.5s ease-in;
 }
-.wheel-shadow{
-  -webkit-animation:
-    wheel-shadow 3s infinite;
-  -moz-animation:
-    wheel-shadow 3s infinite;
+
+.wheel-shadow {
+  -webkit-animation: wheel-shadow 3s infinite;
+  -moz-animation: wheel-shadow 3s infinite;
   -webkit-transform: translateY(-20px);
 }
 
@@ -948,6 +822,7 @@ a {
     -webkit-transform: translateY(-5px);
   }
 }
+
 @-moz-keyframes levitate{
   0% {
     -moz-transform: translateY(-5px);
@@ -974,6 +849,7 @@ a {
     opacity: .8;
   }
 }
+
 @-moz-keyframes wheel-shadow{
   0% {
     -moz-transform: scale(1,1);
@@ -1250,10 +1126,6 @@ a {
   People Page:
 ------------------------------------------------------*/
 
-.js-mix-element {
-  display: none;
-}
-
 .people-controls {
   margin-bottom: 80px;
 }
@@ -1312,8 +1184,8 @@ a {
   width: 230px;
   margin-bottom: 40px;
   position: relative;
-  -webkit-transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);
-  transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);
+  /*-webkit-transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);
+  transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);*/
 }
 
 .bio-wrap {
@@ -1323,8 +1195,8 @@ a {
   width: 0;
   height: 100%;
   overflow: hidden;
-  -webkit-transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);
-  transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);
+  /*-webkit-transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);
+  transition: width 800ms cubic-bezier(0.65, -0.39, 0.32, 1.34);*/
 }
 
 .bio-inner {
@@ -1391,6 +1263,17 @@ a {
   display: inline-block;
   height: 100%;
   width: auto;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  -webkit-transition: all 1000ms ease;
+  transform: translateY(30px);
+  transition: all 1000ms ease;
+}
+
+.person-image.loaded {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .burst-wrap {
@@ -1400,6 +1283,11 @@ a {
   margin-top: -41px;
   margin-left: -41px;
   text-align: center;
+}
+
+.burst {
+  position: relative;
+  z-index: 1;
 }
 
 .burst-text {
@@ -1413,6 +1301,7 @@ a {
   line-height: 1;
   font-size: 1.8rem;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+  visibility: visible;
 }
 
 .scale-in {
@@ -1634,34 +1523,6 @@ a {
     margin-right: 50px;
   }
 
-  .value-title {
-    font-size: 1.2rem;
-    line-height: 1.2;
-  }
-
-  .text-segment-1 .value-amount {
-    top: 24%;
-    left: 22%;
-  }
-
-  .text-segment .value-amount {
-    font-size: 1.8rem;
-  }
-
-  .text-segment-3 .value-amount {
-    left: 14%;
-    top: 31%;
-  }
-
-  .text-segment-2 .value-amount {
-    right: 8%;
-    top: 37%;
-  }
-
-  .text-segment-5 .value-amount {
-    font-size: 1.7rem;
-  }
-
 }
 
 /* Large Devices Up: */
@@ -1694,30 +1555,6 @@ a {
 
   #history-text a {
     font-size: 3.2rem;
-  }
-
-  .text-segment .value-amount {
-    font-size: 2.2rem;
-  }
-
-  .text-segment .value-title {
-    font-size: 1.4rem;
-  }
-
-  .text-segment-3 .value-title {
-    left: 9%;
-    max-width: 57%;
-  }
-
-  .text-segment-4 .value-amount {
-    top: 19%;
-    left: 3%;
-  }
-
-  .text-segment-4 .value-title {
-    top: 33%;
-    left: 19%;
-    max-width: 67%;
   }
 
   .drop-btn {
@@ -1918,114 +1755,6 @@ a {
     margin-top: 50px;
   }
 
-  .value-title {
-    font-size: 1rem !important;
-  }
-
-  .value-amount {
-    font-size: 1.8rem !important;
-  }
-
-  .text-segment {
-    position: absolute;
-    width: 65%;
-    height: 47%;
-  }
-
-  .text-segment-1 {
-    right: 0;
-    top: 0;
-  }
-
-  .text-segment-1 .value-title {
-    top: 38%;
-    left: 27%;
-  }
-
-  .text-segment-1 .value-amount {
-    top: 21%;
-    left: 21%;
-  }
-
-  .text-segment-2 {
-    width: 45%;
-    height: 45%;
-    right: 0;
-    top: 27%;
-  }
-
-  .text-segment-2 .value-title {
-    right: 12%;
-    top: 52%;
-    text-align: center;
-    max-width: 65%;
-  }
-
-  .text-segment-2 .value-amount {
-    right: 5%;
-    top: 35%;
-    font-size: 1.6rem !important;
-  }
-
-  .text-segment-3 {
-    bottom: 7%;
-    left: 34%;
-    width: 57%;
-    height: 30%;
-  }
-
-  .text-segment-3 .value-title {
-    left: 6%;
-    top: 53%;
-    max-width: 65%;
-    text-align: center;
-  }
-
-  .text-segment-3 .value-amount {
-    left: 11%;
-    top: 27%;
-  }
-
-  .text-segment-4 {
-    height: 55%;
-    width: 32%;
-    top: 37%;
-    left: 3%;
-  }
-
-  .text-segment-4 .value-title {
-    top: 36%;
-    left: 12%;
-    text-align: center;
-    max-width: 75%;
-  }
-
-  .text-segment-4 .value-amount {
-    font-size: 1.5rem !important;
-    top: 23%;
-    left: 2%;
-  }
-
-  .text-segment-5 {
-    width: 50%;
-    height: 33%;
-    top: 5%;
-    left: 5%;
-  }
-
-  .text-segment-5 .value-title {
-    text-align: center;
-    max-width: 80%;
-    top: 52%;
-    left: 9%;
-  }
-
-  .text-segment-5 .value-amount {
-    top: 34%;
-    font-size: 1.5rem !important;
-    left: 17%;
-  }
-
   #culture-col-1 {
     width: 100%;
     margin-bottom: 30px;
@@ -2065,39 +1794,6 @@ a {
   #culture-col-2 ul {
     font-size: 1.8rem;
     line-height: 2;
-  }
-
-}
-
-/* Tablet Portrait up to Tablet Landscape (not inclusive): */
-@media only screen and (min-width: 870px) and (max-width: 1023px) {
-
-  .value-title {
-    font-size: 1.2rem !important;
-    line-height: 1.2;
-  }
-
-  .text-segment-1 .value-amount {
-    top: 24%;
-    left: 22%;
-  }
-
-  .text-segment .value-amount {
-    font-size: 1.8rem !important;
-  }
-
-  .text-segment-3 .value-amount {
-    left: 14%;
-    top: 31%;
-  }
-
-  .text-segment-2 .value-amount {
-    right: 8%;
-    top: 37%;
-  }
-
-  .text-segment-5 .value-amount {
-    font-size: 1.7rem !important;
   }
 
 }
@@ -2173,15 +1869,6 @@ a {
 
   .years-wrap {
     width: 457px;
-  }
-
-  .text-segment-3 .value-amount {
-    left: 13%;
-    top: 23%;
-  }
-
-  .text-segment-3 .value-title {
-    top: 45%;
   }
 
   .value-wheel-wrap {
