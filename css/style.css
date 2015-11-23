@@ -33,6 +33,7 @@ body {
 }
 
 .clearfix:after,
+.max-1500:after,
 .max-1200:after,
 .max-1000:after {
   content: "";
@@ -40,6 +41,7 @@ body {
   clear: both;
 }
 
+.max-1500,
 .max-1200,
 .max-1000,
 .max-760 {
@@ -47,6 +49,10 @@ body {
   margin-right: 20px;
   position: relative;
   height: 100%;
+}
+
+.max-1500 {
+  max-width: 1500px;
 }
 
 .max-1200 {
@@ -1208,6 +1214,7 @@ a {
   display: inline-block;
   height: 380px;
   min-width: 230px;
+  margin-bottom: 40px;
   text-align: center;
   position: relative;
 }
@@ -1225,11 +1232,6 @@ a {
   margin-top: -41px;
   margin-left: -41px;
   text-align: center;
-  -webkit-transition: all 700ms cubic-bezier(0.790, 0, 0.230, 1); /* older webkit */
-  -webkit-transition: all 700ms cubic-bezier(0.790, -0.370, 0.230, 1.360);
-     -moz-transition: all 700ms cubic-bezier(0.790, -0.370, 0.230, 1.360);
-       -o-transition: all 700ms cubic-bezier(0.790, -0.370, 0.230, 1.360);
-          transition: all 700ms cubic-bezier(0.790, -0.370, 0.230, 1.360); /* custom */
 }
 
 .burst-text {
@@ -1250,23 +1252,69 @@ a {
 }
 
 .animation-trigger:hover .scale-in {
-  transform: scale(1);
+  -webkit-animation: scale-in 600ms cubic-bezier(0.25, 0.1, 0.38, 1.42);
+  animation: scale-in 600ms cubic-bezier(0.25, 0.1, 0.38, 1.42);
+  -webkit-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
 }
 
 .rotate {
   -webkit-animation: rotating 4s linear infinite;
-  -moz-animation: rotating 4s linear infinite;
   animation: rotating 4s linear infinite;
+}
+
+@-webkit-keyframes scale-in {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  60% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  80% {
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+  }
+  90% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  60% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  80% {
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+  }
+  90% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 @-webkit-keyframes rotating {
   from {
-    -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   to {
-    -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -1274,12 +1322,10 @@ a {
 
 @keyframes rotating {
   from {
-    -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   to {
-    -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -1412,6 +1458,7 @@ a {
 /* iPhone 6 (portrait) */
 @media only screen and (min-width: 375px) {
 
+  .max-1500,
   .max-1200,
   .max-1000,
   .max-760 {
@@ -2141,8 +2188,7 @@ a {
 
 @media only screen and (min-width: 1540px) {
 
-  .max-1200,
-  .max-1000 {
+  .max-1500 {
     margin-left: auto;
     margin-right: auto;
   }
