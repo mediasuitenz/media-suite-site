@@ -239,7 +239,7 @@ a {
 }
 
 /*=====================================================
-  Giggle Animation:
+  Jiggle Animations:
 ======================================================*/
 
 .jiggle:hover{
@@ -261,6 +261,25 @@ a {
   70% { transform: scaleY(1.02) scaleX(.95);}
   80% { transform: scaleY(.99) scaleX(1.01); }
   90% { transform: scaleY(1.01) scaleX(.99);}
+}
+
+.alert-jiggle{
+  animation-name: alert-jiggle;
+  animation-duration: 1.2s;
+  timing-function: ease-in-out;
+}
+
+@-webkit-keyframes alert-jiggle {
+  from { transform: translateY(0); }
+  20% { transform: translateY(-10px);}
+  25% { transform: rotate(1.5deg) translateY(-10px)}
+  30% { transform: rotate(-1.3deg) translateY(-10px)}
+  35% { transform: rotate(1.1deg) translateY(-10px)}
+  40% { transform: rotate(-.9deg) translateY(-10px)}
+  45% { transform: rotate(.7deg) translateY(-10px)}
+  50% { transform: rotate(-.5deg) translateY(-10px)}
+  55% { transform: rotate(.3deg) translateY(-10px)}
+  70% { transform: translateY(-10px)}
 }
 
 /*=====================================================
@@ -296,8 +315,8 @@ a {
 }
 
 #page-header.on {
-  height: 70px;
-}
+  height: 130px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 100%);}
 
 #page-header.on #hd-inner {
   transform: translateY(0);
