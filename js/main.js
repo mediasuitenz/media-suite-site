@@ -52,7 +52,7 @@ function init () {
     };
 
     var _isHomePage = function () {
-      return window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/' || window.location.pathname == '/media-suite-site/index.html';
+      return $('#main-wrap.home-page').length;
     }
 
     /*
@@ -316,13 +316,42 @@ function init () {
   })();
 
   /*===========================================================================
-    Work Page Module:
+    People Page Module:
   ===========================================================================*/
 
-  var WorkPage = (function () {
+  var PeoplePage = (function () {
+
+    var _initPeopleSortPlugin = function () {
+      $('#js-mix-container').mixItUp({
+        selectors: {
+          target: '.js-mix-element'
+        }
+      });
+    };
+
+    var _initBioClickHandler = function () {
+      $('.js-show-bio').click(function(e){
+        e.preventDefault();
+        var parentEl = $(this).parent('.person-wrap');
+        if(parentEl.hasClass('on')) {
+          parentEl.removeClass('on');
+        } else {
+          $('.person-wrap.on').removeClass('on');
+          parentEl.addClass('on');
+        }
+      });
+    };
+
+    var _initSortControls = function () {
+      $('.sort-btn').click(function(e){
+        e.preventDefault();
+      });
+    }
 
     var init = function () {
-      console.log('work work');
+      _initPeopleSortPlugin();
+      _initBioClickHandler();
+      _initSortControls();
     };
 
     return {
@@ -339,10 +368,16 @@ function init () {
   // Always fire:
   SiteWide.init();
 
-  // Home page initialisation:
-  if(window.location.pathname == '/' || window.location.pathname == '/meowmeowmeow/' || window.location.pathname == '/media-suite-site/' || window.location.pathname == '/media-suite-site/index.html') HomePage.init();
+  var main = $('#main-wrap');
 
-  // Work page initialisation:
-  if(window.location.pathname == '/our-work/' || window.location.pathname == '/meowmeowmeow/our-work/' || window.location.pathname == '/media-suite-site/our-work/') WorkPage.init();
+  if(main.length) {
+
+    // Home page initialisation:
+    if(main.hasClass('home-page')) HomePage.init();
+
+    // People page initialisation:
+    if(main.hasClass('people-page')) PeoplePage.init();
+
+  }
 
 };
