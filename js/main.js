@@ -325,6 +325,7 @@ function init () {
 
     var _initPeopleSortPlugin = function () {
       _isoContainer.imagesLoaded( function() {
+        $('.loader').addClass('off');
         var imgs = _isoContainer.find('img');
         imgs.css('visibility', 'visible');
         setTimeout(function(){
@@ -354,7 +355,9 @@ function init () {
           $('.person-wrap.on').removeClass('on');
           parentEl.addClass('on');
         }
-        _isoContainer.isotope('layout');
+        setTimeout(function(){
+          _isoContainer.isotope('layout');
+        }, 200);
       });
     };
 

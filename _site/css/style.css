@@ -1259,6 +1259,24 @@ a {
   position: relative;
 }
 
+.loader {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  font-size: 3rem;
+  line-height: 1;
+  color: #ccc;
+  transition: opacity 300ms ease;
+  -webkit-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
+
+.loader.off {
+  opacity: 0;
+}
+
 .person-image {
   display: inline-block;
   height: 100%;
