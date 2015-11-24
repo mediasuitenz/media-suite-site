@@ -20,8 +20,8 @@ html {
 }
 
 body {
-  font-size: 1.4rem; /* 14px */
-  line-height: 1.8;
+  font-size: 1.6rem; /* 16px */
+  line-height: 2.5rem;
   border-top: 4px solid #f27c00;
 }
 
@@ -432,6 +432,11 @@ a {
 
 .trigger-icon:before {
   margin: 0;
+}
+#banner-panel{
+  background-image: url(/img/video-first-frame.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 /*-----------------------------------------------------
@@ -1121,6 +1126,12 @@ a {
   padding-top: 60px;
   border-top: 5px solid #f36d21;
 }
+.other-case-studies h2{
+  font-size: 3rem
+}
+.other-case-studies .item-image img {
+    max-width: 220px;
+}
 
 /*-----------------------------------------------------
   People Page:
@@ -1725,7 +1736,7 @@ a {
   }
 
   .internal-page {
-    padding-top: 180px;
+    padding-top: 100px;
   }
 
   #csi-tfc .item-image img {
@@ -1746,7 +1757,8 @@ a {
   }
 
   .item-text-body {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
   }
 
   .item-image img {
@@ -1759,7 +1771,7 @@ a {
   }
 
   .other-case-studies .case-study-item {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .other-case-studies .item-image {
