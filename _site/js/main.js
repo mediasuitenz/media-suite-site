@@ -322,13 +322,18 @@ function init (isInitialLoad) {
   var PeoplePage = (function () {
 
     // Initialise Isotope plugin with correct settings
-    var _initIsotope = function (isoContainer) {
-      isoContainer.isotope({
+    var _initIsotope = function (_isoContainer) {
+      _isoContainer.isotope({
         itemSelector: '.js-iso-element',
         transitionDuration: '0.8s',
         layoutMode: 'masonry',
         masonry: {
           columnWidth: '.grid-sizer'
+        },
+        getSortData: {
+          coffees: '[data-coffees] parseInt',
+          commits: '[data-commits] parseInt',
+          cats: '[data-cats] parseInt'
         }
       });
     };
@@ -348,30 +353,31 @@ function init (isInitialLoad) {
       }, 100);
     };
 
+    var _isoContainer = $('.js-isotope');
+
     // Setup people tiles and initialise plugin
     var _initPeopleTiles = function (isInitialLoad) {
-      var isoContainer = $('.js-isotope');
-      if(isoContainer.length){
+      if(_isoContainer.length){
 
         // Wait until all images are loaded before initialising plugin
-        isoContainer.imagesLoaded( function() {
+        _isoContainer.imagesLoaded( function() {
           // Hide loaders, make images visible (still opaque)
           $('.loader').addClass('off');
 
           if(isInitialLoad){
-            _fadeInTiles(isoContainer.find('img'));
-            _initIsotope(isoContainer);
+            _fadeInTiles(_isoContainer.find('img'));
+            _initIsotope(_isoContainer);
           /*
             If coming back to page after initial load, destroy/reinit plugin.
             This is a work around for conflicts with instantclick.js behaviour
           */
           } else {
-            _initIsotope(isoContainer);
+            _initIsotope(_isoContainer);
             setTimeout(function(){
-              // isoContainer.isotope('destroy');
-              // isoContainer.find('.js-iso-element').removeAttr('style');
-              isoContainer.isotope('layout');
-              _fadeInTiles(isoContainer.find('img'));
+              // _isoContainer.isotope('destroy');
+              // _isoContainer.find('.js-iso-element').removeAttr('style');
+              _isoContainer.isotope('layout');
+              _fadeInTiles(_isoContainer.find('img'));
             }, 400);
           }
         });
@@ -396,8 +402,24 @@ function init (isInitialLoad) {
 
 
     var _initSortControls = function () {
-      $('.sort-btn').click(function(e){
+      var sortBtns = $('.sort-btn');
+      sortBtns.click(function(e){
         e.preventDefault();
+        var t = $(this);
+        // If current sort filter not active:
+        if(!t.hasClass('active')) {
+          sortBtns.removeClass('active');
+          t.addClass('active');
+          var sortByAttr = t.data('sort');
+          _isoContainer.isotope({
+            sortBy : sortByAttr,
+            sortAscending: false
+          }).isotope('updateSortData').isotope();
+        // Otherwise, deactivate sort button and revert to random order:
+        } else {
+          t.removeClass('active');
+          _isoContainer.isotope({ sortBy : 'random' }).isotope('updateSortData').isotope();
+        }
       });
     }
 
@@ -429,9 +451,7 @@ function init (isInitialLoad) {
     if(main.hasClass('home-page')) HomePage.init();
 
     // People page initialisation:
-    if(main.hasClass('people-page')) {
-      PeoplePage.init(isInitialLoad);
-    }
+    if(main.hasClass('people-page')) PeoplePage.init(isInitialLoad);
 
   }
 
