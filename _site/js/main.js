@@ -3,14 +3,14 @@
   - triggered by instantclick.js, replaces .ready() functionality
 ==============================================================================*/
 
-function onChange () {
-  init();
+function onChange (isInitialLoad) {
+  init(isInitialLoad);
 }
 
 /*==============================================================================
   MODULES:
 ==============================================================================*/
-function init () {
+function init (isInitialLoad) {
 
   'use strict';
 
@@ -321,14 +321,64 @@ function init () {
 
   var PeoplePage = (function () {
 
-    var _initPeopleSortPlugin = function () {
-      $('#js-mix-container').mixItUp({
-        selectors: {
-          target: '.js-mix-element'
+    // Initialise Isotope plugin with correct settings
+    var _initIsotope = function (isoContainer) {
+      isoContainer.isotope({
+        itemSelector: '.js-iso-element',
+        transitionDuration: '0.8s',
+        layoutMode: 'masonry',
+        masonry: {
+          columnWidth: '.grid-sizer'
         }
       });
     };
 
+    // Loops through each image and fades it in/up with an increasing delay
+    var _fadeInTiles = function (imgs) {
+      imgs.css('visibility', 'visible');
+      setTimeout(function(){
+        var interval = 0;
+        imgs.each(function(){
+          var img = $(this);
+          interval += 50;
+          setTimeout(function(){
+            img.parent('.person').addClass('loaded');
+          }, interval);
+        });
+      }, 100);
+    };
+
+    // Setup people tiles and initialise plugin
+    var _initPeopleTiles = function (isInitialLoad) {
+      var isoContainer = $('.js-isotope');
+      if(isoContainer.length){
+
+        // Wait until all images are loaded before initialising plugin
+        isoContainer.imagesLoaded( function() {
+          // Hide loaders, make images visible (still opaque)
+          $('.loader').addClass('off');
+
+          if(isInitialLoad){
+            _fadeInTiles(isoContainer.find('img'));
+            _initIsotope(isoContainer);
+          /*
+            If coming back to page after initial load, destroy/reinit plugin.
+            This is a work around for conflicts with instantclick.js behaviour
+          */
+          } else {
+            _initIsotope(isoContainer);
+            setTimeout(function(){
+              // isoContainer.isotope('destroy');
+              // isoContainer.find('.js-iso-element').removeAttr('style');
+              isoContainer.isotope('layout');
+              _fadeInTiles(isoContainer.find('img'));
+            }, 400);
+          }
+        });
+      }
+    };
+
+    // Show/hide person's bio when illustration clicked
     var _initBioClickHandler = function () {
       $('.js-show-bio').click(function(e){
         e.preventDefault();
@@ -339,8 +389,11 @@ function init () {
           $('.person-wrap.on').removeClass('on');
           parentEl.addClass('on');
         }
+        // Trigger isotope to redraw layout after tile expansion:
+        $('.js-isotope').isotope('layout');
       });
     };
+
 
     var _initSortControls = function () {
       $('.sort-btn').click(function(e){
@@ -348,8 +401,8 @@ function init () {
       });
     }
 
-    var init = function () {
-      _initPeopleSortPlugin();
+    var init = function (isInitialLoad) {
+      _initPeopleTiles(isInitialLoad);
       _initBioClickHandler();
       _initSortControls();
     };
@@ -376,7 +429,9 @@ function init () {
     if(main.hasClass('home-page')) HomePage.init();
 
     // People page initialisation:
-    if(main.hasClass('people-page')) PeoplePage.init();
+    if(main.hasClass('people-page')) {
+      PeoplePage.init(isInitialLoad);
+    }
 
   }
 
