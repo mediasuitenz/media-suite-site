@@ -1204,7 +1204,7 @@ a {
 
 .bio-wrap {
   position: absolute;
-  left: 230px;
+  left: 235px;
   top: 0;
   width: 0;
   height: 100%;
@@ -1215,17 +1215,15 @@ a {
 }
 
 .person-wrap.on .bio-wrap {
-  width: 460px;
+  width: 455px;
   opacity: 1;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
 }
 
 .bio-inner {
   position: absolute;
   left: 0;
   top: 0;
-  width: 460px;
+  width: 455px;
   height: 100%;
   overflow: hidden;
 }
@@ -1241,6 +1239,9 @@ a {
   font-size: 3rem;
   line-height: 1.4;
   margin: 25px 0 5px 0;
+  width: 100%;
+  padding-left: 3px;
+  padding-right: 130px;
 }
 
 .bio-sub {
@@ -1249,6 +1250,9 @@ a {
   line-height: 1;
   margin: 0;
   color: #f36d21;
+  width: 100%;
+  padding-left: 3px;
+  padding-right: 130px;
 }
 
 .bio-real-image {
