@@ -214,6 +214,11 @@ a {
   opacity: 1;
 }
 
+.small-btn {
+  font-size: 1.6rem !important;
+  padding: 10px 25px !important;
+}
+
 .orange-bg {
   background: #ff632e;
   color: #fff;
@@ -1450,6 +1455,32 @@ a {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+/*-----------------------------------------------------
+  Careers Page:
+------------------------------------------------------*/
+
+.careers-page {
+  margin-bottom: 100px;
+}
+
+.careers-page h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.careers-page ul {
+  padding: 0 0 0 20px;
+}
+
+.position {
+  margin-bottom: 40px;
+}
+
+.post-date {
+  color: #f36d21;
 }
 
 /*-----------------------------------------------------
