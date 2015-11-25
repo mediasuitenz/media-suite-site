@@ -990,6 +990,8 @@ a {
   display: block;
   max-width: 100%;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 0;
 }
 
 .item-image img {
@@ -997,6 +999,11 @@ a {
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
+}
+
+.item-text {
+  position: relative;
+  z-index: 10;
 }
 
 #csi-cruisy .item-image img {
