@@ -800,6 +800,15 @@ a {
   margin: 0 auto;
 }
 
+.typical-budgets{
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+  font-size: 25px;
+  width: 140px;
+  position: absolute;
+  top: 174px;
+  left: 153px;
+}
+
 .rotate {
   animation-duration: 60s;
   animation-name: rotateWheel;
