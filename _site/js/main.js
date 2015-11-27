@@ -40,47 +40,6 @@ function init (isInitialLoad) {
           else menu.addClass('on');
         });
       }
-      // If home page, add relevant styles for one page scroll plugin:
-      if(_isHomePage()){
-        $('body, html').addClass('one-pager');
-      // Otherwise, destroy plugin and remove specific styles:
-      } else {
-        $('#page-header').addClass('on');
-        $('body, html').removeClass('one-pager');
-        _destroyOnePageScroll();
-      }
-    };
-
-    var _isHomePage = function () {
-      return $('#main-wrap.home-page').length;
-    }
-
-    /*
-      One Page Scroll: can be initialised by any page module that requires it.
-      Custom options passed in (see here: https://github.com/peachananr/onepage-scroll)
-    */
-    var _initOnePageScroll = function (options) {
-      // Destroy any lingering effects of previously initialised instances:
-      _destroyOnePageScroll();
-      var onePageScroll = $('.js-one-page-scroll');
-      if(onePageScroll.length) {
-        onePageScroll.onepage_scroll(options);
-        $('.js-next-panel').click(function(e){
-          if(!$('.disabled-onepage-scroll').length) {
-            e.preventDefault();
-            onePageScroll.moveDown();
-          }
-        });
-      }
-    };
-
-    /*
-      One Page Scroll plugin lacks a destory function - needed for re-initialising
-      feature after navigating away and back to home page:
-    */
-    var _destroyOnePageScroll = function () {
-      $('.js-one-page-scroll').unbind();
-      $(document).unbind('mousewheel DOMMouseScroll MozMousePixelScroll keydown');
     };
 
     // Initialise all site-wide JS:
@@ -90,8 +49,7 @@ function init (isInitialLoad) {
     };
 
     return {
-      init: init,
-      initOnePageScroll: _initOnePageScroll
+      init: init
     };
 
   })();
@@ -153,63 +111,9 @@ function init (isInitialLoad) {
   		}
     };
 
-    var _initOnePageScroll = function () {
-      SiteWide.initOnePageScroll({
-        beforeMove: _beforePanelMove,
-        afterMove: _afterPanelMove,
-        easing: 'ease',
-        loop: false,
-        animationTime: 500,
-        responsiveFallback : function() {
-          var doDisable = $(window).width() < 768 || $(window).height() < 700;
-          if(doDisable){
-            $('.js-fade-in-up').addClass('show');
-            $('#page-header').removeClass('on');
-          } else if($('.disabled-onepage-scroll').length) {
-            $('.disabled-onepage-scroll').removeClass('disabled-onepage-scroll');
-            var scrollContainer = $('.js-one-page-scroll');
-            scrollContainer.css('transition-duration', '500ms');
-            scrollContainer.css('opacity', '0');
-            setTimeout(function(){
-              scrollContainer.css('height', 'auto');
-              setTimeout(function(){
-                scrollContainer.css('height', '100%');
-                // trigger cover video resize:
-                window.dispatchEvent(new Event('resize'));
-                scrollContainer.css('opacity', '1');
-              }, 500);
-            }, 500);
-          }
-          return doDisable;
-        }
-      });
-    };
-
-    var _beforePanelMove = function (index) {
-      var menuBar = $('#page-header');
-      if(index == 1) {
-        menuBar.removeClass('on');
-      }else{
-        $('.naaw-its-mattie').addClass('hide');
-        var curPanelContent = $('.section.active').find('.js-fade-in-up');
-        if(curPanelContent.length) curPanelContent.addClass('show');
-      }
-    };
-
-    var _afterPanelMove = function (index) {
-      var menuBar = $('#page-header');
-      if(index > 1) {
-        menuBar.addClass('on');
-      } else {
-        menuBar.removeClass('on');
-        $('.naaw-its-mattie').removeClass('hide');
-      }
-    };
-
     // Initialise home page plugins:
     var _initPlugins = function () {
       _initCoverVideo();
-      _initOnePageScroll();
       _initParallax();
     };
 
