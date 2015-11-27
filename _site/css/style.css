@@ -103,6 +103,10 @@ a {
   color: #f27c00;
 }
 
+.emphasis{
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+}
+
 .js-image-fill {
   display: block;
 }
@@ -547,13 +551,26 @@ a {
 
 .naaw-its-mattie {
   position: absolute;
-  bottom: -20px;
+  bottom: 0;
   left: 50%;
   z-index: 999;
-  margin-left: -146px;
+  margin-left: -190px;
   transform: translateY(0);
   opacity: 1;
   transition: all 500ms ease;
+  width: 340px;
+}
+.naaw-its-mattie img{
+  display: block;
+}
+.woof-woof {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.50);
 }
 
 .naaw-its-mattie.hide {
@@ -563,6 +580,34 @@ a {
 
 .mattie-link {
   display: block;
+  position: relative;
+}
+.tail-tip {
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+  height: 38px;
+  width: 45px;
+  overflow: hidden;
+}
+.tip-wag {
+  position: absolute;
+  top: 0;
+  -webkit-animation: tip-wag 7s infinite;
+  -moz-animation: tip-wag 7s infinite;
+}
+
+@-webkit-keyframes tip-wag{
+  25% {transform: translateX(0) rotate(0deg);}
+  29% {transform: translateX(5px) rotate(5deg); }
+  31% {transform: translateX(-5px) rotate(-5deg);}  
+  33% {transform: translateX(5px) rotate(4deg);}
+  35% {transform: translateX(-5px) rotate(-4deg);}  
+  37% {transform: translateX(5px) rotate(3deg);}
+  39% {transform: translateX(-5px) rotate(-3deg);} 
+  41% {transform: translateX(5px) rotate(2deg);}
+  44% {transform: translateX(0px) rotate(0deg);}
+  100%{}
 }
 
 .covervid-wrapper {
@@ -759,12 +804,28 @@ a {
   margin: 0 auto;
 }
 
+.typical-budgets{
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+  font-size: 25px;
+  width: 140px;
+  position: absolute;
+  top: 174px;
+  left: 153px;
+}
+
 .rotate {
-  animation-duration: 30s;
+  animation-duration: 60s;
   animation-name: rotateWheel;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+.rotate.marketing {
+  animation-duration: .2s;
+  animation-name: rotateMarketing;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
 }
 
 .value-wheel .segment {
@@ -784,24 +845,16 @@ a {
 }
 
 @keyframes rotateWheel {
-  0% {
-    transform: rotate(0deg);
-  }
-  20% {
-    transform: rotate(72deg);
-  }
-  40% {
-    transform: rotate(144deg);
-  }
-  60% {
-    transform: rotate(216deg);
-  }
-  80% {
-    transform: rotate(288deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0%   {transform: rotate(0deg);}
+  20%  {transform: rotate(72deg);}
+  40%  {transform: rotate(144deg);}
+  60%  {transform: rotate(216deg);}
+  80%  {transform: rotate(288deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes rotateMarketing {
+  100%   {transform: rotate(45deg);}
 }
 
 .levitate {
@@ -1341,7 +1394,7 @@ a {
   animation-fill-mode:forwards;
 }
 
-.rotate {
+.bio-rotate {
   -webkit-animation: rotating 4s linear infinite;
   animation: rotating 4s linear infinite;
 }
