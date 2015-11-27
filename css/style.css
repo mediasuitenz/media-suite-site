@@ -103,6 +103,10 @@ a {
   color: #f27c00;
 }
 
+.emphasis{
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+}
+
 .js-image-fill {
   display: block;
 }
@@ -816,6 +820,13 @@ a {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+.rotate.marketing {
+  animation-duration: .2s;
+  animation-name: rotateMarketing;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
 
 .value-wheel .segment {
   cursor: pointer;
@@ -840,6 +851,10 @@ a {
   60%  {transform: rotate(216deg);}
   80%  {transform: rotate(288deg);}
   100% {transform: rotate(360deg);}
+}
+
+@keyframes rotateMarketing {
+  100%   {transform: rotate(45deg);}
 }
 
 .levitate {
