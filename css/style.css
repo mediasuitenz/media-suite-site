@@ -515,7 +515,7 @@ a {
 }
 
 #instantclick-bar {
-  background: rgba(255,255,255,0.5);
+  background: #f93f00;
   height: 4px;
 }
 
@@ -1703,7 +1703,7 @@ a {
 
   .grid-item-link {
     height: 90px;
-    width: 80%;
+    width: 60%;
     background-size: contain !important;
   }
 
@@ -2109,7 +2109,7 @@ a {
   }
 
   .grid-item {
-    width: 24%;
+    width: 19%;
   }
 
   .grid-item-link {
@@ -2188,7 +2188,7 @@ a {
   #culture-col-3 {
     float: left;
     margin-left: 45px;
-    margin-top: 70px;
+    margin-top: 30px;
   }
 
   #culture-col-2 h2 {
@@ -2305,10 +2305,6 @@ a {
   .banner-text-wrap {
     height: calc(100% - 135px);
     padding-top: 135px;
-  }
-
-  .grid-item {
-    margin-bottom: 20px;
   }
 
   .grid-item-link {
