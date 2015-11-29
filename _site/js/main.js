@@ -81,6 +81,16 @@ function init (isInitialLoad) {
       }
     };
 
+    var _initWaypoints = function() {
+      var waypoint = new Waypoint({
+        element: $('#clients-panel'),
+        handler: function(direction) {
+          if(direction == 'down') $('#page-header').addClass('on');
+          else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
+        }
+      });
+    };
+
     var _sizeVideo = function (elem) {
       var wrapper = $('.covervid-wrapper')
       if(elem.length) {
@@ -115,6 +125,7 @@ function init (isInitialLoad) {
     var _initPlugins = function () {
       _initCoverVideo();
       _initParallax();
+      _initWaypoints();
     };
 
     var _initBannerTitleAnimation = function () {

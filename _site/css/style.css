@@ -308,12 +308,18 @@ a {
   display: block;
   top: 0;
   left: 0;
-  height: 0;
+  height: auto;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   border-top: 4px solid #f27c00;
   color: #000;
   z-index: 99;
+  transform: translateY(-130px);
+  transition: all 300ms ease;
+}
+
+#page-header.on {
+  transform: translateY(0);
 }
 
 #page-header .trigger-icon {
@@ -325,9 +331,20 @@ a {
 }
 
 #hd-inner {
-  height: 130px;
+  height: 77px;
   padding: 16px 0;
-  background: linear-gradient(to bottom, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 100%);}
+  position: relative;
+}
+
+#page-header:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 100%);
 }
 
 #menu-bar-logo {
@@ -347,7 +364,7 @@ a {
   vertical-align: top;
   font-weight: 600;
   font-size: 1.8rem;
-  line-height: 40px;
+  line-height: 55px;
 }
 
 #menu-bar-trigger {
