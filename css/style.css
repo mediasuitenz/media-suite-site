@@ -820,13 +820,6 @@ a {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.rotate.marketing {
-  animation-duration: .2s;
-  animation-name: rotateMarketing;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-}
 
 .value-wheel .segment {
   cursor: pointer;
@@ -851,10 +844,6 @@ a {
   60%  {transform: rotate(216deg);}
   80%  {transform: rotate(288deg);}
   100% {transform: rotate(360deg);}
-}
-
-@keyframes rotateMarketing {
-  100%   {transform: rotate(45deg);}
 }
 
 .levitate {
@@ -1866,7 +1855,8 @@ a {
 
   .case-studies-landing-page h1,
   .case-study-item {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    margin-top: 50px;
   }
 
   .case-study-item {
@@ -2247,7 +2237,7 @@ a {
   }
 
   #csi-tmp .item-image img {
-    margin-right: -85px;
+    margin-right: -35px;
     margin-top: -15px;
   }
 
