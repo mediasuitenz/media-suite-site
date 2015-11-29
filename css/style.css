@@ -791,12 +791,15 @@ a {
   Home Page: #value-panel
 ------------------------------------------------------*/
 
+.value-wheel-wrap {
+  position: relative;
+}
 
 .value-wheel-middle {
   font-family: 'chelthmitc_bk_btbold_italic', serif;
   font-size: 1.5rem;
-  width: 62px;
   position: absolute;
+  width: 62px;
   left: 50%;
   top: 50%;
   margin: -28px 0 0 -28px;
@@ -1725,6 +1728,12 @@ a {
     text-align: center;
   }
 
+  .value-wheel-middle {
+    font-size: 2rem;
+    width: 106px;
+    margin-left: -53px;
+  }
+
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -1765,9 +1774,18 @@ a {
   }
 
   .home-page-container,
-  .home-page,
-  .content-panel {
+  .home-page {
     height: 100%;
+  }
+
+  .content-panel {
+    padding-top: 140px;
+  }
+
+  .content-panel .faux-table {
+    position: static;
+    height: auto;
+    width: 100%;
   }
 
   .internal-page {
@@ -2271,6 +2289,13 @@ a {
     margin-top: -33px;
   }
 
+  .value-wheel-middle {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    width: 110px;
+    margin: -30px 0 0 -55px;
+  }
+
 }
 
 /* Desktop: */
@@ -2380,6 +2405,20 @@ a {
 
   #culture-col-3 h4 {
     margin: 0;
+  }
+
+}
+
+@media only screen and (min-height: 795px) and (min-width: 1600px) {
+
+  .content-panel {
+    height: 100%;
+  }
+
+  .content-panel .faux-table {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 
 }
