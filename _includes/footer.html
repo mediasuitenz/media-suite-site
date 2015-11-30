@@ -2,6 +2,8 @@
 <script type='text/javascript' src="{{ "/js/vendor/imgLiquid-min.js" | prepend: site.baseurl }}"></script>
 <script type='text/javascript' src="{{ "/js/vendor/covervid.min.js" | prepend: site.baseurl }}"></script>
 <script type='text/javascript' src="{{ "/js/vendor/jquery.parallax.min.js" | prepend: site.baseurl }}"></script>
+<script type='text/javascript' src="{{ "/js/vendor/jquery.panelSnap.js" | prepend: site.baseurl }}"></script>
+<script type='text/javascript' src="{{ "/js/vendor/jquery.keyframes.min.js" | prepend: site.baseurl }}"></script>
 <script type='text/javascript' src="{{ "/js/vendor/jquery.waypoints.min.js" | prepend: site.baseurl }}"></script>
 <script type='text/javascript' src="{{ "/js/vendor/imagesloaded.pkgd.min.js" | prepend: site.baseurl }}"></script>
 <script type='text/javascript' src="{{ "/js/vendor/isotope.pkgd.min.js" | prepend: site.baseurl }}" data-no-instant></script>
@@ -9,6 +11,8 @@
 <!-- init pjax/prefetching plugin: -->
 <script type='text/javascript' src="{{ "/js/vendor/instantclick.min.js" | prepend: site.baseurl }}" data-no-instant></script>
 <script data-no-instant>
-  InstantClick.on('change', onChange);
-  InstantClick.init();
+  $(document).ready(function(){
+    InstantClick.on('change', onChange);
+    InstantClick.init();
+  });
 </script>

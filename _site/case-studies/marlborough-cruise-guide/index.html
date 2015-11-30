@@ -24,8 +24,7 @@
   <!-- Main CSS: -->
   <link rel="stylesheet" href="/css/style.css">
 
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  <script type="text/javascript" src="/js/vendor/jquery-2.1.4.min.js" data-no-instant></script>
 
   <link rel="canonical" href="http://mediasuitenz.github.io/case-studies/marlborough-cruise-guide/">
   <link rel="alternate" type="application/rss+xml" title="Media Suite" href="http://mediasuitenz.github.io/feed.xml">
@@ -219,6 +218,8 @@
 <script type='text/javascript' src="/js/vendor/imgLiquid-min.js"></script>
 <script type='text/javascript' src="/js/vendor/covervid.min.js"></script>
 <script type='text/javascript' src="/js/vendor/jquery.parallax.min.js"></script>
+<script type='text/javascript' src="/js/vendor/jquery.panelSnap.js"></script>
+<script type='text/javascript' src="/js/vendor/jquery.keyframes.min.js"></script>
 <script type='text/javascript' src="/js/vendor/jquery.waypoints.min.js"></script>
 <script type='text/javascript' src="/js/vendor/imagesloaded.pkgd.min.js"></script>
 <script type='text/javascript' src="/js/vendor/isotope.pkgd.min.js" data-no-instant></script>
@@ -226,8 +227,10 @@
 <!-- init pjax/prefetching plugin: -->
 <script type='text/javascript' src="/js/vendor/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>
-  InstantClick.on('change', onChange);
-  InstantClick.init();
+  $(document).ready(function(){
+    InstantClick.on('change', onChange);
+    InstantClick.init();
+  });
 </script>
 
 
