@@ -5,15 +5,13 @@ menutitle: Home
 menuorder: 1
 ishome: true
 ---
-<div id="main-wrap" class="home-page">
+<div id="main-wrap" class="home-page js-panel-snap">
 
   <section id="banner-panel">
     <div id="home-panel-nav">
       <div class="max-1200">
         <a href="{{ "/" | prepend: site.baseurl }}" id="home-nav-logo">
-          <object type="image/svg+xml" data="{{ "/img/logo-trans-white.svg" | prepend: site.baseurl }}" class="home-logo">
-            Media Suite Logo <!-- fallback image in CSS -->
-          </object>
+          <img src="{{ "/img/logo-trans-white.svg" | prepend: site.baseurl }}" alt="Media Suite Logo" class="home-logo" />
           <span class="lowercase">Media Suite</span>
         </a>
         <a href="#" id="home-menu-trigger" class="menu-trigger lowercase js-menu-trigger">
@@ -61,7 +59,7 @@ ishome: true
         <div class="faux-table-cell">
 
           <h2 class="lowercase underline-orange">Build the right thing</h2>
-          <p class="text-size-24">We combine <span class="emphasis">thoughtful design</span> with <span class="emphasis">clever technology</span> to help build successful Software, Websites &amp; Apps for a range of private businesses &amp; progressive organisations.</p>
+          <p class="text-size-24 max-850">We combine <span class="emphasis">thoughtful design</span> with <span class="emphasis">clever technology</span> to help build successful Software, Websites &amp; Apps for a range of private businesses &amp; progressive organisations.</p>
 
           <ul class="logo-grid">
             <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/1-nzta.png" | prepend: site.baseurl }}" alt="" /></a></li>
@@ -171,48 +169,7 @@ ishome: true
   <section id="hello-panel" class="content-panel">
     <div class="panel-inner clearfix js-fade-in-up">
       <h2 class="lowercase underline-orange">Say hello</h2>
-      <div class="contact-blocks clearfix">
-        <div class="contact-block hello-chch js-expand-trigger">
-          <div class="contact-block-img js-image-fill">
-            <img src="{{ "/img/hello-chch.jpg" | prepend: site.baseurl }}" alt="" />
-          </div>
-          <div class="contact-block-text orange-bg">
-            <div class="contact-text-top">
-              <h3 class="lowercase">Christchurch</h3>
-              <h4 class="open-sans lowercase">New Zealand</h4>
-            </div>
-            <div class="contact-text-bottom js-expand-outer">
-              <div class="js-expand-inner">
-                <p>21 Humphreys Drive, Ferrymead, Christchurch</p>
-                <a href="tel:+6433652887" class="text-white">+64 3 365 2887</a>
-              </div>
-            </div>
-          </div>
-          <div class="map-wrap">
-            <iframe width='100%' height='105%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/mediasuite.o655fglp/attribution.html?access_token=pk.eyJ1IjoibWVkaWFzdWl0ZSIsImEiOiJ4T1JvcGlrIn0.DJ07Q4Z_-sv_Mt2xgy1RFQ'></iframe>
-          </div>
-        </div> <!-- .hello-chch -->
-        <div class="contact-block hello-oslo js-expand-trigger">
-          <div class="contact-block-img js-image-fill">
-            <img src="{{ "/img/hello-oslo.jpg" | prepend: site.baseurl }}" alt="" />
-          </div>
-          <div class="contact-block-text orange-bg">
-            <div class="contact-text-top">
-              <h3 class="lowercase">Oslo</h3>
-              <h4 class="open-sans lowercase">Norway</h4>
-            </div>
-            <div class="contact-text-bottom js-expand-outer">
-              <div class="js-expand-inner">
-                <p>Some Street, Oslo, Norway</p>
-                <a href="tel:+6433652887" class="text-white">+64 3 365 2887</a>
-              </div>
-            </div>
-          </div>
-          <div class="map-wrap">
-            <iframe width='100%' height='105%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/mediasuite.o657g1e0/attribution.html?access_token=pk.eyJ1IjoibWVkaWFzdWl0ZSIsImEiOiJ4T1JvcGlrIn0.DJ07Q4Z_-sv_Mt2xgy1RFQ'></iframe>
-          </div>
-        </div> <!-- .hello-oslo -->
-      </div> <!-- .contact-blocks -->
+
     </div>
   </section>
 

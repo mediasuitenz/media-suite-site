@@ -73,6 +73,12 @@ body {
   margin-right: auto !important;
 }
 
+.max-850 {
+  max-width: 850px;
+  line-height: 1.7;
+  margin: 50px auto;
+}
+
 .image-max-100 {
   display: block;
   max-width: 100%;
@@ -852,9 +858,9 @@ a {
   fill: #f27c00 !important;
 }
 
-.value-wheel-wrap:hover .rotate {
-  animation-play-state: paused;
-}
+/*#value-wheel:hover {
+  animation-play-state: paused !important;
+}*/
 
 @keyframes rotateWheel {
   0%   {transform: rotate(0deg);}
