@@ -81,8 +81,18 @@ function init (isInitialLoad) {
       }
     };
 
-    // Waypoints used to detect when past first slide (show page header if so)
+    /*
+      Functions using waypoints.js (detects when elements enter/leave viewport)
+    */
     var _initWaypoints = function() {
+      // Show page header when scrolled past first slide (alt version used there)
+      _initPageHeaderControl();
+      // Use waypoints to snap to top of each section:
+      _initPanelSnap();
+    };
+
+    // Waypoints used to detect when past first slide (show page header if so)
+    var _initPageHeaderControl = function() {
       var waypoint = new Waypoint({
         element: $('#clients-panel'),
         handler: function(direction) {
@@ -92,8 +102,113 @@ function init (isInitialLoad) {
       });
     };
 
+    var _isScrolling = false;
+
+    var _fastScrollDetect = function(){
+      var timeoutSet = false;
+      var initialScrollPos = 0;
+      $(window).on('scroll', function(){
+        if(!timeoutSet){
+          timeoutSet = true;
+          $(window).on('scrollstop', function(){
+            timeoutSet = false;
+            _isScrolling = false;
+            $(window).off('scrollstop');
+          });
+          initialScrollPos = $('body').scrollTop();
+          setTimeout(function(){
+            var isTooFast = false;
+            var curScroll = $('body').scrollTop();
+            var distanceDiff = 0;
+            // if going down:
+            if(initialScrollPos < curScroll){
+              distanceDiff = curScroll - initialScrollPos;
+            // if going up:
+            } else {
+              distanceDiff = initialScrollPos - curScroll;
+            }
+            if(distanceDiff > 400) {
+              _isScrolling = true;
+            }
+          }, 200);
+        }
+      });
+    };
+
     var _initPanelSnap = function() {
-      $('.js-panel-snap').panelSnap();
+      _fastScrollDetect();
+      var sections = $('.home-page-container').find('section');
+      sections.each(function(){
+        var s = $(this);
+        var waypointDown = new Waypoint({
+          element: s,
+          handler: function(direction) {
+            setTimeout(function(){
+              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)') && direction == 'down'){
+                if(!_isScrolling){
+                  _goToNextSection(s);
+                }
+              }
+            }, 200);
+          },
+          offset: '-60%'
+        });
+        var waypointUp = new Waypoint({
+          element: s,
+          handler: function(direction) {
+            setTimeout(function(){
+              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)') && direction == 'up'){
+                if(!_isScrolling){
+                  _goToPreviousSection(s);
+                }
+              }
+            }, 200);
+          },
+          offset: '60%'
+        });
+      });
+    };
+
+    var _goToPreviousSection = function(s) {
+      var prevSection = s.prev();
+      _animateScrollToElement(prevSection, 300);
+    };
+
+    var _goToNextSection = function(s) {
+      var nextSection = s.next();
+      _animateScrollToElement(nextSection, 300);
+    };
+
+    var _animateScrollToElement = function(target, speed) {
+      if(target.length){
+        var scrollTo = target.offset().top;
+        _scrollJackMuwahaha(true);
+        $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed, function(){
+          _scrollJackMuwahaha(false);
+        });
+      }
+    };
+
+    var _scrollJackMuwahaha = function(activate) {
+      if(activate) {
+        _isScrolling = true;
+        if (window.addEventListener) window.addEventListener('DOMMouseScroll', _preventDefault, false); // FF
+        window.onwheel = _preventDefault; // modern standard
+        window.onmousewheel = document.onmousewheel = _preventDefault; // older browsers, IE
+      } else {
+        setTimeout(function(){
+          if (window.removeEventListener) window.removeEventListener('DOMMouseScroll', _preventDefault, false);
+          window.onwheel = null;
+          window.onmousewheel = document.onmousewheel = null;
+          _isScrolling = false;
+        }, 500);
+      }
+    };
+
+    var _preventDefault = function(e) {
+      e = e || window.event;
+      if (e.preventDefault) e.preventDefault();
+      e.returnValue = false;
     };
 
     var _sizeVideo = function (elem) {
@@ -208,7 +323,6 @@ function init (isInitialLoad) {
       _initCoverVideo();
       _initParallax();
       _initWaypoints();
-      _initPanelSnap();
       _initValueWheelAnimations();
 
     };

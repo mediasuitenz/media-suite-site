@@ -2429,6 +2429,7 @@ a {
 
   .content-panel {
     height: 100%;
+    padding-top: 0;
   }
 
   .content-panel .faux-table {
