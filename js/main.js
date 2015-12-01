@@ -102,113 +102,48 @@ function init (isInitialLoad) {
       });
     };
 
-    var _isScrolling = false;
-
-    var _fastScrollDetect = function(){
-      var timeoutSet = false;
-      var initialScrollPos = 0;
-      $(window).on('scroll', function(){
-        if(!timeoutSet){
-          timeoutSet = true;
-          $(window).on('scrollstop', function(){
-            timeoutSet = false;
-            _isScrolling = false;
-            $(window).off('scrollstop');
-          });
-          initialScrollPos = $('body').scrollTop();
-          setTimeout(function(){
-            var isTooFast = false;
-            var curScroll = $('body').scrollTop();
-            var distanceDiff = 0;
-            // if going down:
-            if(initialScrollPos < curScroll){
-              distanceDiff = curScroll - initialScrollPos;
-            // if going up:
-            } else {
-              distanceDiff = initialScrollPos - curScroll;
-            }
-            if(distanceDiff > 400) {
-              _isScrolling = true;
-            }
-          }, 200);
-        }
-      });
-    };
-
     var _initPanelSnap = function() {
-      _fastScrollDetect();
-      var sections = $('.home-page-container').find('section');
-      sections.each(function(){
-        var s = $(this);
-        var waypointDown = new Waypoint({
-          element: s,
-          handler: function(direction) {
-            setTimeout(function(){
-              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)') && direction == 'down'){
-                if(!_isScrolling){
-                  _goToNextSection(s);
-                }
-              }
-            }, 200);
-          },
-          offset: '-60%'
+      var sections = $('.home-page').children('section');
+      var initialScrollPos = $(window).scrollTop();
+      $(window).on('scrollstop', function(){
+        var curScrollPos = $(window).scrollTop();
+        sections.each(function(){
+          var s = $(this);
+          var sectionTop = s.offset().top;
+          var sectionBottom = sectionTop + s.height();
+          if(curScrollPos > sectionTop && curScrollPos < sectionBottom) {
+            var threshold = sectionBottom - (s.height()/2);
+            // If user scrolled upwards:
+            if(curScrollPos < initialScrollPos) {
+              threshold = sectionBottom - (s.height()/6);
+            }
+            if(curScrollPos >= threshold){
+              _goToNextSection(s);
+            } else {
+              _animateScrollToElement(s, 200);
+            }
+          }
         });
-        var waypointUp = new Waypoint({
-          element: s,
-          handler: function(direction) {
-            setTimeout(function(){
-              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)') && direction == 'up'){
-                if(!_isScrolling){
-                  _goToPreviousSection(s);
-                }
-              }
-            }, 200);
-          },
-          offset: '60%'
-        });
+        initialScrollPos = curScrollPos;
       });
-    };
+    }
 
     var _goToPreviousSection = function(s) {
       var prevSection = s.prev();
-      _animateScrollToElement(prevSection, 300);
+      _animateScrollToElement(prevSection, 200);
     };
 
     var _goToNextSection = function(s) {
       var nextSection = s.next();
-      _animateScrollToElement(nextSection, 300);
+      _animateScrollToElement(nextSection, 200);
     };
 
     var _animateScrollToElement = function(target, speed) {
       if(target.length){
         var scrollTo = target.offset().top;
-        _scrollJackMuwahaha(true);
         $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed, function(){
-          _scrollJackMuwahaha(false);
         });
       }
-    };
-
-    var _scrollJackMuwahaha = function(activate) {
-      if(activate) {
-        _isScrolling = true;
-        if (window.addEventListener) window.addEventListener('DOMMouseScroll', _preventDefault, false); // FF
-        window.onwheel = _preventDefault; // modern standard
-        window.onmousewheel = document.onmousewheel = _preventDefault; // older browsers, IE
-      } else {
-        setTimeout(function(){
-          if (window.removeEventListener) window.removeEventListener('DOMMouseScroll', _preventDefault, false);
-          window.onwheel = null;
-          window.onmousewheel = document.onmousewheel = null;
-          _isScrolling = false;
-        }, 500);
-      }
-    };
-
-    var _preventDefault = function(e) {
-      e = e || window.event;
-      if (e.preventDefault) e.preventDefault();
-      e.returnValue = false;
     };
 
     var _sizeVideo = function (elem) {
