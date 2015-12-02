@@ -87,8 +87,6 @@ function init (isInitialLoad) {
     var _initWaypoints = function() {
       // Show page header when scrolled past first slide (alt version used there)
       _initPageHeaderControl();
-      // Use waypoints to snap to top of each section:
-      _initPanelSnap();
     };
 
     // Waypoints used to detect when past first slide (show page header if so)
@@ -102,50 +100,91 @@ function init (isInitialLoad) {
       });
     };
 
+    // Snap to nearest panel when scrolling stops
     var _initPanelSnap = function() {
       var sections = $('.home-page').children('section');
+      // Page position before scrolling:
       var initialScrollPos = $(window).scrollTop();
+      // Once scrolling has stopped, snap to nearest panel:
       $(window).on('scrollstop', function(){
         var curScrollPos = $(window).scrollTop();
-        sections.each(function(){
-          var s = $(this);
-          var sectionTop = s.offset().top;
-          var sectionBottom = sectionTop + s.height();
-          if(curScrollPos > sectionTop && curScrollPos < sectionBottom) {
-            var threshold = sectionBottom - (s.height()/2);
-            // If user scrolled upwards:
-            if(curScrollPos < initialScrollPos) {
-              threshold = sectionBottom - (s.height()/6);
+          // Loop through all panels/sections to find one currently in view
+          sections.each(function(){
+            var s = $(this);
+            // Returns object with panel top and bottom offsets
+            var offsets = _getSectionOffsets(s);
+            // If current scroll position is within this panel, continue:
+            if(curScrollPos > offsets.top && curScrollPos < offsets.bottom) {
+              // If screen is big enough to fit panel contents in viewport, enable snapping:
+              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
+                // Set threshold depending on whether user was scrolling up or down:
+                var threshold;
+                // Going down:
+                if(curScrollPos > initialScrollPos) threshold = offsets.bottom - (s.height()/6);
+                // Going up
+                else threshold = offsets.bottom - ((s.height()/3) * 2);
+
+                // If current scroll position past threshold, scroll to next section:
+                if(curScrollPos >= threshold){
+                  var nextSection = s.next();
+                  _animateScrollToElement(nextSection, 200, _updateActivePanelLink(_getSideNavLink(nextSection)));
+                // Otherwise, scroll back to top of current section:
+                } else {
+                  _animateScrollToElement(s, 200, _updateActivePanelLink(_getSideNavLink(s)));
+                }
+              } else {
+                // Update side navigation to show current panel as active
+                _updateActivePanelLink(_getSideNavLink(s));
+              }
             }
-            if(curScrollPos >= threshold){
-              _goToNextSection(s);
-            } else {
-              _animateScrollToElement(s, 200);
-            }
-          }
-        });
+          });
+
+        // Reset initial scroll position value to new position:
         initialScrollPos = curScrollPos;
       });
+    };
+
+    var _getSideNavLink = function(section) {
+      return $('.js-goto-panel[href="#'+section.attr('id')+'"]');
     }
 
-    var _goToPreviousSection = function(s) {
-      var prevSection = s.prev();
-      _animateScrollToElement(prevSection, 200);
-    };
-
-    var _goToNextSection = function(s) {
-      var nextSection = s.next();
-      _animateScrollToElement(nextSection, 200);
-    };
-
-    var _animateScrollToElement = function(target, speed) {
-      if(target.length){
-        var scrollTo = target.offset().top;
-        $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed, function(){
-        });
+    // Returns object containing top and bottom offset of given section
+    var _getSectionOffsets = function(section){
+      var topOffset = section.offset().top;
+      var bottomOffset = topOffset + section.height();
+      return {
+        top : topOffset,
+        bottom : bottomOffset
       }
     };
 
+    // Animate page scroll to target element
+    var _animateScrollToElement = function(target, speed, callback) {
+      if(target.length){
+        var scrollTo = target.offset().top;
+        if(typeof callback !== undefined) {
+          $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed, callback);
+        } else {
+          $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed);
+        }
+      }
+    };
+
+    var _initSideNav = function () {
+      $('.js-goto-panel').click(function(e){
+        e.preventDefault();
+        var t = $(this);
+        _updateActivePanelLink(t);
+        _animateScrollToElement($(t.attr('href')), 800);
+      });
+    };
+
+    var _updateActivePanelLink = function(activeLink) {
+      $('.js-goto-panel').removeClass('active');
+      activeLink.addClass('active');
+    };
+
+    // Size banner video
     var _sizeVideo = function (elem) {
       var wrapper = $('.covervid-wrapper')
       if(elem.length) {
@@ -259,7 +298,8 @@ function init (isInitialLoad) {
       _initParallax();
       _initWaypoints();
       _initValueWheelAnimations();
-
+      _initPanelSnap();
+      _initSideNav();
     };
 
     var _initBannerTitleAnimation = function () {
