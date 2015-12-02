@@ -40,47 +40,6 @@ function init (isInitialLoad) {
           else menu.addClass('on');
         });
       }
-      // If home page, add relevant styles for one page scroll plugin:
-      if(_isHomePage()){
-        $('body, html').addClass('one-pager');
-      // Otherwise, destroy plugin and remove specific styles:
-      } else {
-        $('#page-header').addClass('on');
-        $('body, html').removeClass('one-pager');
-        _destroyOnePageScroll();
-      }
-    };
-
-    var _isHomePage = function () {
-      return $('#main-wrap.home-page').length;
-    }
-
-    /*
-      One Page Scroll: can be initialised by any page module that requires it.
-      Custom options passed in (see here: https://github.com/peachananr/onepage-scroll)
-    */
-    var _initOnePageScroll = function (options) {
-      // Destroy any lingering effects of previously initialised instances:
-      _destroyOnePageScroll();
-      var onePageScroll = $('.js-one-page-scroll');
-      if(onePageScroll.length) {
-        onePageScroll.onepage_scroll(options);
-        $('.js-next-panel').click(function(e){
-          if(!$('.disabled-onepage-scroll').length) {
-            e.preventDefault();
-            onePageScroll.moveDown();
-          }
-        });
-      }
-    };
-
-    /*
-      One Page Scroll plugin lacks a destory function - needed for re-initialising
-      feature after navigating away and back to home page:
-    */
-    var _destroyOnePageScroll = function () {
-      $('.js-one-page-scroll').unbind();
-      $(document).unbind('mousewheel DOMMouseScroll MozMousePixelScroll keydown');
     };
 
     // Initialise all site-wide JS:
@@ -90,8 +49,7 @@ function init (isInitialLoad) {
     };
 
     return {
-      init: init,
-      initOnePageScroll: _initOnePageScroll
+      init: init
     };
 
   })();
@@ -121,6 +79,21 @@ function init (isInitialLoad) {
         _sizeVideo(video);
         video.coverVid(1920, 1080);
       }
+    };
+
+    // Waypoints used to detect when past first slide (show page header if so)
+    var _initWaypoints = function() {
+      var waypoint = new Waypoint({
+        element: $('#clients-panel'),
+        handler: function(direction) {
+          if(direction == 'down') $('#page-header').addClass('on');
+          else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
+        }
+      });
+    };
+
+    var _initPanelSnap = function() {
+      $('.js-panel-snap').panelSnap();
     };
 
     var _sizeVideo = function (elem) {
@@ -153,64 +126,91 @@ function init (isInitialLoad) {
   		}
     };
 
-    var _initOnePageScroll = function () {
-      SiteWide.initOnePageScroll({
-        beforeMove: _beforePanelMove,
-        afterMove: _afterPanelMove,
-        easing: 'ease',
-        loop: false,
-        animationTime: 500,
-        responsiveFallback : function() {
-          var doDisable = $(window).width() < 768 || $(window).height() < 700;
-          if(doDisable){
-            $('.js-fade-in-up').addClass('show');
-            $('#page-header').removeClass('on');
-          } else if($('.disabled-onepage-scroll').length) {
-            $('.disabled-onepage-scroll').removeClass('disabled-onepage-scroll');
-            var scrollContainer = $('.js-one-page-scroll');
-            scrollContainer.css('transition-duration', '500ms');
-            scrollContainer.css('opacity', '0');
-            setTimeout(function(){
-              scrollContainer.css('height', 'auto');
-              setTimeout(function(){
-                scrollContainer.css('height', '100%');
-                // trigger cover video resize:
-                window.dispatchEvent(new Event('resize'));
-                scrollContainer.css('opacity', '1');
-              }, 500);
-            }, 500);
-          }
-          return doDisable;
+    // Function calculates the current CSS rotation of the given element
+    var _getCurrentRotation = function(el) {
+      var st = window.getComputedStyle(el, null);
+      var tr = st.getPropertyValue("-webkit-transform") ||
+               st.getPropertyValue("-moz-transform") ||
+               st.getPropertyValue("-ms-transform") ||
+               st.getPropertyValue("-o-transform") ||
+               st.getPropertyValue("transform") ||
+               "FAIL";
+
+      var values = tr.split('(')[1].split(')')[0].split(',');
+      var a = values[0];
+      var b = values[1];
+      var c = values[2];
+      var d = values[3];
+
+      var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+
+      return angle;
+    };
+
+    // Animate value segment to rotate to top position when clicked
+    var _initValueWheelAnimations = function(){
+      var valueWheel = $('#value-wheel');
+      // Timeout used to reset animation on mouseout (after small delay):
+      var resetRotationTimeout;
+      // used to create unique animation name each iteration:
+      var animInteration = 1;
+      // Segment click handler:
+      $('.segment').click(function(e){
+        e.preventDefault();
+        clearTimeout(resetRotationTimeout);
+        // Current rotation (in degrees) of value wheel SVG:
+        var curRotation = _getCurrentRotation(document.getElementById('value-wheel'));
+        // Rotation of segment clicked on (stored in data attr on element):
+        var rotateTo = parseInt($(this).data('rotation'));
+        // If rotateTo value is valid, create animation:
+        if(!isNaN(rotateTo)){
+          // Define animation:
+          $.keyframe.define([{
+            name: 'rotate-to-this-segment-'+animInteration, // append unique number
+            '0%':   { 'transform': 'rotate('+ curRotation +'deg)' },
+            '100%': { 'transform': 'rotate('+ rotateTo +'deg)' }
+          }]);
+          // Play animation:
+          valueWheel.playKeyframe([{
+            name: 'rotate-to-this-segment-'+animInteration,
+            duration: '600ms',
+            timingFunction: 'cubic-bezier(0.65, -0.39, 0.32, 1.34)',
+            iterationCount: 1
+          }]);
+          // Iterate unique number for append to animation names:
+          animInteration++;
         }
       });
-    };
 
-    var _beforePanelMove = function (index) {
-      var menuBar = $('#page-header');
-      if(index == 1) {
-        menuBar.removeClass('on');
-      }else{
-        $('.naaw-its-mattie').addClass('hide');
-        var curPanelContent = $('.section.active').find('.js-fade-in-up');
-        if(curPanelContent.length) curPanelContent.addClass('show');
-      }
-    };
-
-    var _afterPanelMove = function (index) {
-      var menuBar = $('#page-header');
-      if(index > 1) {
-        menuBar.addClass('on');
-      } else {
-        menuBar.removeClass('on');
-        $('.naaw-its-mattie').removeClass('hide');
-      }
+      valueWheel.mouseleave(function(){
+        resetRotationTimeout = setTimeout(function(){
+          // Define animation:
+          $.keyframe.define([{
+            name: 'rotate-wheel-'+animInteration, // append unique number
+            '0%':   { 'transform': 'rotate('+ _getCurrentRotation(document.getElementById('value-wheel')) +'deg)' },
+            '100%': { 'transform': 'rotate('+ (_getCurrentRotation(document.getElementById('value-wheel'))+360) +'deg)' }
+          }]);
+          // Play animation:
+          valueWheel.playKeyframe([{
+            name: 'rotate-wheel-'+animInteration,
+            duration: '60s',
+            timingFunction: 'linear',
+            iterationCount: 'infinite'
+          }]);
+          // Iterate unique number for append to animation names:
+          animInteration++;
+        }, 500);
+      });
     };
 
     // Initialise home page plugins:
     var _initPlugins = function () {
       _initCoverVideo();
-      _initOnePageScroll();
       _initParallax();
+      _initWaypoints();
+      _initPanelSnap();
+      _initValueWheelAnimations();
+
     };
 
     var _initBannerTitleAnimation = function () {

@@ -1,11 +1,9 @@
 {% include menu.html %}
 
-<header id="page-header">
+<header id="page-header"{% if(page.menutitle != 'Home') %} class="on"{% endif %}>
   <div id="hd-inner" class="max-1200">
     <a href="{{ "/" | prepend: site.baseurl }}" id="menu-bar-logo">
-      <object type="image/svg+xml" data="{{ "/img/logo.svg" | prepend: site.baseurl }}" class="menu-logo">
-        Media Suite Logo <!-- fallback image in CSS -->
-      </object>
+      <img src="{{ "/img/logo.svg" | prepend: site.baseurl }}" alt="Media Suite Logo" class="menu-logo">
       <span class="lowercase">Media Suite</span>
     </a>
     <a href="#" id="menu-bar-trigger" class="lowercase js-menu-trigger">
