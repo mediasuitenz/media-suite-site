@@ -7,6 +7,17 @@ ishome: true
 ---
 <div id="main-wrap" class="home-page js-panel-snap">
 
+  <nav class="home-side-nav">
+    <ul class="home-side-nav-list">
+      <li><a href="#banner-panel" class="side-nav-link js-goto-panel active" data-no-instant><span class="side-nav-num">one</span></a></li>
+      <li><a href="#clients-panel" class="side-nav-link js-goto-panel" data-no-instant><span class="side-nav-num">two</span></a></li>
+      <li><a href="#work-panel" class="side-nav-link js-goto-panel" data-no-instant><span class="side-nav-num">three</span></a></li>
+      <li><a href="#value-panel" class="side-nav-link js-goto-panel" data-no-instant><span class="side-nav-num">four</span></a></li>
+      <li><a href="#culture-panel" class="side-nav-link js-goto-panel" data-no-instant><span class="side-nav-num">five</span></a></li>
+      <li><a href="#hello-panel" class="side-nav-link js-goto-panel" data-no-instant><span class="side-nav-num">six</span></a></li>
+    </ul>
+  </nav>
+
   <section id="banner-panel">
     <div id="home-panel-nav">
       <div class="max-1200">
@@ -14,7 +25,7 @@ ishome: true
           <img src="{{ "/img/logo-trans-white.svg" | prepend: site.baseurl }}" alt="Media Suite Logo" class="home-logo" />
           <span class="lowercase">Media Suite</span>
         </a>
-        <a href="#" id="home-menu-trigger" class="menu-trigger lowercase js-menu-trigger">
+        <a href="#" id="home-menu-trigger" class="menu-trigger lowercase js-menu-trigger" data-no-instant>
           <i class="trigger-icon icon icon-menu"></i>
           <span class="menu-trigger-text">Menu</span>
         </a>
@@ -45,7 +56,7 @@ ishome: true
       </div> <!-- .faux-table -->
     </div> <!-- .banner-text-wrap -->
     <div class="naaw-its-mattie">
-      <a href="#work-panel" class="js-next-panel mattie-link">
+      <a href="#work-panel" class="js-next-panel mattie-link" data-no-instant>
         <img src="{{ "/img/mattie.png" | prepend: site.baseurl }}" width="255" height="162" alt="" />
         <span class="tail-tip"><img class="tip-wag" src="{{ "/img/tail-tip.png" | prepend: site.baseurl }}" width="38" height="46" alt="" /></span>
         <span class="woof-woof">woof, down here!</span>
@@ -62,19 +73,19 @@ ishome: true
           <p class="text-size-24 max-850">We combine <span class="emphasis">thoughtful design</span> with <span class="emphasis">clever technology</span> to help build successful Software, Websites &amp; Apps for a range of private businesses &amp; progressive organisations.</p>
 
           <ul class="logo-grid">
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/1-nzta.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/2-ccc.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/3-linz.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/4-wine-marlborough.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/5-mdc.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/7-interlead.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/8-addington.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill square-logo"><img src="{{ "/img/client-logos/9-acc.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill"><img src="{{ "/img/client-logos/10-mrc.png" | prepend: site.baseurl }}" alt="" /></a></li>
-            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill square-logo"><img src="{{ "/img/client-logos/12-discover-travel.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/1-nzta.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/2-ccc.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/3-linz.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/4-wine-marlborough.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/5-mdc.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/7-interlead.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/8-addington.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill square-logo" data-no-instant><img src="{{ "/img/client-logos/9-acc.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/10-mrc.png" | prepend: site.baseurl }}" alt="" /></a></li>
+            <li class="grid-item"><a href="#" class="grid-item-link js-image-fill square-logo" data-no-instant><img src="{{ "/img/client-logos/12-discover-travel.png" | prepend: site.baseurl }}" alt="" /></a></li>
           </ul>
 
-          <a href="our-services" class="drop-btn orange-bg">Our services</a>
+          <a href="{{ "/our-services" | prepend: site.baseurl }}" class="drop-btn orange-bg">Our services</a>
 
         </div> <!-- .faux-table-cell -->
       </div> <!-- .faux-table -->
@@ -100,7 +111,7 @@ ishome: true
             <div id="work-panel-content" class="col col-half">
               <p class="text-semi">We genuinely have a diverse range of clients.</p>
               <p>In the last 15 years we have worked on over 1,400 projects for about 350 clients.</p>
-              <a href="case-studies/" class="drop-btn orange-bg">View our portfolio</a>
+              <a href="{{ "/case-studies" | prepend: site.baseurl }}" class="drop-btn orange-bg">View our portfolio</a>
             </div> <!-- .col-half -->
           </div> <!-- .cols-wrap -->
         </div> <!-- .faux-table-cell -->
@@ -140,9 +151,9 @@ ishome: true
           <h2 class="lowercase underline-orange">Our Culture</h2>
           <div class="cols-wrap">
             <div class="col third-col" id="culture-col-1">
-              <a href="who-we-are/"><img class="home-team-img jiggle" src="{{ "/img/home-team.png" | prepend: site.baseurl }}" alt="" /></a>
+              <a href="{{ "/people" | prepend: site.baseurl }}"><img class="home-team-img jiggle" src="{{ "/img/home-team.png" | prepend: site.baseurl }}" alt="" /></a>
               <h3 class="lowercase text-size-40">We give a shit.</h3><br>
-              <a href="who-we-are/" class="drop-btn orange-bg">Get to know the team</a>
+              <a href="{{ "/people" | prepend: site.baseurl }}" class="drop-btn orange-bg">Get to know the team</a>
             </div>
             <div class="col third-col" id="culture-col-2">
               <h2 class="lowercase text-size-45">Values</h2>
@@ -158,7 +169,7 @@ ishome: true
             </div>
             <div class="col third-col" id="culture-col-3">
               <h4><img class="curious-minds-text" src="{{ "/img/title-curious-minds-wanted.png" | prepend: site.baseurl }}" alt="Curious minds wanted for curious work" /></h4>
-              <a href="careers/" class="drop-btn orange-bg">Work here</a>
+              <a href="{{ "/careers" | prepend: site.baseurl }}" class="drop-btn orange-bg">Work here</a>
             </div>
           </div> <!-- .cols-wrap -->
         </div> <!-- .faux-table-cell -->
