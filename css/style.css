@@ -99,7 +99,7 @@ h1, h2, h3, h4, .fancy-pants-font {
 
 h1,
 h2 {
-  font-size: 6.2rem;
+  font-size: 5.5rem;
   line-height: 1;
 }
 
@@ -1237,15 +1237,16 @@ a {
 }
 
 .people-controls p {
-  font-size: 3.8rem;
-  line-height: 1;
+  font-size: 3rem;
+  line-height: .5;
+  margin: 0 0 30px;
 }
 
 .sort-btn {
   display: inline-block;
   position: relative;
   color: #000;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1;
   padding-left: 50px;
   margin: 0 30px;
@@ -2453,7 +2454,7 @@ a {
   }
 
   .person-wrap {
-    height: 380px;
+    height: 340px;
     width: 230px;
   }
 
