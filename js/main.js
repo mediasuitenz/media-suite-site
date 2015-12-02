@@ -116,7 +116,7 @@ function init (isInitialLoad) {
             // If current scroll position is within this panel, continue:
             if(curScrollPos > offsets.top && curScrollPos < offsets.bottom) {
               // If screen is big enough to fit panel contents in viewport, enable snapping:
-              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
+              if(false && Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
                 // Set threshold depending on whether user was scrolling up or down:
                 var threshold;
                 // Going down:
@@ -127,10 +127,10 @@ function init (isInitialLoad) {
                 // If current scroll position past threshold, scroll to next section:
                 if(curScrollPos >= threshold){
                   var nextSection = s.next();
-                  _animateScrollToElement(nextSection, 200, _updateActivePanelLink(_getSideNavLink(nextSection)));
+                  _animateScrollToElement(nextSection, 1000, _updateActivePanelLink(_getSideNavLink(nextSection)));
                 // Otherwise, scroll back to top of current section:
                 } else {
-                  _animateScrollToElement(s, 200, _updateActivePanelLink(_getSideNavLink(s)));
+                  _animateScrollToElement(s, 1000, _updateActivePanelLink(_getSideNavLink(s)));
                 }
               } else {
                 // Update side navigation to show current panel as active

@@ -1368,6 +1368,18 @@ a {
   timing-function: ease-in-out;
 }
 
+.person-name-hover {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.5;
+  bottom: -35px;
+  opacity: 0;
+  transition: opacity 800ms ease;
+}
+
 .loaded .person-image {
   opacity: 1;
   transform: translateY(0);
@@ -2070,7 +2082,7 @@ a {
 
   .person-wrap {
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 55px;
     position: relative;
     width: 33%;
     height: 300px;
@@ -2107,6 +2119,15 @@ a {
   .person-wrap.on .bio-wrap {
     width: 66%;
     opacity: 1;
+  }
+
+  .person-wrap:hover .person-name-hover {
+    opacity: 1;
+  }
+
+  .person-wrap.on .person-name-hover {
+    display: none;
+    opacity: 0;
   }
 
   .bio-inner {
