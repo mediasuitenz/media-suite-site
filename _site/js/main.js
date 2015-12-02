@@ -116,21 +116,16 @@ function init (isInitialLoad) {
             // If current scroll position is within this panel, continue:
             if(curScrollPos > offsets.top && curScrollPos < offsets.bottom) {
               // If screen is big enough to fit panel contents in viewport, enable snapping:
-              if(false && Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
-                // Set threshold depending on whether user was scrolling up or down:
-                var threshold;
-                // Going down:
-                if(curScrollPos > initialScrollPos) threshold = offsets.bottom - (s.height()/6);
-                // Going up
-                else threshold = offsets.bottom - ((s.height()/3) * 2);
-
-                // If current scroll position past threshold, scroll to next section:
-                if(curScrollPos >= threshold){
+              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
+                var bottomThreshold = offsets.bottom - (s.height() * .25);
+                if(curScrollPos >= bottomThreshold) {
                   var nextSection = s.next();
-                  _animateScrollToElement(nextSection, 1000, _updateActivePanelLink(_getSideNavLink(nextSection)));
-                // Otherwise, scroll back to top of current section:
+                  _animateScrollToElement(nextSection, 500);
                 } else {
-                  _animateScrollToElement(s, 1000, _updateActivePanelLink(_getSideNavLink(s)));
+                  var topThreshold = offsets.top + (s.height() * .25);
+                  if(curScrollPos <= topThreshold) {
+                    _animateScrollToElement(s, 500);
+                  }
                 }
               } else {
                 // Update side navigation to show current panel as active
@@ -159,14 +154,18 @@ function init (isInitialLoad) {
     };
 
     // Animate page scroll to target element
-    var _animateScrollToElement = function(target, speed, callback) {
+    var _animateScrollToElement = function(target, speed) {
       if(target.length){
+        var page = $('body, html');
         var scrollTo = target.offset().top;
-        if(typeof callback !== undefined) {
-          $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed, callback);
-        } else {
-          $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed);
-        }
+
+        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+         page.stop();
+        });
+
+        page.animate({ scrollTop: scrollTo+'px' }, speed, function(){
+         page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+        });
       }
     };
 
