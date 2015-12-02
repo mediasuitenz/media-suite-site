@@ -455,7 +455,7 @@ a {
 }
 #banner-panel{
   background-color: #000;
-  background-image: url(/img/video-first-frame.jpg);
+  background-image: url(../img/video-first-frame.jpg);
   background-size: cover;
   background-position: 50% 50%;
 }
