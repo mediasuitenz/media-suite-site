@@ -324,6 +324,11 @@ a {
   z-index: 99;
   transform: translateY(-130px);
   transition: all 300ms ease;
+  pointer-events: none;
+}
+
+#page-header a {
+  pointer-events: auto;
 }
 
 #page-header.on {
@@ -677,7 +682,7 @@ a {
   height: calc(100% - 70px);
   overflow: hidden;
   /* allow for menu bar */
-  padding-top: 70px;
+  padding-top: 100px;
   /* fix z-index issues on panel change */
   -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
@@ -1968,15 +1973,15 @@ a {
     text-align: left;
   }
 
-  .js-fade-in-up {
+  .js-fade-in-up,
+  .internal-page {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(30px);
     transition: opacity 800ms ease, transform 800ms ease-out;
-    transition-delay: 200ms;
   }
 
   .js-fade-in-up.show,
-  .home-page .js-fade-in-up { /* temporarily disabled */
+  .internal-page.show {
     opacity: 1;
     transform: translateY(0);
   }

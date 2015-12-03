@@ -42,10 +42,17 @@ function init (isInitialLoad) {
       }
     };
 
+    var _fadeInContent = function() {
+      if(!$('.home-page').length){
+        $('.internal-page').addClass('show');
+      }
+    };
+
     // Initialise all site-wide JS:
     var init = function () {
       _initPlugins();
       _initMenu();
+      _fadeInContent();
     };
 
     return {
@@ -87,7 +94,24 @@ function init (isInitialLoad) {
     var _initWaypoints = function() {
       // Show page header when scrolled past first slide (alt version used there)
       _initSideNavControl();
+      _initFadeInAnimation();
     };
+
+    var _initFadeInAnimation = function() {
+      var faderInnerers = $('.home-page').find('.js-fade-in-up');
+      faderInnerers.each(function(){
+        var section = $(this);
+        var waypoint = new Waypoint({
+          element: section,
+          handler: function(direction) {
+            if(!section.hasClass('show')) {
+              section.addClass('show');
+            }
+          },
+          offset: '50%'
+        });
+      });
+    }
 
     // Waypoints used to update active panel in side nav
     var _initSideNavControl = function() {
