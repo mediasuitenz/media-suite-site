@@ -129,14 +129,17 @@ a {
 
 .text-size-24 {
   font-size: 2rem;
+  line-height: 1.2;
 }
 
 .text-size-40 {
   font-size: 4rem;
+  line-height: 1.2;
 }
 
 .text-size-45 {
   font-size: 4.5rem;
+  line-height: 1.2;
 }
 
 .text-semi {
@@ -1560,8 +1563,8 @@ a {
     padding-top: 20px;
   }
 
-  .onepage-pagination {
-    right: 20px;
+  .cols-wrap {
+    margin-top: 0;
   }
 
   .title-section {
@@ -1592,11 +1595,8 @@ a {
   .content-panel .faux-table-cell {
     position: static;
     display: block;
-  }
-
-  .disabled-onepage-scroll .onepage-wrapper .section {
-    height: auto;
-    min-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   h1,
@@ -1611,6 +1611,7 @@ a {
 
   .text-size-24 {
     font-size: 1.8rem;
+    line-height: 1.2;
   }
 
   .grid-item {
@@ -2002,6 +2003,7 @@ a {
 
   .text-size-24 {
     font-size: 1.8rem;
+    line-height: 1.2;
   }
 
   .disabled-onepage-scroll .onepage-wrapper .section {
@@ -2306,6 +2308,7 @@ a {
 
   .text-size-24 {
     font-size: 2rem;
+    line-height: 1.2;
   }
 
   .years-wrap {
