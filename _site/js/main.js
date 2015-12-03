@@ -141,7 +141,7 @@ function init (isInitialLoad) {
             // If current scroll position is within this panel, continue:
             if(curScrollPos > offsets.top && curScrollPos < offsets.bottom) {
               // If screen is big enough to fit panel contents in viewport, enable snapping:
-              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
+              if(Modernizr.mq('(min-height: 795px) and (min-width: 1300px)')){
                 var bottomThreshold = offsets.bottom - (s.height() * .25);
                 if(curScrollPos >= bottomThreshold) {
                   var nextSection = s.next();
