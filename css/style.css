@@ -771,6 +771,8 @@ a {
   position: absolute;
   top: -8px;
   left: -8px;
+  border-top: 8px solid #fff;
+  border-bottom: 8px solid #fff;
 }
 
 .js-parallax,
@@ -980,8 +982,8 @@ a {
   display: inline-block;
   position: relative;
   vertical-align: middle;
-  width: 308px;
-  height: 308px;
+  width: 280px;
+  height: 280px;
   border-radius: 100%;
   overflow: hidden;
 }
@@ -1026,7 +1028,7 @@ a {
   color: #fff;
   font-size: 4rem;
   line-height: 1;
-  margin: 125px 0 0 0;
+  margin: 115px 0 0 0;
   text-shadow: -1px 2px 1px rgba(0,0,0,0.5);
   pointer-events: none;
 }
@@ -1775,6 +1777,15 @@ a {
     font-size: 2rem;
     width: 106px;
     margin-left: -53px;
+  }
+
+  .circle-link {
+    width: 308px;
+    height: 308px;
+  }
+
+  .circle-main-hd {
+    margin-top: 115px;
   }
 
 }
