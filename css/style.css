@@ -986,6 +986,27 @@ a {
   overflow: hidden;
 }
 
+.circle-link:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1000ms ease;
+  background: rgba(0,0,0,0.4);
+}
+
+.circle-link:hover:before {
+  opacity: 1;
+}
+
 .circle-link .js-image-fill {
   position: absolute;
   top: 0;
@@ -993,6 +1014,8 @@ a {
   display: block;
   width: 100%;
   height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
 }
 
 .circle-main-hd {
