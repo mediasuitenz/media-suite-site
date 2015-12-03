@@ -197,6 +197,7 @@ a {
   transition: all 400ms ease;
   border-bottom: 2px solid #e84a04;
   overflow:hidden;
+  text-align: center;
 }
 
 .drop-btn:hover {
@@ -316,7 +317,6 @@ a {
   height: auto;
   width: 100%;
   overflow: visible;
-  border-top: 4px solid #f27c00;
   color: #000;
   z-index: 99;
   transform: translateY(-130px);
@@ -350,6 +350,7 @@ a {
   width: 100%;
   height: 130px;
   background: linear-gradient(to bottom, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 100%);
+  border-top: 4px solid #f27c00;
 }
 
 #menu-bar-logo {
@@ -493,11 +494,15 @@ a {
   color: inherit;
 }
 
+.close-menu-wrap {
+  padding: 20px 0;
+  position: relative;
+  z-index: 9;
+  height: auto;
+}
+
 #close-menu-link {
-  position: absolute;
-  z-index: 10;
-  top: 30px;
-  right: 30px;
+  float: right;
   font-size: 1.8rem;
   font-weight: 600;
   vertical-align: middle;
@@ -1544,7 +1549,11 @@ a {
   }
 
   .mob-hide {
-    display: none;
+    display: none !important;
+  }
+
+  #page-header {
+    height: 100px;
   }
 
   #hd-inner {
@@ -1593,6 +1602,7 @@ a {
   h1,
   h2 {
     font-size: 4.2rem;
+    line-height: 1;
   }
 
   .underline-orange {
@@ -2244,11 +2254,6 @@ a {
 
   .title-section {
     font-size: 6.2rem;
-  }
-
-  #close-menu-link {
-    top: 25px;
-    right: 110px;
   }
 
   .grid-item {
