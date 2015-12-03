@@ -86,18 +86,43 @@ function init (isInitialLoad) {
     */
     var _initWaypoints = function() {
       // Show page header when scrolled past first slide (alt version used there)
-      _initPageHeaderControl();
+      _initSideNavControl();
     };
 
-    // Waypoints used to detect when past first slide (show page header if so)
-    var _initPageHeaderControl = function() {
-      var waypoint = new Waypoint({
-        element: $('#clients-panel'),
-        handler: function(direction) {
-          if(direction == 'down') $('#page-header').addClass('on');
-          else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
-        }
+    // Waypoints used to update active panel in side nav
+    var _initSideNavControl = function() {
+      var sections = $('.home-page').children('section');
+      sections.each(function(){
+        var section = $(this);
+        var waypoint = new Waypoint({
+          element: section,
+          handler: function(direction) {
+            _updateActivePanelLink(_getSideNavLink(section));
+            if(section.attr('id') == 'clients-panel') {
+              if(direction == 'down') $('#page-header').addClass('on');
+              else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
+            }
+          }
+        });
       });
+    };
+
+    var _getSideNavLink = function(section) {
+      return $('.js-goto-panel[href="#'+section.attr('id')+'"]');
+    };
+
+    var _initSideNav = function () {
+      $('.js-goto-panel').click(function(e){
+        e.preventDefault();
+        var t = $(this);
+        _updateActivePanelLink(t);
+        _animateScrollToElement($(t.attr('href')), 800);
+      });
+    };
+
+    var _updateActivePanelLink = function(activeLink) {
+      $('.js-goto-panel.active').removeClass('active');
+      activeLink.addClass('active');
     };
 
     // Snap to nearest panel when scrolling stops
@@ -116,26 +141,20 @@ function init (isInitialLoad) {
             // If current scroll position is within this panel, continue:
             if(curScrollPos > offsets.top && curScrollPos < offsets.bottom) {
               // If screen is big enough to fit panel contents in viewport, enable snapping:
-              if(false && Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
-                // Set threshold depending on whether user was scrolling up or down:
-                var threshold;
-                // Going down:
-                if(curScrollPos > initialScrollPos) threshold = offsets.bottom - (s.height()/6);
-                // Going up
-                else threshold = offsets.bottom - ((s.height()/3) * 2);
-
-                // If current scroll position past threshold, scroll to next section:
-                if(curScrollPos >= threshold){
+              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
+                var bottomThreshold = offsets.bottom - (s.height() * .25);
+                if(curScrollPos >= bottomThreshold) {
                   var nextSection = s.next();
-                  _animateScrollToElement(nextSection, 1000, _updateActivePanelLink(_getSideNavLink(nextSection)));
-                // Otherwise, scroll back to top of current section:
+                  _animateScrollToElement(nextSection, 500);
                 } else {
-                  _animateScrollToElement(s, 1000, _updateActivePanelLink(_getSideNavLink(s)));
+                  var topThreshold = offsets.top + (s.height() * .25);
+                  if(curScrollPos <= topThreshold) {
+                    _animateScrollToElement(s, 500);
+                  }
                 }
-              } else {
-                // Update side navigation to show current panel as active
-                _updateActivePanelLink(_getSideNavLink(s));
               }
+              // Hack to fix Waypoints bug - to fix :)
+              if(s.attr('id') == 'banner-panel') _updateActivePanelLink(_getSideNavLink(s));
             }
           });
 
@@ -143,10 +162,6 @@ function init (isInitialLoad) {
         initialScrollPos = curScrollPos;
       });
     };
-
-    var _getSideNavLink = function(section) {
-      return $('.js-goto-panel[href="#'+section.attr('id')+'"]');
-    }
 
     // Returns object containing top and bottom offset of given section
     var _getSectionOffsets = function(section){
@@ -159,29 +174,21 @@ function init (isInitialLoad) {
     };
 
     // Animate page scroll to target element
-    var _animateScrollToElement = function(target, speed, callback) {
+    var _animateScrollToElement = function(target, speed) {
       if(target.length){
+        var page = $('body, html');
         var scrollTo = target.offset().top;
-        if(typeof callback !== undefined) {
-          $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed, callback);
-        } else {
-          $('body, html').stop().animate({scrollTop: scrollTo+'px'}, speed);
-        }
+
+        // Stop animation on page element when scrolling manually:
+        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+         page.stop();
+        });
+
+        // Animate page scroll to target element, remove above listener on complete:
+        page.animate({ scrollTop: scrollTo+'px' }, speed, function(){
+         page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+        });
       }
-    };
-
-    var _initSideNav = function () {
-      $('.js-goto-panel').click(function(e){
-        e.preventDefault();
-        var t = $(this);
-        _updateActivePanelLink(t);
-        _animateScrollToElement($(t.attr('href')), 800);
-      });
-    };
-
-    var _updateActivePanelLink = function(activeLink) {
-      $('.js-goto-panel').removeClass('active');
-      activeLink.addClass('active');
     };
 
     // Size banner video
@@ -292,16 +299,6 @@ function init (isInitialLoad) {
       });
     };
 
-    // Initialise home page plugins:
-    var _initPlugins = function () {
-      _initCoverVideo();
-      _initParallax();
-      _initWaypoints();
-      _initValueWheelAnimations();
-      _initPanelSnap();
-      _initSideNav();
-    };
-
     var _initBannerTitleAnimation = function () {
       var bannerTitle = $('.js-accordion-text');
       if(bannerTitle.length) {
@@ -372,30 +369,20 @@ function init (isInitialLoad) {
       }, 500);
     };
 
-    // Handle contact panel expand on hover:
-    var _initContactPanel = function(){
-      var willExpand = $('.js-expand-trigger');
-      willExpand.each(function(){
-        var t = $(this);
-        var expandOuter = t.find('.js-expand-outer');
-        var expandInner = t.find('.js-expand-inner');
-        if(expandOuter.length && expandInner.length){
-          t.mouseenter(function(){
-            t.addClass('on');
-            expandOuter.css('height', (expandOuter.height() + expandInner.height()) + 'px');
-          }).mouseleave(function(){
-            t.removeClass('on');
-            expandOuter.css('height', '0px');
-          });
-        }
-      });
+    // Initialise home page plugins:
+    var _initPlugins = function () {
+      _initCoverVideo();
+      _initParallax();
+      _initWaypoints();
     };
 
     // Initialise Home Page JS:
     var init = function () {
       _initPlugins();
       _initBannerTitleAnimation();
-      _initContactPanel();
+      _initValueWheelAnimations();
+      _initPanelSnap();
+      _initSideNav();
     };
 
     return {
