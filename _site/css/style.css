@@ -278,11 +278,11 @@ a {
   from { transform: scaleY(1) scaleX(1); }
   10% { transform: scaleY(.98) scaleX(1.02);}
   25% { transform: scaleY(1) scaleX(1);}
-  30% { transform: scaleY(1.15) scaleX(.85); }
+  30% { transform: scaleY(1.08) scaleX(.9); }
   40% { transform: scaleY(.99) scaleX(1.05); }
-  50% { transform: scaleY(1.05) scaleX(.9);}
+  50% { transform: scaleY(1.05) scaleX(.95);}
   60% { transform: scaleY(.995) scaleX(1.055); }
-  70% { transform: scaleY(1.02) scaleX(.95);}
+  70% { transform: scaleY(1.02) scaleX(.98);}
   80% { transform: scaleY(.99) scaleX(1.01); }
   90% { transform: scaleY(1.01) scaleX(.99);}
 }
@@ -497,8 +497,14 @@ a {
   z-index: 10;
   top: 30px;
   right: 30px;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
+  vertical-align: middle;
+}
+
+#close-menu-link i:before{
+  font-size: 3.3rem;
+  vertical-align: middle;
 }
 
 #menu-list {
@@ -858,7 +864,7 @@ a {
 }
 
 .segment:hover .segment-bg use {
-  fill: #f27c00 !important;
+  fill: #8E8E8E !important;
 }
 
 /*#value-wheel:hover {
@@ -1233,7 +1239,7 @@ a {
 ------------------------------------------------------*/
 
 .people-controls {
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .people-controls p {
@@ -1377,7 +1383,7 @@ a {
   font-size: 16px;
   text-align: center;
   line-height: 1.5;
-  bottom: -35px;
+  bottom: -30px;
   opacity: 0;
   transition: opacity 800ms ease;
 }
@@ -1952,7 +1958,7 @@ a {
   }
 
   #menu-list {
-    font-size: 6.2rem;
+    font-size: 5.8rem;
   }
 
   .grid-item {
@@ -2225,8 +2231,8 @@ a {
   }
 
   #close-menu-link {
-    top: 95px;
-    right: 150px;
+    top: 25px;
+    right: 110px;
   }
 
   .grid-item {
