@@ -1610,6 +1610,14 @@ a {
   Media Queries:
 ------------------------------------------------------*/
 
+@media only screen and (max-height: 380px) {
+
+  .banner-title {
+    padding-top: 40px;
+  }
+
+}
+
 /* Mobile Only: */
 @media only screen and (max-width: 767px) {
 
