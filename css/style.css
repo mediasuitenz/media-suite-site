@@ -1641,7 +1641,7 @@ a {
 
   .banner-title {
     width: 100%;
-    padding: 0 30px;
+    padding: 80px 30px 0 30px;
   }
 
   .banner-text-wrap .faux-table {
@@ -1794,10 +1794,6 @@ a {
   .bio-real-image {
     top: -140px;
     right: 10px;
-  }
-
-  .banner-title {
-    padding-top: 80px;
   }
 
 }
