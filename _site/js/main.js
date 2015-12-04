@@ -83,7 +83,6 @@ function init (isInitialLoad) {
     var _initCoverVideo = function() {
       var video = $('.js-covervid-video');
       if(video.length) {
-        _sizeVideo(video);
         video.coverVid(1920, 1080);
       }
     };
@@ -222,35 +221,16 @@ function init (isInitialLoad) {
       }
     };
 
-    // Size banner video
-    var _sizeVideo = function (elem) {
-      var wrapper = $('.covervid-wrapper')
-      if(elem.length) {
-  			// Get parent element height and width
-  			var parentHeight = wrapper.height();
-  			var parentWidth = wrapper.width();
-
-  			// Get native video width and height
-  			var nativeWidth = 1920;
-  			var nativeHeight = 1080;
-
-  			// Get the scale factors
-  			var heightScaleFactor = parentHeight / nativeHeight;
-  			var widthScaleFactor = parentWidth / nativeWidth;
-
-  			// Based on highest scale factor set width and height
-  			if (widthScaleFactor > heightScaleFactor) {
-  				elem.css({
-            'height':'auto',
-            'width': parentWidth+'px'
-          });
-  			} else {
-          elem.css({
-            'height': parentHeight+'px',
-            'width': 'auto'
-          });
-  			}
-  		}
+    /*
+      On video load, fade out first frame image and fade in video (silky smooth)
+      Prevents flash of black that you get with poster image attr.
+    */
+    var _videoLoadListener = function() {
+      var v = document.getElementsByTagName("video")[0];
+      v.addEventListener('loadeddata', function() {
+        // CSS tied to 'video-loaded' class makes image fade out to video smoothly:
+        $('.covervid-wrapper').addClass('video-loaded');
+      });
     };
 
     // Function calculates the current CSS rotation of the given element
@@ -285,6 +265,7 @@ function init (isInitialLoad) {
       $('.segment').click(function(e){
         e.preventDefault();
         clearTimeout(resetRotationTimeout);
+        valueWheel.resumeKeyframe();
         // Current rotation (in degrees) of value wheel SVG:
         var curRotation = _getCurrentRotation(document.getElementById('value-wheel'));
         // Rotation of segment clicked on (stored in data attr on element):
@@ -309,7 +290,9 @@ function init (isInitialLoad) {
         }
       });
 
-      valueWheel.mouseleave(function(){
+      valueWheel.mouseenter(function(){
+        valueWheel.pauseKeyframe();
+      }).mouseleave(function(){
         resetRotationTimeout = setTimeout(function(){
           // Define animation:
           $.keyframe.define([{
@@ -409,6 +392,7 @@ function init (isInitialLoad) {
 
     // Initialise Home Page JS:
     var init = function () {
+      _videoLoadListener();
       _initPlugins();
       _initBannerTitleAnimation();
       _initValueWheelAnimations();
@@ -435,7 +419,8 @@ function init (isInitialLoad) {
         transitionDuration: '0.8s',
         layoutMode: 'masonry',
         masonry: {
-          columnWidth: '.grid-sizer'
+          columnWidth: '.grid-sizer',
+          isFitWidth: true
         },
         getSortData: {
           coffees: '[data-coffees] parseInt',
