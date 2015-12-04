@@ -1610,14 +1610,6 @@ a {
   Media Queries:
 ------------------------------------------------------*/
 
-@media only screen and (max-height: 380px) {
-
-  .banner-title {
-    padding-top: 40px;
-  }
-
-}
-
 /* Mobile Only: */
 @media only screen and (max-width: 767px) {
 
@@ -1802,6 +1794,10 @@ a {
   .bio-real-image {
     top: -140px;
     right: 10px;
+  }
+
+  .banner-title {
+    padding-top: 80px;
   }
 
 }
