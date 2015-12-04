@@ -462,14 +462,6 @@ a {
   margin: 0;
 }
 
-#banner-panel {
-  background-color: #000;
-  background-image: url(../img/video-first-frame.jpg);
-  background-size: cover;
-  background-position: 50% 50%;
-  border-top: 4px solid #f27c00;
-}
-
 /*-----------------------------------------------------
   Menu:
 ------------------------------------------------------*/
@@ -575,6 +567,10 @@ a {
   Home Page: #banner-panel
 ------------------------------------------------------*/
 
+#banner-panel {
+  border-top: 4px solid #f27c00;
+}
+
 .home-side-nav {
   display: none;
 }
@@ -651,6 +647,30 @@ a {
   44% {transform: translateX(0px) rotate(0deg);}
 }
 
+.video-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+.js-covervid-video {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.video-loaded .video-fallback {
+  opacity: 0;
+}
+
+.video-loaded .js-covervid-video {
+  opacity: 1;
+}
+
 .covervid-wrapper {
   position: absolute;
   z-index: 1;
@@ -669,6 +689,32 @@ a {
   width: 100%;
   height: 100%;
   background: url(../img/video-overlay.png) repeat;
+}
+
+.js-covervid-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(../img/video-overlay.png) no-repeat;
+  background-size: cover;
+}
+
+/*
+  Don't display/load video if on mobile:
+*/
+@media screen and (max-device-width: 800px) {
+
+  .js-covervid-video {
+    display: none;
+  }
+
 }
 
 .banner-text-wrap {
@@ -1252,6 +1298,12 @@ a {
   People Page:
 ------------------------------------------------------*/
 
+.people-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
 .people-controls {
   margin-bottom: 50px;
 }
@@ -1433,6 +1485,19 @@ a {
   font-size: 1.8rem;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
   visibility: visible;
+}
+
+#person-matisse .person-image {
+  width: 171px;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -85px;
+}
+
+#person-matisse .burst-wrap {
+  margin-top: 55px;
 }
 
 .scale-in {
@@ -1802,7 +1867,7 @@ a {
   }
 
   .circle-main-hd {
-    margin-top: 115px;
+    margin-top: 125px;
   }
 
 }
