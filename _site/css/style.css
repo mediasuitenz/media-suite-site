@@ -1488,12 +1488,8 @@ a {
 }
 
 #person-matisse .person-image {
-  width: 171px;
-  height: 200px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-left: -85px;
+  width: 100%;
+  height: auto;
 }
 
 #person-matisse .burst-wrap {
@@ -2231,6 +2227,15 @@ a {
   .person-wrap.on .person-name-hover {
     display: none;
     opacity: 0;
+  }
+
+  #person-matisse .person-image {
+    width: 171px;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -85px;
   }
 
   .bio-inner {
