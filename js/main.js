@@ -486,6 +486,9 @@ function init (isInitialLoad) {
         } else {
           $('.person-wrap.on').removeClass('on');
           parentEl.addClass('on');
+          setTimeout(function(){
+            $('html, body').animate({ scrollTop: (parentEl.offset().top - 80) }, 1000);
+          }, 300);
         }
         // Trigger isotope to redraw layout after tile expansion:
         $('.js-isotope').isotope('layout');
@@ -531,6 +534,9 @@ function init (isInitialLoad) {
   /*===========================================================================
     Initialise Relevant Modules (based on current pathname):
   ===========================================================================*/
+
+  $(window).off();
+  $('html, body').off();
 
   // Always fire:
   SiteWide.init();
