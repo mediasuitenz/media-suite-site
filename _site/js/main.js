@@ -42,10 +42,17 @@ function init (isInitialLoad) {
       }
     };
 
+    var _fadeInContent = function() {
+      if(!$('.home-page').length){
+        $('.internal-page').addClass('show');
+      }
+    };
+
     // Initialise all site-wide JS:
     var init = function () {
       _initPlugins();
       _initMenu();
+      _fadeInContent();
     };
 
     return {
@@ -76,7 +83,6 @@ function init (isInitialLoad) {
     var _initCoverVideo = function() {
       var video = $('.js-covervid-video');
       if(video.length) {
-        _sizeVideo(video);
         video.coverVid(1920, 1080);
       }
     };
@@ -87,7 +93,27 @@ function init (isInitialLoad) {
     var _initWaypoints = function() {
       // Show page header when scrolled past first slide (alt version used there)
       _initSideNavControl();
+      _initFadeInAnimation();
     };
+
+    /*
+      When panel scrolled into view, activate fade in animation
+    */
+    var _initFadeInAnimation = function() {
+      var faderInnerers = $('.home-page').find('.js-fade-in-up');
+      faderInnerers.each(function(){
+        var section = $(this);
+        var waypoint = new Waypoint({
+          element: section,
+          handler: function(direction) {
+            if(!section.hasClass('show')) {
+              section.addClass('show');
+            }
+          },
+          offset: '50%'
+        });
+      });
+    }
 
     // Waypoints used to update active panel in side nav
     var _initSideNavControl = function() {
@@ -107,10 +133,12 @@ function init (isInitialLoad) {
       });
     };
 
+    // Return side nav link element given the panel it links to
     var _getSideNavLink = function(section) {
       return $('.js-goto-panel[href="#'+section.attr('id')+'"]');
     };
 
+    // Click handler for side nav links
     var _initSideNav = function () {
       $('.js-goto-panel').click(function(e){
         e.preventDefault();
@@ -120,6 +148,7 @@ function init (isInitialLoad) {
       });
     };
 
+    // Update active side nav link to element passed in
     var _updateActivePanelLink = function(activeLink) {
       $('.js-goto-panel.active').removeClass('active');
       activeLink.addClass('active');
@@ -141,15 +170,16 @@ function init (isInitialLoad) {
             // If current scroll position is within this panel, continue:
             if(curScrollPos > offsets.top && curScrollPos < offsets.bottom) {
               // If screen is big enough to fit panel contents in viewport, enable snapping:
-              if(Modernizr.mq('(min-height: 795px) and (min-width: 1600px)')){
-                var bottomThreshold = offsets.bottom - (s.height() * .25);
+              if(Modernizr.mq('(min-height: 795px) and (min-width: 1300px)')){
+                var animationSpeed = 500;
+                var bottomThreshold = offsets.bottom - (s.height() * .35);
                 if(curScrollPos >= bottomThreshold) {
                   var nextSection = s.next();
-                  _animateScrollToElement(nextSection, 500);
+                  _animateScrollToElement(nextSection, animationSpeed);
                 } else {
-                  var topThreshold = offsets.top + (s.height() * .25);
+                  var topThreshold = offsets.top + (s.height() * .35);
                   if(curScrollPos <= topThreshold) {
-                    _animateScrollToElement(s, 500);
+                    _animateScrollToElement(s, animationSpeed);
                   }
                 }
               }
@@ -191,35 +221,16 @@ function init (isInitialLoad) {
       }
     };
 
-    // Size banner video
-    var _sizeVideo = function (elem) {
-      var wrapper = $('.covervid-wrapper')
-      if(elem.length) {
-  			// Get parent element height and width
-  			var parentHeight = wrapper.height();
-  			var parentWidth = wrapper.width();
-
-  			// Get native video width and height
-  			var nativeWidth = 1920;
-  			var nativeHeight = 1080;
-
-  			// Get the scale factors
-  			var heightScaleFactor = parentHeight / nativeHeight;
-  			var widthScaleFactor = parentWidth / nativeWidth;
-
-  			// Based on highest scale factor set width and height
-  			if (widthScaleFactor > heightScaleFactor) {
-  				elem.css({
-            'height':'auto',
-            'width': parentWidth+'px'
-          });
-  			} else {
-          elem.css({
-            'height': parentHeight+'px',
-            'width': 'auto'
-          });
-  			}
-  		}
+    /*
+      On video load, fade out first frame image and fade in video (silky smooth)
+      Prevents flash of black that you get with poster image attr.
+    */
+    var _videoLoadListener = function() {
+      var v = document.getElementsByTagName("video")[0];
+      v.addEventListener('loadeddata', function() {
+        // CSS tied to 'video-loaded' class makes image fade out to video smoothly:
+        $('.covervid-wrapper').addClass('video-loaded');
+      });
     };
 
     // Function calculates the current CSS rotation of the given element
@@ -254,6 +265,7 @@ function init (isInitialLoad) {
       $('.segment').click(function(e){
         e.preventDefault();
         clearTimeout(resetRotationTimeout);
+        valueWheel.resumeKeyframe();
         // Current rotation (in degrees) of value wheel SVG:
         var curRotation = _getCurrentRotation(document.getElementById('value-wheel'));
         // Rotation of segment clicked on (stored in data attr on element):
@@ -278,7 +290,9 @@ function init (isInitialLoad) {
         }
       });
 
-      valueWheel.mouseleave(function(){
+      valueWheel.mouseenter(function(){
+        valueWheel.pauseKeyframe();
+      }).mouseleave(function(){
         resetRotationTimeout = setTimeout(function(){
           // Define animation:
           $.keyframe.define([{
@@ -378,6 +392,7 @@ function init (isInitialLoad) {
 
     // Initialise Home Page JS:
     var init = function () {
+      _videoLoadListener();
       _initPlugins();
       _initBannerTitleAnimation();
       _initValueWheelAnimations();
@@ -404,7 +419,8 @@ function init (isInitialLoad) {
         transitionDuration: '0.8s',
         layoutMode: 'masonry',
         masonry: {
-          columnWidth: '.grid-sizer'
+          columnWidth: '.grid-sizer',
+          isFitWidth: true
         },
         getSortData: {
           coffees: '[data-coffees] parseInt',
@@ -470,6 +486,9 @@ function init (isInitialLoad) {
         } else {
           $('.person-wrap.on').removeClass('on');
           parentEl.addClass('on');
+          setTimeout(function(){
+            $('html, body').animate({ scrollTop: (parentEl.offset().top - 80) }, 1000);
+          }, 300);
         }
         // Trigger isotope to redraw layout after tile expansion:
         $('.js-isotope').isotope('layout');
@@ -515,6 +534,9 @@ function init (isInitialLoad) {
   /*===========================================================================
     Initialise Relevant Modules (based on current pathname):
   ===========================================================================*/
+
+  $(window).off();
+  $('html, body').off();
 
   // Always fire:
   SiteWide.init();

@@ -32,8 +32,11 @@ ishome: true
       </div>
     </div> <!-- #home-panel-nav -->
     <div class="covervid-wrapper">
-      <video class="js-covervid-video" autoplay loop>
-        <source src="{{ "/img/looped.mp4" | prepend: site.baseurl }}" type="video/mp4">
+      <div class="video-fallback js-image-fill">
+        <img src="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <video class="js-covervid-video" poster="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" autoplay loop>
+        <source src="http://d88e5668b252622f19fa-53b266e97c0af9c711d72e69e4af35ea.r86.cf4.rackcdn.com/looped.mp4" type="video/mp4">
       </video>
     </div> <!-- .covervid-wrapper -->
     <div class="banner-text-wrap">
@@ -55,7 +58,7 @@ ishome: true
         </div>
       </div> <!-- .faux-table -->
     </div> <!-- .banner-text-wrap -->
-    <div class="naaw-its-mattie">
+    <div class="naaw-its-mattie mob-hide">
       <a href="#work-panel" class="js-next-panel mattie-link" data-no-instant>
         <img src="{{ "/img/mattie.png" | prepend: site.baseurl }}" width="255" height="162" alt="" />
         <span class="tail-tip"><img class="tip-wag" src="{{ "/img/tail-tip.png" | prepend: site.baseurl }}" width="38" height="46" alt="" /></span>
@@ -70,7 +73,7 @@ ishome: true
         <div class="faux-table-cell">
 
           <h2 class="lowercase underline-orange">Build the right thing</h2>
-          <p class="text-size-24 max-850">We combine <span class="emphasis">thoughtful design</span> with <span class="emphasis">clever technology</span> to help build successful Software, Websites &amp; Apps for a range of private businesses &amp; progressive organisations.</p>
+          <p class="text-size-24 max-850">We combine <span class="emphasis">thoughtful design</span> with <span class="emphasis">clever technology</span> to help build successful software, websites &amp; apps for a range of private businesses &amp; progressive organisations.</p>
 
           <ul class="logo-grid">
             <li class="grid-item"><a href="#" class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/1-nzta.png" | prepend: site.baseurl }}" alt="" /></a></li>
@@ -185,8 +188,8 @@ ishome: true
               <div class="circle-link">
                 <h3 class="circle-main-hd lowercase fancy-pants-font">Christchurch</h3>
                 <h4 class="circle-sub-hd lowercase">New Zealand</h4>
-                <a href="https://www.google.co.nz/maps/place/Web+Design+Christchurch+%7C+Media+Suite/@-43.5560525,172.7021522,17z/data=!3m1!4b1!4m2!3m1!1s0x6d318827b1845c03:0x27ff5a1af46237fb" class="js-image-fill" data-no-instant target="_blank">
-                  <img src="{{ "/img/hello-chch.jpg" | prepend: baseurl }}" alt="Media Suite office in Christchurc, New Zealand" />
+                <a href="{{ "/say-hello" | prepend: site.baseurl }}" class="js-image-fill" data-no-instant target="_blank">
+                  <img src="{{ "/img/hello-chch.jpg" | prepend: site.baseurl }}" alt="Media Suite office in Christchurc, New Zealand" />
                 </a>
               </div>
             </div> <!-- .col -->
@@ -194,13 +197,13 @@ ishome: true
               <div class="circle-link">
                 <h3 class="circle-main-hd lowercase fancy-pants-font">Oslo</h3>
                 <h4 class="circle-sub-hd lowercase">Norway</h4>
-                <a href="https://www.google.co.nz/maps/place/Oslo,+Norway/@59.8937806,10.6450366,11z/data=!3m1!4b1!4m2!3m1!1s0x46416e61f267f039:0x7e92605fd3231e9a" class="js-image-fill" data-no-instant target="_blank">
-                  <img src="{{ "/img/hello-oslo.jpg" | prepend: baseurl }}" alt="Media Suite office in Oslo, Norway" />
+                <a href="{{ "/say-hello" | prepend: site.baseurl }}" class="js-image-fill" data-no-instant target="_blank">
+                  <img src="{{ "/img/hello-oslo.jpg" | prepend: site.baseurl }}" alt="Media Suite office in Oslo, Norway" />
                 </a>
               </div>
             </div> <!-- .col -->
           </div> <!-- .cols-wrap -->
-          <a href="{{ "/say-hello" | prepend: baseurl }}" class="drop-btn orange-bg">Say hello</a>
+          <a href="{{ "/say-hello" | prepend: site.baseurl }}" class="drop-btn orange-bg">Say hello</a>
         </div> <!-- .faux-table-cell -->
       </div> <!-- .faux-table -->
     </div>
