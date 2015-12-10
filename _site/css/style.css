@@ -1472,13 +1472,24 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -41px;
-  margin-left: -41px;
+  margin-top: -33px;
+  margin-left: -33px;
+  width: 67px;
+  height: 67px;
   text-align: center;
 }
 
 .burst {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.burst-shadow {
+  position: absolute;
+  left: 2px;
+  top: 2px;
   z-index: 1;
 }
 
@@ -1489,7 +1500,8 @@ a {
   text-align: center;
   width: 100%;
   display: inline-block;
-  top: 28px;
+  top: 25px;
+  left: 0;
   line-height: 1;
   font-size: 1.8rem;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.2);

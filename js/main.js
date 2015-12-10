@@ -42,10 +42,9 @@ function init (isInitialLoad) {
       }
     };
 
+    // Triggers animation of content (subtle fade-in/up)
     var _fadeInContent = function() {
-      if(!$('.home-page').length){
-        $('.internal-page').addClass('show');
-      }
+      if(!$('.home-page').length) $('.internal-page').addClass('show');
     };
 
     // Animate page scroll to target element
@@ -102,16 +101,13 @@ function init (isInitialLoad) {
     */
     var _initCoverVideo = function() {
       var video = $('.js-covervid-video');
-      if(video.length) {
-        video.coverVid(1920, 1080);
-      }
+      if(video.length)  video.coverVid(1920, 1080);
     };
 
     /*
       Functions using waypoints.js (detects when elements enter/leave viewport)
     */
     var _initWaypoints = function() {
-      // Show page header when scrolled past first slide (alt version used there)
       _initSideNavControl();
       _initFadeInAnimation();
     };
@@ -144,6 +140,7 @@ function init (isInitialLoad) {
           element: section,
           handler: function(direction) {
             _updateActivePanelLink(_getSideNavLink(section));
+            // Slide in top navigation after page scrolled past first slide:
             if(section.attr('id') == 'clients-panel') {
               if(direction == 'down') $('#page-header').addClass('on');
               else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
@@ -292,6 +289,7 @@ function init (isInitialLoad) {
         }
       });
 
+      // Pause value wheel rotation on mouse enter, resume on mouse leave:
       valueWheel.mouseenter(function(){
         valueWheel.pauseKeyframe();
       }).mouseleave(function(){
@@ -315,6 +313,7 @@ function init (isInitialLoad) {
       });
     };
 
+    // Controls animation of banner text on home page
     var _initBannerTitleAnimation = function () {
       var bannerTitle = $('.js-accordion-text');
       if(bannerTitle.length) {
@@ -325,6 +324,7 @@ function init (isInitialLoad) {
       }
     };
 
+    // Animate each title word in from the right
     var _animateTitleIn = function (bannerEl, curBannerWidth, titleSectionEl, doIterate) {
       var sectionWidth = titleSectionEl.outerWidth(true) + 30;
       var newBannerWidth = curBannerWidth + sectionWidth;
@@ -344,6 +344,7 @@ function init (isInitialLoad) {
       }
     };
 
+    // Controls animation of each alternate word at end of banner text
     var _initAltTitlesAnimation = function (bannerEl) {
       var titleAlts = $('.js-has-variations');
       if(titleAlts.length) {
@@ -360,6 +361,7 @@ function init (isInitialLoad) {
       }
     };
 
+    // Animate in/out each variant of the last word in, stopping on final one
     var _animateAltTitleIn = function (alt, activeAlt) {
       setTimeout(function(){
         if(activeAlt.length){
@@ -447,6 +449,7 @@ function init (isInitialLoad) {
       }, 100);
     };
 
+    // Element contains people "tiles"
     var _isoContainer = $('.js-isotope');
 
     // Setup people tiles and initialise plugin
@@ -495,7 +498,7 @@ function init (isInitialLoad) {
       });
     };
 
-
+    // Controls various sort filters for people tiles (most cats, commits etc)
     var _initSortControls = function () {
       var sortBtns = $('.sort-btn');
       sortBtns.click(function(e){
@@ -535,6 +538,7 @@ function init (isInitialLoad) {
     Initialise Relevant Modules (based on current pathname):
   ===========================================================================*/
 
+  // Remove event listeners attached to window/document on page change:
   $(window).off();
   $('html, body').off();
 
