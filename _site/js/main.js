@@ -234,6 +234,11 @@ function init (isInitialLoad) {
       Prevents flash of black that you get with poster image attr.
     */
     var _videoLoadListener = function() {
+      // Wait until banner image is loaded before animating text
+      $('.video-fallback').imagesLoaded( function() {
+        _initBannerTitleAnimation();
+      });
+      // Attach listener for video load
       var v = document.getElementsByTagName("video")[0];
       v.addEventListener('loadeddata', function() {
         // CSS tied to 'video-loaded' class makes image fade out to video smoothly:
@@ -407,7 +412,6 @@ function init (isInitialLoad) {
     var init = function () {
       _videoLoadListener();
       _initPlugins();
-      _initBannerTitleAnimation();
       _initValueWheelAnimations();
       _initPanelSnap();
       _initSideNav();
