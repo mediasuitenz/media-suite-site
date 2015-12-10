@@ -66,10 +66,19 @@ function init (isInitialLoad) {
       }
     };
 
+    var _initSmoothScroll = function() {
+      $('.js-scroll-to').click(function(e){
+        e.preventDefault();
+        var target = $($(this).attr('href'));
+        if(target.length) animateScrollToElement(target, 1200, 0);
+      });
+    }
+
     // Initialise all site-wide JS:
     var init = function () {
       _initPlugins();
       _initMenu();
+      _initSmoothScroll();
       _fadeInContent();
     };
 
