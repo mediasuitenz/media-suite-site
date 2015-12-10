@@ -1404,6 +1404,8 @@ a {
 
 .bio-body {
   text-align: left;
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 .grid-sizer {
