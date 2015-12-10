@@ -42,7 +42,8 @@ body {
 .max-1500,
 .max-1200,
 .max-1000,
-.max-760 {
+.max-760,
+.max-570 {
   margin-left: 20px;
   margin-right: 20px;
   position: relative;
@@ -63,6 +64,10 @@ body {
 
 .max-760 {
   max-width: 760px;
+}
+
+.max-570 {
+  max-width: 570px;
 }
 
 .max-1200 .max-1000,
@@ -92,7 +97,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: inherit;
 }
 
-h1, h2, h3, h4, .fancy-pants-font {
+h1, h2, h3, h4,
+.fancy-pants-font,
+.emphasis {
   font-family: 'chelthmitc_bk_btbold_italic', serif;
 }
 
@@ -105,10 +112,6 @@ h2 {
 a {
   text-decoration: none;
   color: #f27c00;
-}
-
-.emphasis {
-  font-family: 'chelthmitc_bk_btbold_italic', serif;
 }
 
 .js-image-fill {
@@ -561,6 +564,10 @@ a {
 #container {
   position: relative;
   z-index: 10;
+}
+
+.full-height {
+  height: 100%;
 }
 
 /*-----------------------------------------------------
@@ -1607,6 +1614,78 @@ a {
 }
 
 /*-----------------------------------------------------
+  Contact Page:
+------------------------------------------------------*/
+
+.contact-page {
+  height: calc(100% - 100px);
+}
+
+.contact-page h1 {
+  margin-bottom: 50px;
+}
+
+.contact-page h2 {
+  font-size: 3.8rem;
+  margin-bottom: 30px;
+}
+
+.address-wrap {
+  margin-bottom: 60px;
+}
+
+.contact-left,
+.contact-right {
+  position: relative;
+  min-height: 130px;
+  padding-bottom: 40px;
+}
+
+.contact-left a,
+.contact-right a {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-left {
+  float: left;
+}
+
+.contact-right {
+  float: right;
+}
+
+address {
+  font-style: normal;
+}
+
+dl {
+  display: inline-block;
+  margin: 0;
+}
+
+dt {
+  float: left;
+  clear: left;
+  min-width: 55px;
+  text-align: right;
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+  margin: 0 10px 7px 0;
+}
+
+dd {
+  float: left;
+  margin: 0 0 7px 0;
+}
+
+.postal-address-wrap {
+  margin-bottom: 80px;
+}
+
+/*-----------------------------------------------------
   Media Queries:
 ------------------------------------------------------*/
 
@@ -1804,7 +1883,8 @@ a {
   .max-1500,
   .max-1200,
   .max-1000,
-  .max-760 {
+  .max-760,
+  .max-570 {
     margin-left: 50px;
     margin-right: 50px;
   }
@@ -1893,6 +1973,15 @@ a {
 
   .bio-real-image {
     display: none;
+  }
+
+}
+
+@media only screen and (min-width: 610px) {
+
+  .max-570 {
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
