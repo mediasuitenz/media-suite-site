@@ -1488,8 +1488,8 @@ a {
 
 .burst-shadow {
   position: absolute;
-  left: 2px;
-  top: 2px;
+  left: 3px;
+  top: 3px;
   z-index: 1;
 }
 
