@@ -48,6 +48,25 @@ function init (isInitialLoad) {
       }
     };
 
+    // Animate page scroll to target element
+    var animateScrollToElement = function(target, speed, offsetTop) {
+      if(target.length){
+        var page = $('body, html');
+        var scrollTo = target.offset().top;
+        if(typeof offsetTop !== 'undefined') scrollTo -= offsetTop;
+
+        // Stop animation on page element when scrolling manually:
+        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+         page.stop();
+        });
+
+        // Animate page scroll to target element, remove above listener on complete:
+        page.animate({ scrollTop: scrollTo+'px' }, speed, function(){
+         page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+        });
+      }
+    };
+
     // Initialise all site-wide JS:
     var init = function () {
       _initPlugins();
@@ -56,7 +75,8 @@ function init (isInitialLoad) {
     };
 
     return {
-      init: init
+      init: init,
+      animateScrollToElement: animateScrollToElement
     };
 
   })();
@@ -144,7 +164,7 @@ function init (isInitialLoad) {
         e.preventDefault();
         var t = $(this);
         _updateActivePanelLink(t);
-        _animateScrollToElement($(t.attr('href')), 800);
+        SiteWide.animateScrollToElement($(t.attr('href')), 800);
       });
     };
 
@@ -175,11 +195,11 @@ function init (isInitialLoad) {
                 var bottomThreshold = offsets.bottom - (s.height() * .35);
                 if(curScrollPos >= bottomThreshold) {
                   var nextSection = s.next();
-                  _animateScrollToElement(nextSection, animationSpeed);
+                  SiteWide.animateScrollToElement(nextSection, animationSpeed);
                 } else {
                   var topThreshold = offsets.top + (s.height() * .35);
                   if(curScrollPos <= topThreshold) {
-                    _animateScrollToElement(s, animationSpeed);
+                    SiteWide.animateScrollToElement(s, animationSpeed);
                   }
                 }
               }
@@ -200,24 +220,6 @@ function init (isInitialLoad) {
       return {
         top : topOffset,
         bottom : bottomOffset
-      }
-    };
-
-    // Animate page scroll to target element
-    var _animateScrollToElement = function(target, speed) {
-      if(target.length){
-        var page = $('body, html');
-        var scrollTo = target.offset().top;
-
-        // Stop animation on page element when scrolling manually:
-        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
-         page.stop();
-        });
-
-        // Animate page scroll to target element, remove above listener on complete:
-        page.animate({ scrollTop: scrollTo+'px' }, speed, function(){
-         page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
-        });
       }
     };
 
@@ -466,8 +468,6 @@ function init (isInitialLoad) {
           } else {
             _initIsotope(_isoContainer);
             setTimeout(function(){
-              // _isoContainer.isotope('destroy');
-              // _isoContainer.find('.js-iso-element').removeAttr('style');
               _isoContainer.isotope('layout');
               _fadeInTiles(_isoContainer.find('img'));
             }, 400);
@@ -487,7 +487,7 @@ function init (isInitialLoad) {
           $('.person-wrap.on').removeClass('on');
           parentEl.addClass('on');
           setTimeout(function(){
-            $('html, body').animate({ scrollTop: (parentEl.offset().top - 80) }, 1000);
+            SiteWide.animateScrollToElement(parentEl, 1000, 100);
           }, 300);
         }
         // Trigger isotope to redraw layout after tile expansion:
