@@ -42,21 +42,49 @@ function init (isInitialLoad) {
       }
     };
 
+    // Triggers animation of content (subtle fade-in/up)
     var _fadeInContent = function() {
-      if(!$('.home-page').length){
-        $('.internal-page').addClass('show');
+      if(!$('.home-page').length) $('.internal-page').addClass('show');
+    };
+
+    // Animate page scroll to target element
+    var animateScrollToElement = function(target, speed, offsetTop) {
+      if(target.length){
+        var page = $('body, html');
+        var scrollTo = target.offset().top;
+        if(typeof offsetTop !== 'undefined') scrollTo -= offsetTop;
+
+        // Stop animation on page element when scrolling manually:
+        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+         page.stop();
+        });
+
+        // Animate page scroll to target element, remove above listener on complete:
+        page.animate({ scrollTop: scrollTo+'px' }, speed, function(){
+         page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+        });
       }
     };
+
+    var _initSmoothScroll = function() {
+      $('.js-scroll-to').click(function(e){
+        e.preventDefault();
+        var target = $($(this).attr('href'));
+        if(target.length) animateScrollToElement(target, 1200, 0);
+      });
+    }
 
     // Initialise all site-wide JS:
     var init = function () {
       _initPlugins();
       _initMenu();
+      _initSmoothScroll();
       _fadeInContent();
     };
 
     return {
-      init: init
+      init: init,
+      animateScrollToElement: animateScrollToElement
     };
 
   })();
@@ -82,16 +110,13 @@ function init (isInitialLoad) {
     */
     var _initCoverVideo = function() {
       var video = $('.js-covervid-video');
-      if(video.length) {
-        video.coverVid(1920, 1080);
-      }
+      if(video.length)  video.coverVid(1920, 1080);
     };
 
     /*
       Functions using waypoints.js (detects when elements enter/leave viewport)
     */
     var _initWaypoints = function() {
-      // Show page header when scrolled past first slide (alt version used there)
       _initSideNavControl();
       _initFadeInAnimation();
     };
@@ -124,6 +149,7 @@ function init (isInitialLoad) {
           element: section,
           handler: function(direction) {
             _updateActivePanelLink(_getSideNavLink(section));
+            // Slide in top navigation after page scrolled past first slide:
             if(section.attr('id') == 'clients-panel') {
               if(direction == 'down') $('#page-header').addClass('on');
               else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
@@ -144,7 +170,7 @@ function init (isInitialLoad) {
         e.preventDefault();
         var t = $(this);
         _updateActivePanelLink(t);
-        _animateScrollToElement($(t.attr('href')), 800);
+        SiteWide.animateScrollToElement($(t.attr('href')), 800);
       });
     };
 
@@ -175,11 +201,11 @@ function init (isInitialLoad) {
                 var bottomThreshold = offsets.bottom - (s.height() * .35);
                 if(curScrollPos >= bottomThreshold) {
                   var nextSection = s.next();
-                  _animateScrollToElement(nextSection, animationSpeed);
+                  SiteWide.animateScrollToElement(nextSection, animationSpeed);
                 } else {
                   var topThreshold = offsets.top + (s.height() * .35);
                   if(curScrollPos <= topThreshold) {
-                    _animateScrollToElement(s, animationSpeed);
+                    SiteWide.animateScrollToElement(s, animationSpeed);
                   }
                 }
               }
@@ -200,24 +226,6 @@ function init (isInitialLoad) {
       return {
         top : topOffset,
         bottom : bottomOffset
-      }
-    };
-
-    // Animate page scroll to target element
-    var _animateScrollToElement = function(target, speed) {
-      if(target.length){
-        var page = $('body, html');
-        var scrollTo = target.offset().top;
-
-        // Stop animation on page element when scrolling manually:
-        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
-         page.stop();
-        });
-
-        // Animate page scroll to target element, remove above listener on complete:
-        page.animate({ scrollTop: scrollTo+'px' }, speed, function(){
-         page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
-        });
       }
     };
 
@@ -290,6 +298,7 @@ function init (isInitialLoad) {
         }
       });
 
+      // Pause value wheel rotation on mouse enter, resume on mouse leave:
       valueWheel.mouseenter(function(){
         valueWheel.pauseKeyframe();
       }).mouseleave(function(){
@@ -313,6 +322,7 @@ function init (isInitialLoad) {
       });
     };
 
+    // Controls animation of banner text on home page
     var _initBannerTitleAnimation = function () {
       var bannerTitle = $('.js-accordion-text');
       if(bannerTitle.length) {
@@ -323,6 +333,7 @@ function init (isInitialLoad) {
       }
     };
 
+    // Animate each title word in from the right
     var _animateTitleIn = function (bannerEl, curBannerWidth, titleSectionEl, doIterate) {
       var sectionWidth = titleSectionEl.outerWidth(true) + 30;
       var newBannerWidth = curBannerWidth + sectionWidth;
@@ -342,6 +353,7 @@ function init (isInitialLoad) {
       }
     };
 
+    // Controls animation of each alternate word at end of banner text
     var _initAltTitlesAnimation = function (bannerEl) {
       var titleAlts = $('.js-has-variations');
       if(titleAlts.length) {
@@ -358,6 +370,7 @@ function init (isInitialLoad) {
       }
     };
 
+    // Animate in/out each variant of the last word in, stopping on final one
     var _animateAltTitleIn = function (alt, activeAlt) {
       setTimeout(function(){
         if(activeAlt.length){
@@ -445,6 +458,7 @@ function init (isInitialLoad) {
       }, 100);
     };
 
+    // Element contains people "tiles"
     var _isoContainer = $('.js-isotope');
 
     // Setup people tiles and initialise plugin
@@ -466,8 +480,6 @@ function init (isInitialLoad) {
           } else {
             _initIsotope(_isoContainer);
             setTimeout(function(){
-              // _isoContainer.isotope('destroy');
-              // _isoContainer.find('.js-iso-element').removeAttr('style');
               _isoContainer.isotope('layout');
               _fadeInTiles(_isoContainer.find('img'));
             }, 400);
@@ -487,7 +499,7 @@ function init (isInitialLoad) {
           $('.person-wrap.on').removeClass('on');
           parentEl.addClass('on');
           setTimeout(function(){
-            $('html, body').animate({ scrollTop: (parentEl.offset().top - 80) }, 1000);
+            SiteWide.animateScrollToElement(parentEl, 1000, 100);
           }, 300);
         }
         // Trigger isotope to redraw layout after tile expansion:
@@ -495,7 +507,7 @@ function init (isInitialLoad) {
       });
     };
 
-
+    // Controls various sort filters for people tiles (most cats, commits etc)
     var _initSortControls = function () {
       var sortBtns = $('.sort-btn');
       sortBtns.click(function(e){
@@ -535,6 +547,7 @@ function init (isInitialLoad) {
     Initialise Relevant Modules (based on current pathname):
   ===========================================================================*/
 
+  // Remove event listeners attached to window/document on page change:
   $(window).off();
   $('html, body').off();
 

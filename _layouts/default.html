@@ -10,7 +10,7 @@
 
     {% include header.html %}
 
-    <div id="container"{% if(page.ishome) %} class="home-page-container" {% endif %}>
+    <div id="container"{% if(page.ishome) %} class="home-page-container" {% endif %}{% if(page.isfullheight) %} class="full-height" {% endif %}>
 
       {{ content }}
 
