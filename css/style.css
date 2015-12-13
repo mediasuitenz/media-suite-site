@@ -1947,15 +1947,14 @@ dd {
   .trigger-icon {
     display: inline-block;
     vertical-align: middle;
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .menu-trigger-text {
     display: inline-block;
-    line-height: 50px;
     vertical-align: middle;
-    font-weight: 600;
-    font-size: 1.6rem;
+    font-weight: 700;
+    font-size: 2.2rem;
   }
 
   .grid-item-link {
