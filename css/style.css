@@ -1678,7 +1678,7 @@ a {
 ------------------------------------------------------*/
 
 .contact-page {
-  height: calc(100% - 100px);
+  height: 100%;
 }
 
 .contact-page h1 {
@@ -1690,7 +1690,7 @@ a {
   margin-bottom: 30px;
 }
 
-.address-wrap {
+.contact-details-top {
   margin-bottom: 60px;
 }
 
@@ -1722,26 +1722,7 @@ address {
   font-style: normal;
 }
 
-dl {
-  display: inline-block;
-  margin: 0;
-}
-
-dt {
-  float: left;
-  clear: left;
-  min-width: 55px;
-  text-align: right;
-  font-family: 'chelthmitc_bk_btbold_italic', serif;
-  margin: 0 10px 7px 0;
-}
-
-dd {
-  float: left;
-  margin: 0 0 7px 0;
-}
-
-.postal-address-wrap {
+.contact-details-btm {
   margin-bottom: 80px;
 }
 
