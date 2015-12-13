@@ -238,12 +238,17 @@ function init (isInitialLoad) {
       $('.video-fallback').imagesLoaded( function() {
         _initBannerTitleAnimation();
       });
-      // Attach listener for video load
-      var v = document.getElementsByTagName("video")[0];
-      v.addEventListener('loadeddata', function() {
-        // CSS tied to 'video-loaded' class makes image fade out to video smoothly:
-        $('.covervid-wrapper').addClass('video-loaded');
-      });
+      // Check screen size and load in video if at least 768px wide
+      if(Modernizr.mq('(min-width: 768px)')) {
+        $('.js-covervid-video').append('<source src="http://d88e5668b252622f19fa-53b266e97c0af9c711d72e69e4af35ea.r86.cf4.rackcdn.com/looped.mp4" type="video/mp4">');
+        // Attach listener for video load
+        var v = document.getElementsByTagName("video")[0];
+        v.addEventListener('loadeddata', function() {
+          // CSS tied to 'video-loaded' class makes image fade out to video smoothly:
+          $('.covervid-wrapper').addClass('video-loaded');
+        });
+      }
+
     };
 
     // Function calculates the current CSS rotation of the given element
