@@ -126,6 +126,11 @@ a {
   color: #fff;
 }
 
+.text-black,
+.text-black a {
+  color: #000;
+}
+
 .lowercase {
   text-transform: lowercase;
 }
@@ -1033,6 +1038,11 @@ a {
 
 #culture-col-3 h4 {
   text-align: left;
+}
+
+#home-people-ill {
+  display: block;
+  margin-bottom: 16px;
 }
 
 /*-----------------------------------------------------
@@ -2139,13 +2149,7 @@ dd {
   }
 
   #home-nav-logo {
-    height: 71px;
-    transform: scale(.9);
-    transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-  }
-
-  #home-nav-logo:hover {
-    transform: scale(1);
+    height: 64px;
   }
 
   #home-nav-logo span {
