@@ -927,11 +927,13 @@ a {
   cursor: pointer;
 }
 
-.segment:hover .segment-bg use {
+.segment:hover .segment-bg use,
+.segment:hover .segment-bg .segment-poly {
   transition: all .3s ease-in-out;
 }
 
-.segment:hover .segment-bg use {
+.segment:hover .segment-bg use,
+.segment:hover .segment-bg .segment-poly {
   fill: #8E8E8E !important;
 }
 
