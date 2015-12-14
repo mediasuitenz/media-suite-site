@@ -149,7 +149,6 @@ function init (isInitialLoad) {
         var waypoint = new Waypoint({
           element: section,
           handler: function(direction) {
-            console.log('triggered '+this.element.attr('id'));
             _updateActivePanelLink(_getSideNavLink(section));
             // Slide in top navigation after page scrolled past first slide:
             if(section.attr('id') == 'clients-panel') {
