@@ -145,16 +145,19 @@ function init (isInitialLoad) {
       var sections = $('.home-page').children('section');
       sections.each(function(){
         var section = $(this);
+        var offset = section.attr('id') == 'banner-panel' ? -4:0;
         var waypoint = new Waypoint({
           element: section,
           handler: function(direction) {
+            console.log('triggered '+this.element.attr('id'));
             _updateActivePanelLink(_getSideNavLink(section));
             // Slide in top navigation after page scrolled past first slide:
             if(section.attr('id') == 'clients-panel') {
               if(direction == 'down') $('#page-header').addClass('on');
               else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
             }
-          }
+          },
+          offset: offset
         });
       });
     };
