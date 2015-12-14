@@ -401,6 +401,8 @@ function init (isInitialLoad) {
           var nextAlt = alt.next();
           if(nextAlt.length){
             _animateAltTitleIn(alt.next(), alt);
+          } else {
+            $('.banner-cta').addClass('show');
           }
         }, 500);
       }, 500);
