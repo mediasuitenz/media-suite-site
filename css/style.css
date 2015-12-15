@@ -28,6 +28,8 @@ body {
 *:after {
   box-sizing: border-box;
   image-rendering: -webkit-optimize-contrast;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .clearfix:after,
@@ -92,6 +94,9 @@ body {
   font-family: 'Open Sans', serif;
   font-weight: 300;
 }
+img{
+  image-rendering: optimizeQuality;
+}
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: inherit;
@@ -101,6 +106,7 @@ h1, h2, h3, h4,
 .fancy-pants-font,
 .emphasis {
   font-family: 'chelthmitc_bk_btbold_italic', serif;
+  font-weight:400;
 }
 
 h1,
@@ -323,6 +329,7 @@ a {
 
 #page-header {
   display: block;
+  position: relative;
   top: 0;
   left: 0;
   height: auto;
@@ -344,7 +351,7 @@ a {
 }
 
 #page-header .trigger-icon {
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 
 #page-header a {
@@ -462,7 +469,7 @@ a {
 }
 
 .trigger-icon {
-  font-size: 5rem;
+  font-size: 4rem;
   line-height: 4rem;
 }
 
@@ -511,14 +518,16 @@ a {
 
 #close-menu-link {
   float: right;
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 2.2rem;
+  font-weight: 700;
   vertical-align: middle;
+  margin-right: 5px;
 }
 
 #close-menu-link i:before{
   font-size: 3.3rem;
   vertical-align: middle;
+  margin: 0 -3px 0 0;
 }
 
 #menu-list {
@@ -604,13 +613,21 @@ a {
   font-weight: 600;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
   z-index: 999;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.5;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms ease, transform 800ms ease-out;
+}
+
+.banner-cta.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .banner-cta i {
   display: block;
-  margin-top: 10px;
+  font-size: 2rem;
 }
 
 .video-fallback {
@@ -704,7 +721,7 @@ a {
   margin: 0;
   position: relative;
   display: inline-block;
-  font-size: 6.2rem;
+  font-size: 5rem;
   line-height: 1;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.50);
@@ -852,12 +869,12 @@ a {
 
 .value-wheel-middle {
   font-family: 'chelthmitc_bk_btbold_italic', serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   position: absolute;
   width: 62px;
   left: 50%;
   top: 50%;
-  margin: -28px 0 0 -28px;
+  margin: -28px 0 0 -40px;
   text-align: center;
 }
 
@@ -976,9 +993,10 @@ a {
 }
 
 #culture-col-2 ul {
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
   margin-bottom: 20px;
-  font-size: 2rem;
-  line-height: 1.4;
+  font-size: 2.5rem;
+  line-height: 5rem;
 }
 
 .home-team-img {
@@ -1273,7 +1291,7 @@ a {
 .tip:after {
   position: absolute;
   font-size: 14px;
-  font-weight: bold;
+  font-weight:400;
   background: #ff632e;
   border-radius: 3px;
   padding: 10px;
@@ -1712,12 +1730,12 @@ address {
   .title-section {
     display: block;
     width: 100%;
-    min-height: 75px;
+    min-height: 65px;
   }
 
   .banner-title {
     width: 100%;
-    padding: 100px 30px 0 30px;
+    padding: 0px 30px 0 30px;
   }
 
   .banner-text-wrap .faux-table {
@@ -1730,7 +1748,7 @@ address {
   }
 
   .content-panel {
-    padding: 40px 0 20px 0;
+    padding: 100px 0 20px 0;
   }
 
   .content-panel .faux-table,
@@ -1739,6 +1757,10 @@ address {
     display: block;
     max-width: 100%;
     overflow: hidden;
+  }
+
+  #close-menu-link span {
+    display: none;
   }
 
   h1,
@@ -1882,14 +1904,31 @@ address {
   .max-1000,
   .max-760,
   .max-570 {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 
 }
 
 /* Large Devices Up: */
 @media only screen and (min-width: 480px) {
+
+  .max-1500,
+  .max-1200,
+  .max-1000,
+  .max-760,
+  .max-570 {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .banner-title {
+    font-size: 6.2rem;
+    padding: 0px 30px 0 50px;
+  }
+  .title-section {
+    min-height: 75px;
+  }
 
   .trigger-icon {
     display: inline-block;
@@ -1928,7 +1967,7 @@ address {
   }
 
   .value-wheel-middle {
-    font-size: 2rem;
+    font-size: 2.5rem;
     width: 106px;
     margin-left: -53px;
   }
@@ -2373,11 +2412,6 @@ address {
     margin-left: 100px;
   }
 
-  #culture-col-2 ul {
-    font-size: 1.8rem;
-    line-height: 2;
-  }
-
   .sort-btn {
     font-size: 2.2rem;
     margin: 0 28px;
@@ -2473,7 +2507,7 @@ address {
     float: right;
     margin-right: 45px;
     text-align: right;
-    margin-top: 70px;
+    margin-top: 20px;
   }
 
   #culture-col-3 {
@@ -2488,8 +2522,6 @@ address {
 
   #culture-col-2 ul {
     margin-bottom: 42px;
-    font-size: 2rem;
-    line-height: 2.15;
   }
 
   #culture-col-2 .drop-btn,
