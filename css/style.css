@@ -2041,8 +2041,7 @@ address {
     height: 15px;
   }
 
-  .side-nav-link:before {
-    content: '';
+  .side-nav-circle {
     display: block;
     width: 15px;
     height: 15px;
@@ -2055,15 +2054,6 @@ address {
     overflow: hidden;
     opacity: 1;
     transition: all 300ms ease;
-    transition-delay: 800ms;
-  }
-
-  .side-nav-link.active:before {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    margin: 0;
-    border: none;
   }
 
   .side-nav-num {
@@ -2078,11 +2068,6 @@ address {
     top: 0;
     overflow: hidden;
     transition: all 800ms ease;
-  }
-
-  .side-nav-link.active .side-nav-num {
-    width: 70px;
-    left: -28px;
   }
 
   #home-nav-logo {
