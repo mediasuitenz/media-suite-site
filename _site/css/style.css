@@ -463,7 +463,7 @@ a {
 
 .trigger-icon {
   font-size: 5rem;
-  line-height: 1;
+  line-height: 4rem;
 }
 
 .trigger-icon:before {
@@ -1938,7 +1938,7 @@ address {
   .trigger-icon {
     display: inline-block;
     vertical-align: middle;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 
   .menu-trigger-text {
