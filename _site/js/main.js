@@ -142,23 +142,18 @@ function init (isInitialLoad) {
 
     // Waypoints used to update active panel in side nav
     var _initSideNavControl = function() {
-      var sections = $('.home-page').children('section');
-      sections.each(function(){
-        var section = $(this);
-        var offset = section.attr('id') == 'banner-panel' ? -4:0;
-        var waypoint = new Waypoint({
-          element: section,
-          handler: function(direction) {
-            console.log('triggered '+this.element.attr('id'));
-            _updateActivePanelLink(_getSideNavLink(section));
+      var waypointUp = new Waypoint({
+        element: $('#banner-panel'),
+        handler: function(direction) {
+          if(direction == 'up') {
             // Slide in top navigation after page scrolled past first slide:
-            if(section.attr('id') == 'clients-panel') {
-              if(direction == 'down') $('#page-header').addClass('on');
-              else if(direction == 'up' && $('.home-page-container').length) $('#page-header').removeClass('on');
-            }
-          },
-          offset: offset
-        });
+            $('#page-header').removeClass('on');
+          } else {
+            // Remove navigation bar when viewing first slide (alt version in slide):
+            $('#page-header').addClass('on');
+          }
+        },
+        offset: '-100%'
       });
     };
 
@@ -167,55 +162,110 @@ function init (isInitialLoad) {
       return $('.js-goto-panel[href="#'+section.attr('id')+'"]');
     };
 
+
     // Click handler for side nav links
     var _initSideNav = function () {
       $('.js-goto-panel').click(function(e){
         e.preventDefault();
         var t = $(this);
-        _updateActivePanelLink(t);
-        SiteWide.animateScrollToElement($(t.attr('href')), 800);
+        var target = $($(this).attr('href'));
+        SiteWide.animateScrollToElement(target, 1000, 0);
+        _turnPanelLinkOff($('.js-goto-panel.active'));
+        _turnPanelLinkOn(t);
+      });
+
+      // Update nav as user scrolls through panels
+      var interval;
+      var intervalSet = false;
+      $(window).on('scrollstop', function(){
+        var curPanel = _getCurrentPanel();
+        if(curPanel) {
+          var panelLink = _getSideNavLink(curPanel);
+          if(!panelLink.hasClass('active')){
+            _turnPanelLinkOff($('.js-goto-panel.active'));
+            _turnPanelLinkOn(panelLink);
+          }
+        }
       });
     };
 
-    // Update active side nav link to element passed in
-    var _updateActivePanelLink = function(activeLink) {
-      $('.js-goto-panel.active').removeClass('active');
-      activeLink.addClass('active');
+    var _turnPanelLinkOff = function (link) {
+      link.removeClass('active');
+      var circle = link.find('.side-nav-circle');
+      var num = link.find('.side-nav-num');
+      num.css({
+        'width': '0',
+        'left': '50%'
+      });
+      setTimeout(function(){
+        circle.css({
+          'width': '15px',
+          'height': '15px',
+          'border-color': '#f27c00',
+          'margin': '-7px 0 0 -7px'
+        });
+      }, 850);
+    };
+
+    var _turnPanelLinkOn = function (link) {
+      link.addClass('active');
+      var circle = link.find('.side-nav-circle');
+      var num = link.find('.side-nav-num');
+      circle.css({
+        'width': '0',
+        'height': '0',
+        'border-color': 'transparent',
+        'margin': '0'
+      });
+      setTimeout(function(){
+        num.css({
+          'width': '40px',
+          'left': '-12px'
+        });
+      }, 350);
+    };
+
+    var _getCurrentPanel = function (){
+      var sections = $('.home-page').children('section');
+      var curScrollPos = $(window).scrollTop();
+      var activePanel = false;
+      // Loop through all panels/sections to find one currently in view
+      sections.each(function(){
+        var s = $(this);
+        // Returns object with panel top and bottom offsets
+        var offsets = _getSectionOffsets(s);
+        // If current scroll position is within this panel, continue:
+        if(curScrollPos >= offsets.top && curScrollPos <= offsets.bottom) {
+          activePanel = s;
+        }
+      });
+      return activePanel;
     };
 
     // Snap to nearest panel when scrolling stops
     var _initPanelSnap = function() {
-      var sections = $('.home-page').children('section');
       // Page position before scrolling:
       var initialScrollPos = $(window).scrollTop();
       // Once scrolling has stopped, snap to nearest panel:
       $(window).on('scrollstop', function(){
         var curScrollPos = $(window).scrollTop();
-          // Loop through all panels/sections to find one currently in view
-          sections.each(function(){
-            var s = $(this);
-            // Returns object with panel top and bottom offsets
-            var offsets = _getSectionOffsets(s);
-            // If current scroll position is within this panel, continue:
-            if(curScrollPos > offsets.top && curScrollPos < offsets.bottom) {
-              // If screen is big enough to fit panel contents in viewport, enable snapping:
-              if(Modernizr.mq('(min-height: 795px) and (min-width: 1300px)')){
-                var animationSpeed = 500;
-                var bottomThreshold = offsets.bottom - (s.height() * .35);
-                if(curScrollPos >= bottomThreshold) {
-                  var nextSection = s.next();
-                  SiteWide.animateScrollToElement(nextSection, animationSpeed);
-                } else {
-                  var topThreshold = offsets.top + (s.height() * .35);
-                  if(curScrollPos <= topThreshold) {
-                    SiteWide.animateScrollToElement(s, animationSpeed);
-                  }
-                }
-              }
-              // Hack to fix Waypoints bug - to fix :)
-              if(s.attr('id') == 'banner-panel') _updateActivePanelLink(_getSideNavLink(s));
+        // Loop through all panels/sections to find one currently in view
+        var s = _getCurrentPanel();
+        // If screen is big enough to fit panel contents in viewport, enable snapping:
+        if(s.length && Modernizr.mq('(min-height: 795px) and (min-width: 1300px)')){
+          var offsets = _getSectionOffsets(s);
+          var animationSpeed = 500;
+          var bottomThreshold = offsets.bottom - (s.height() * .35);
+          if(curScrollPos >= bottomThreshold) {
+            var nextSection = s.next();
+            SiteWide.animateScrollToElement(nextSection, animationSpeed);
+          } else {
+            var topThreshold = offsets.top + (s.height() * .35);
+            if(curScrollPos <= topThreshold) {
+              SiteWide.animateScrollToElement(s, animationSpeed);
             }
-          });
+          }
+        }
 
         // Reset initial scroll position value to new position:
         initialScrollPos = curScrollPos;
@@ -338,12 +388,10 @@ function init (isInitialLoad) {
     // Controls animation of banner text on home page
     var _initBannerTitleAnimation = function () {
       var bannerTitle = $('.js-accordion-text');
-      if(bannerTitle.length) {
-        bannerTitle.each(function () {
-          var t = $(this);
-          _animateTitleIn(t, 0, t.find('.js-text').eq(0), true);
-        });
-      }
+      bannerTitle.each(function () {
+        var t = $(this);
+        _animateTitleIn(t, 0, t.find('.js-text').eq(0), true);
+      });
     };
 
     // Animate each title word in from the right
