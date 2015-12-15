@@ -118,6 +118,10 @@ a {
   display: block;
 }
 
+.js-image-fill img {
+  display: none;
+}
+
 .text-orange {
   color: #f27c00;
 }
@@ -739,8 +743,11 @@ a {
 
 .js-text-alt.active {
   opacity: 1;
-  position: static;
   transform: translateY(0);
+}
+
+.placeholder {
+  visibility: hidden;
 }
 
 .panel-inner {
