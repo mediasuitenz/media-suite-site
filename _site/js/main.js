@@ -390,6 +390,12 @@ function init (isInitialLoad) {
       var bannerTitle = $('.js-accordion-text');
       bannerTitle.each(function () {
         var t = $(this);
+        // Workaround for instantclick bug when clicking back/forwards:
+        var styles = t.attr('style');
+        if(typeof styles !== 'undefined') {
+          $('.banner-title, .banner-title *').removeAttr('style').removeClass('active');
+        }
+        // Start banner title animation:
         _animateTitleIn(t, 0, t.find('.js-text').eq(0), true);
       });
     };
