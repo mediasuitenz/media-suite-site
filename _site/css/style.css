@@ -1791,7 +1791,7 @@ address {
 ------------------------------------------------------*/
 
 /* Mobile Only: */
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
 
   .internal-page h1 {
     margin-bottom: 20px;
@@ -1991,7 +1991,7 @@ address {
 }
 
 /* iPhone 6 (portrait) */
-@media only screen and (min-width: 375px) {
+@media screen and (min-width: 375px) {
 
   .max-1500,
   .max-1200,
@@ -2005,7 +2005,7 @@ address {
 }
 
 /* Large Devices Up: */
-@media only screen and (min-width: 480px) {
+@media screen and (min-width: 480px) {
 
   .max-1500,
   .max-1200,
@@ -2077,7 +2077,7 @@ address {
 
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
 
   .person-wrap {
     margin-bottom: 70px;
@@ -2106,7 +2106,7 @@ address {
 
 }
 
-@media only screen and (min-width: 610px) {
+@media screen and (min-width: 610px) {
 
   .max-570 {
     margin-left: auto;
@@ -2116,7 +2116,7 @@ address {
 }
 
 /* Tablet Portrait Up: */
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
 
   .max-760 {
     margin-left: auto;
@@ -2492,20 +2492,20 @@ address {
   }
 
   .service-item {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+    position: relative;
   }
 
   .has-tri-image {
-    position: relative;
-    padding-top: 65px;
-    padding-bottom: 80px;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
 
   .tri-image {
     float: none;
     position: absolute;
     background: none;
-    top: -50px;
+    top: -70px;
     left: -25px;
     width: 50%;
     z-index: 0;
@@ -2519,6 +2519,8 @@ address {
   .has-tri-image .service-text {
     float: right;
     width: 45%;
+    z-index: 5;
+    position: relative;
   }
 
   .has-tri-image.image-right .service-text {
@@ -2545,6 +2547,10 @@ address {
     width: 257px;
   }
 
+  #service-analysis {
+    z-index: 9;
+  }
+
   #service-analysis .service-image {
     width: 192px;
   }
@@ -2568,10 +2574,37 @@ address {
     font-size: 1.6rem;
   }
 
+  .has-tri-image .service-text {
+    width: 100%;
+    padding-left: 300px;
+  }
+
+  .has-tri-image.image-right .service-text {
+    padding-left: 0;
+    padding-right: 250px;
+  }
+
+  .tri-image {
+    float: none;
+    margin: 0;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    margin-left: -50vw;
+    width: 300px;
+    top: -70px;
+  }
+
+  .has-tri-image.image-right .tri-image {
+    left: auto;
+    right: 50%;
+    margin-right: -50vw;
+  }
+
 }
 
 /* Tablet Portrait up to Tablet Landscape (not inclusive): */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
 
   .value-wheel-wrap {
     margin-top: 50px;
@@ -2622,7 +2655,7 @@ address {
 }
 
 /* Tablet Landscape Up: */
-@media only screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
 
   .max-1000 {
     margin-left: auto;
@@ -2764,7 +2797,13 @@ address {
     font-size: 3.8rem;
   }
 
+  .tri-image {
+    width: 375px;
+    top: -120px;
+  }
+
   .has-tri-image .service-text {
+<<<<<<< HEAD
     width: 100%;
     padding-left: 250px;
   }
@@ -2796,6 +2835,19 @@ address {
     padding-left: 150px;
   }
 
+=======
+    padding-left: 250px;
+  }
+
+}
+
+@media screen and (min-width: 1150px) {
+
+  .has-tri-image .service-text {
+    padding-left: 150px;
+  }
+
+>>>>>>> gh-pages
   .has-tri-image.image-right .service-text {
     padding-left: 0;
     padding-right: 150px;
@@ -2804,7 +2856,7 @@ address {
 }
 
 /* Desktop: */
-@media only screen and (min-width: 1240px) {
+@media screen and (min-width: 1240px) {
 
   #home-panel-nav {
     padding-top: 70px;
@@ -2857,18 +2909,21 @@ address {
 
 }
 
-@media only screen and (min-width: 1300px) {
+@media screen and (min-width: 1300px) {
 
   .max-1200 {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .tri
+  .tri-image {
+    width: 415px;
+    top: -145px;
+  }
 
 }
 
-@media only screen and (min-width: 1540px) {
+@media screen and (min-width: 1540px) {
 
   .max-1500 {
     margin-left: auto;
@@ -2902,9 +2957,23 @@ address {
     margin: 0;
   }
 
+  .has-tri-image .service-text {
+    padding-left: 100px;
+  }
+
+  .has-tri-image.image-right .service-text {
+    padding-left: 0;
+    padding-right: 100px;
+  }
+
+  .tri-image {
+    width: 520px;
+    top: -210px;
+  }
+
 }
 
-@media only screen and (min-height: 795px) and (min-width: 1600px) {
+@media screen and (min-height: 795px) and (min-width: 1600px) {
 
   .content-panel {
     height: 100%;
@@ -2919,7 +2988,16 @@ address {
 
 }
 
-@media only screen and (min-height: 1080px) and (min-width: 1920px) {
+@media screen and (min-width: 1820px) {
+
+  .tri-image {
+    width: 655px;
+    top: -285px;
+  }
+
+}
+
+@media screen and (min-height: 1080px), screen and (min-width: 1920px) {
 
   .covervid-wrapper {
     background-size: cover !important;
