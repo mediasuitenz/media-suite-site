@@ -95,6 +95,7 @@ body {
   font-weight: 300;
 }
 img{
+  image-rendering:auto;
   image-rendering: optimizeQuality;
 }
 
@@ -1190,7 +1191,6 @@ a {
   vertical-align: bottom;
   font-size: 3rem;
   line-height: 1;
-  color: #f36d21;
 }
 
 .item-icons i:before {
@@ -1229,6 +1229,7 @@ a {
   padding-right: 20px;
   border-right: 3px solid #f36d21;
   margin-right: 20px;
+  vertical-align: middle;
 }
 
 .tech-icon {
@@ -1245,6 +1246,7 @@ a {
 
 .case-study-platforms {
   display: inline-block;
+  vertical-align: middle;
 }
 
 .case-study-platforms i {
