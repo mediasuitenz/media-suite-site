@@ -110,7 +110,7 @@ function init (isInitialLoad) {
     */
     var _initCoverVideo = function() {
       var video = $('.js-covervid-video');
-      if(video.length)  video.coverVid(1920, 1080);
+      if(video.length && !video.parent().hasClass('video-loaded'))  video.coverVid(1920, 1080);
     };
 
     /*
@@ -288,12 +288,14 @@ function init (isInitialLoad) {
     */
     var _videoLoadListener = function() {
       // Wait until banner image is loaded before animating text
-      $('.video-fallback').imagesLoaded( function() {
+      $('.covervid-wrapper').imagesLoaded( function() {
         _initBannerTitleAnimation();
       });
       // Check screen size and load in video if at least 768px wide
       if(Modernizr.mq('(min-width: 768px)')) {
-        $('.js-covervid-video').append('<source src="http://d88e5668b252622f19fa-53b266e97c0af9c711d72e69e4af35ea.r86.cf4.rackcdn.com/looped.mp4" type="video/mp4">');
+        if(!$('.js-covervid-video source').length) {
+          $('.js-covervid-video').append('<source src="http://d88e5668b252622f19fa-53b266e97c0af9c711d72e69e4af35ea.r86.cf4.rackcdn.com/looped.mp4" type="video/mp4">');
+        }
         // Attach listener for video load
         var v = document.getElementsByTagName("video")[0];
         v.addEventListener('loadeddata', function() {

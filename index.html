@@ -31,11 +31,9 @@ ishome: true
       </div>
     </div> <!-- #home-panel-nav -->
     <div class="covervid-wrapper">
-      <div class="video-fallback js-image-fill">
-        <img src="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" alt="" />
-      </div>
+      <img src="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" alt="" class="invisible" />
       <video class="js-covervid-video" poster="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" autoplay loop>
-        <!-- <source src="http://d88e5668b252622f19fa-53b266e97c0af9c711d72e69e4af35ea.r86.cf4.rackcdn.com/looped.mp4" type="video/mp4"> -->
+        <!-- src added via main.js -->
       </video>
     </div> <!-- .covervid-wrapper -->
     <div class="banner-text-wrap">
