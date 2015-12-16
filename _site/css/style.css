@@ -94,8 +94,8 @@ body {
   font-family: 'Open Sans', serif;
   font-weight: 300;
 }
-img{
-  image-rendering:auto;
+
+img {
   image-rendering: optimizeQuality;
 }
 
