@@ -31,11 +31,9 @@ ishome: true
       </div>
     </div> <!-- #home-panel-nav -->
     <div class="covervid-wrapper">
-      <div class="video-fallback js-image-fill">
-        <img src="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" alt="" />
-      </div>
+      <img src="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" alt="" class="invisible" />
       <video class="js-covervid-video" poster="{{ "/img/video-first-frame.jpg" | prepend: site.baseurl }}" autoplay loop>
-        <!-- <source src="http://d88e5668b252622f19fa-53b266e97c0af9c711d72e69e4af35ea.r86.cf4.rackcdn.com/looped.mp4" type="video/mp4"> -->
+        <!-- src added via main.js -->
       </video>
     </div> <!-- .covervid-wrapper -->
     <div class="banner-text-wrap">
@@ -47,6 +45,7 @@ ishome: true
               <span class="title-section js-text">the</span>
               <span class="title-section js-text">right</span>
               <span class="title-section text-orange js-text js-has-variations">
+                <span class="placeholder">thing.</span>
                 <span class="js-text-alt active">software</span>
                 <span class="js-text-alt">website</span>
                 <span class="js-text-alt">app</span>
@@ -72,7 +71,7 @@ ishome: true
           <p class="text-size-24 max-850">We combine <span class="emphasis">thoughtful design</span> with <span class="emphasis">clever technology</span> to help build successful software, websites &amp; apps for a range of private businesses &amp; progressive organisations.</p>
 
           <ul class="logo-grid">
-            <li class="grid-item"><span class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/1-nzta.png" | prepend: site.baseurl }}" alt="NZTA" /></span></li>
+            <li class="grid-item"><span class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/1-nzta.png" | prepend: site.baseurl }}" alt="" /></span></li>
             <li class="grid-item"><span class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/2-ccc.png" | prepend: site.baseurl }}" alt="" /></span></li>
             <li class="grid-item"><span class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/3-linz.png" | prepend: site.baseurl }}" alt="" /></span></li>
             <li class="grid-item"><span class="grid-item-link js-image-fill" data-no-instant><img src="{{ "/img/client-logos/4-wine-marlborough.png" | prepend: site.baseurl }}" alt="" /></span></li>

@@ -2,7 +2,8 @@
 .icon-menu:before { content: '\e800'; } /* '' */
 .icon-facebook-squared:before { content: '\e801'; } /* '' */
 .icon-close:before { content: '\e802'; } /* '' */
-.icon-desktop:before { content: '\e803'; } /* '' */
+.icon-cog:before { content: '\e803'; } /* '' */
 .icon-mobile:before { content: '\e804'; } /* '' */
 .icon-spin1:before { content: '\e805'; } /* '' */
 .icon-down-open-big:before { content: '\e806'; } /* '' */
+.icon-desktop:before { content: '\e807'; } /* '' */

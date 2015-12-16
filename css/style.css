@@ -124,6 +124,10 @@ a {
   display: block;
 }
 
+.js-image-fill img {
+  display: none;
+}
+
 .text-orange {
   color: #f27c00;
 }
@@ -198,6 +202,10 @@ a {
 
 .hidden {
   display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .drop-btn {
@@ -661,6 +669,7 @@ a {
   left: 0;
   width: 100%;
   height: calc(100% - 4px);
+  background-size: auto !important;
 }
 
 .covervid-wrapper:before {
@@ -756,8 +765,11 @@ a {
 
 .js-text-alt.active {
   opacity: 1;
-  position: static;
   transform: translateY(0);
+}
+
+.placeholder {
+  visibility: hidden;
 }
 
 .panel-inner {
@@ -1701,6 +1713,78 @@ address {
 }
 
 /*-----------------------------------------------------
+  Services Page:
+------------------------------------------------------*/
+
+.services-page {
+  padding-bottom: 60px;
+}
+
+.service-icons {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.service-icons h2 {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.service-icon {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 32%;
+  margin: 0 5px;
+}
+
+.service-icon i {
+  display: block;
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.banner-image {
+  position: relative;
+  height: 200px;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.service-item {
+  max-width: 700px;
+  padding: 0 20px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+
+.service-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.service-image img {
+  display: inline-block;
+  max-height: 180px;
+}
+
+.tri-image img {
+  visibility: hidden;
+}
+
+.service-text {
+  font-size: 1.4rem;
+}
+
+.service-heading {
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0 0 20px 0;
+}
+
+/*-----------------------------------------------------
   Media Queries:
 ------------------------------------------------------*/
 
@@ -1892,6 +1976,14 @@ address {
   .bio-real-image {
     top: -140px;
     right: 10px;
+  }
+
+  #service-design .tri-image {
+    background: url(../img/services/design.jpg) no-repeat 0 50%;
+  }
+
+  #service-development .tri-image {
+    background: url(../img/services/dev.jpg) no-repeat 75% 50%;
   }
 
 }
@@ -2367,6 +2459,113 @@ address {
     width: 45%;
   }
 
+  .service-icons {
+    margin: 40px 0 85px 0;
+  }
+
+  .service-icon {
+    max-width: none;
+    margin: 0;
+  }
+
+  #service-icon-apps {
+    margin: 0 75px;
+  }
+
+  .service-icon i {
+    font-size: 8rem;
+  }
+
+  .service-icon h2 {
+    font-size: 1.6rem;
+  }
+
+  .banner-image {
+    height: 300px;
+    margin-bottom: 85px;
+  }
+
+  .banner-quote {
+    font-size: 2.8rem;
+  }
+
+  .service-item {
+    margin-bottom: 80px;
+  }
+
+  .has-tri-image {
+    position: relative;
+    padding-top: 65px;
+    padding-bottom: 80px;
+  }
+
+  .tri-image {
+    float: none;
+    position: absolute;
+    background: none;
+    top: -50px;
+    left: -25px;
+    width: 50%;
+    z-index: 0;
+  }
+
+  .has-tri-image.image-right .tri-image {
+    right: -25px;
+    left: auto;
+  }
+
+  .has-tri-image .service-text {
+    float: right;
+    width: 45%;
+  }
+
+  .has-tri-image.image-right .service-text {
+    float: left;
+  }
+
+  .service-image {
+    float: left;
+    margin: 0 30px 0 0;
+  }
+
+  .image-right .service-image {
+    float: right;
+    margin: 0 0 0 30px;
+  }
+
+  .service-image img {
+    max-height: none;
+    width: 100%;
+    visibility: visible;
+  }
+
+  #service-ideation .service-image {
+    width: 257px;
+  }
+
+  #service-analysis .service-image {
+    width: 192px;
+  }
+
+  #service-deployment .service-image {
+    width: 209px;
+  }
+
+  #service-marketing .service-image {
+    width: 196px;
+  }
+
+  #service-support .service-image {
+    width: 144px;
+  }
+
+  .service-text {
+    position: relative;
+    z-index: 5;
+    text-align: left;
+    font-size: 1.6rem;
+  }
+
 }
 
 /* Tablet Portrait up to Tablet Landscape (not inclusive): */
@@ -2553,6 +2752,30 @@ address {
     line-height: 1.2;
     width: 110px;
     margin: -30px 0 0 -55px;
+  }
+
+  .banner-image {
+    height: 415px;
+  }
+
+  .banner-quote {
+    font-size: 3.8rem;
+  }
+
+  .has-tri-image .service-text {
+    width: 70%;
+  }
+
+  .tri-image {
+    left: -50%;
+    margin-left: 180px;
+  }
+
+  .has-tri-image.image-right .tri-image {
+    right: -50%;
+    margin-right: 180px;
+    left: auto;
+    margin-left: 0;
   }
 
 }
