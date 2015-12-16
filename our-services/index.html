@@ -8,35 +8,115 @@ isfullheight: true
 
 <div id="main-wrap" class="internal-page services-page">
 
-  <div class="panel-inner max-760 clearfix">
+  <div class="panel-inner max-570 clearfix">
+
+      <h1 class="lowercase underline-orange">Our Services</h1>
+
+      <div class="service-icons">
+        <div id="service-icon-web" class="service-icon">
+          <i class="icon-desktop"></i>
+          <h2 class="lowercase">Websites</h2>
+        </div>
+        <div id="service-icon-apps" class="service-icon">
+          <i class="icon-cog"></i>
+          <h2 class="lowercase">Web Applications</h2>
+        </div>
+        <div id="service-icon-mob" class="service-icon">
+          <i class="icon-mobile"></i>
+          <h2 class="lowercase">Mobile Apps</h2>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="banner-image js-image-fill">
     <div class="faux-table">
       <div class="faux-table-cell">
-
-        <h1 class="lowercase underline-orange">Our Services</h1>
-
-        <div class="max-570">
-          <div class="service-icon"></div>
-        </div>
-
-
-
-        <!-- <div class="say-hello-body">
-          <h2 class="lowercase">Ideation</h2>
-          <p>Generating, developing and communicating ideas excites us. We are able to draw on decades of experience working with hundreds of great organisations to examine, refine and innovate on your ideas.</p>
-          <h2 class="lowercase">Analysis</h2>
-          <p>We thrive on teasing out requirements from stakeholders, prioritising using value driven methods and fleshing out enough the detail to ensure you’re building the right thing.</p>
-          <h2 class="lowercase">Design</h2>
-          <p>Thoughtful Design is an artform. It is the intersection of strategy, research and analysis with user Interface and experience expressed as a visual design.</p>
-          <h2 class="lowercase">Development</h2>
-          <p>Whether deploying to the cloud, your data centre or to the app store - we’ve got you covered around the clock. We work extensively with cloud providers and local hosting companies to ensure your project is scalable and available.</p>
-          <h2 class="lowercase">Marketing</h2>
-          <p>Successful products are often a balance between solving a problem, an interface the customer can relate to and effective marketing. Our belief is that marketing should start from within and your users are your best salespeople. As well as developing your product we can also help take it to market.</p>
-          <h2 class="lowercase">Support</h2>
-          <p>We will be around for the long haul ready to support and maintain your software through its evolution. Our support team can provide support to your users as well as proactive management of your software and hosting.</p>
-        </div> -->
-
+        <h3 class="banner-quote lowercase">&ldquo;We exist to help realise and support your ideas&rdquo;</h3>
       </div>
     </div>
+    <img src="{{ "/img/services/banner-1.jpg" | prepend: site.baseurl }}" alt="Media Suite blackboard. " />
+  </div>
+
+  <div class="services-wrap">
+
+    <!-- Ideation -->
+    <div id="service-ideation" class="service-item clearfix">
+      <div class="service-image">
+        <img src="{{ "/img/services/ideation@2x.png" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <div class="service-text">
+        <h2 class="lowercase service-heading">Ideation</h2>
+        <p>Generating, developing and communicating ideas excites us. We are able to draw on decades of experience working with hundreds of great organisations to examine, refine and innovate on your ideas.</p>
+      </div>
+    </div>
+
+    <!-- Analysis -->
+    <div id="service-analysis" class="service-item image-right clearfix">
+      <div class="service-image">
+        <img src="{{ "/img/services/analysis@2x.png" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <div class="service-text">
+        <h2 class="lowercase service-heading">Analysis</h2>
+        <p>We thrive on teasing out requirements from stakeholders, prioritising using value driven methods and fleshing out enough detail to ensure you're building the right thing.</p>
+      </div>
+    </div>
+
+    <!-- Design -->
+    <div id="service-design" class="service-item has-tri-image clearfix">
+      <div class="service-image tri-image">
+        <img src="{{ "/img/services/design.jpg" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <div class="service-text">
+        <h2 class="lowercase service-heading">Design</h2>
+        <p>Thoughtful Design is an art form. It is the intersection of strategy, research and analysis with user interface and experience expressed as a visual design.</p>
+      </div>
+    </div>
+
+    <!-- Development -->
+    <div id="service-development" class="service-item image-right has-tri-image clearfix">
+      <div class="service-image tri-image">
+        <img src="{{ "/img/services/dev.jpg" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <div class="service-text">
+        <h2 class="lowercase service-heading">Development</h2>
+        <p>Our multi disciplined development teams are nimble. Working closely with you to gain feedback they will help you make smart choices and respond to change throughout your project.</p>
+      </div>
+    </div>
+
+    <!-- Deployment -->
+    <div id="service-deployment" class="service-item clearfix">
+      <div class="service-image">
+        <img src="{{ "/img/services/deployment@2x.png" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <div class="service-text">
+        <h2 class="lowercase service-heading">Deployment</h2>
+        <p>Whether deploying to the cloud, your data centre or to the app store - we've got you covered around the clock. We work extensively with cloud providers and local hosting companies to ensure your project is scalable and available.</p>
+      </div>
+    </div>
+
+    <!-- Marketing -->
+    <div id="service-marketing" class="service-item image-right clearfix">
+      <div class="service-image">
+        <img src="{{ "/img/services/marketing@2x.png" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <div class="service-text">
+        <h2 class="lowercase service-heading">Marketing</h2>
+        <p>Successful products are often a balance between solving a problem, an interface the customer can relate to and effective marketing. Our belief is that marketing should start from within and your users are your best salespeople. As well as developing your product we can also help take it to market.</p>
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div id="service-support" class="service-item clearfix">
+      <div class="service-image">
+        <img src="{{ "/img/services/support@2x.png" | prepend: site.baseurl }}" alt="" />
+      </div>
+      <div class="service-text">
+        <h2 class="lowercase service-heading">Support</h2>
+        <p>We will be around for the long haul ready to support and maintain your software through its evolution. Our support team can provide support to your users as well as proactive management of your software and hosting.</p>
+      </div>
+    </div>
+
   </div>
 
 </div> <!-- #main-wrap -->
