@@ -828,6 +828,7 @@ a {
   left: -8px;
   border-top: 8px solid #fff;
   border-bottom: 8px solid #fff;
+  image-rendering:-webkit-optimize-contrast;
 }
 
 .js-parallax,
