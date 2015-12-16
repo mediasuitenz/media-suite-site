@@ -95,6 +95,7 @@ body {
   font-weight: 300;
 }
 img{
+  image-rendering:auto;
   image-rendering: optimizeQuality;
 }
 
@@ -1190,7 +1191,6 @@ a {
   vertical-align: bottom;
   font-size: 3rem;
   line-height: 1;
-  color: #f36d21;
 }
 
 .item-icons i:before {
@@ -1229,6 +1229,7 @@ a {
   padding-right: 20px;
   border-right: 3px solid #f36d21;
   margin-right: 20px;
+  vertical-align: middle;
 }
 
 .tech-icon {
@@ -1245,6 +1246,7 @@ a {
 
 .case-study-platforms {
   display: inline-block;
+  vertical-align: middle;
 }
 
 .case-study-platforms i {
@@ -2801,6 +2803,39 @@ address {
   }
 
   .has-tri-image .service-text {
+<<<<<<< HEAD
+    width: 100%;
+    padding-left: 250px;
+  }
+
+  .has-tri-image.image-right .service-text {
+    padding-left: 0;
+    padding-right: 250px;
+  }
+
+  .tri-image {
+    float: none;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -50vw;
+  }
+
+  .has-tri-image.image-right .tri-image {
+    left: auto;
+    right: 50%;
+    margin-right: -50vw;
+  }
+
+}
+
+@media only screen and (min-width: 1150px) {
+
+  .has-tri-image .service-text {
+    padding-left: 150px;
+  }
+
+=======
     padding-left: 250px;
   }
 
@@ -2812,6 +2847,7 @@ address {
     padding-left: 150px;
   }
 
+>>>>>>> gh-pages
   .has-tri-image.image-right .service-text {
     padding-left: 0;
     padding-right: 150px;
