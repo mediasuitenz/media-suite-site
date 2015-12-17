@@ -110,7 +110,7 @@ function init (isInitialLoad) {
     */
     var _initCoverVideo = function() {
       var video = $('.js-covervid-video');
-      if(video.length && !video.parent().hasClass('video-loaded'))  video.coverVid(1920, 1080);
+      if(video.length && !video.parent().hasClass('video-loaded') && !$('.lt-ie9').length)  video.coverVid(1920, 1080);
     };
 
     /*
