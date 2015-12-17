@@ -1358,6 +1358,10 @@ a.crumb:hover,
   content: 'mobile app';
   left: -14px;
 }
+.tip.icon-cog:after{
+  content: 'web application';
+  left: -25px;
+}
 
 
 /*-----------------------------------------------------
