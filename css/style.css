@@ -1822,8 +1822,20 @@ address {
   margin: 0 0 20px 0;
 }
 
+/*-----------------------------------------------------
+  Effin IE
+------------------------------------------------------*/
+
 .lt-ie9 .tri-image {
   display: none !important;
+}
+
+.lt-ie9 video {
+  display: none;
+}
+
+.lt-ie9 .covervid-wrapper img.invisible {
+  visibility: visible;
 }
 
 /*-----------------------------------------------------
