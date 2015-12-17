@@ -193,17 +193,10 @@ function init (isInitialLoad) {
       link.removeClass('active');
       var circle = link.find('.side-nav-circle');
       var num = link.find('.side-nav-num');
-      num.css({
-        'width': '0',
-        'left': '50%'
-      });
+      num.addClass('num-off');
       setTimeout(function(){
-        circle.css({
-          'width': '15px',
-          'height': '15px',
-          'border-color': '#f27c00',
-          'margin': '-7px 0 0 -7px'
-        });
+        num.addClass('num-off');
+        circle.removeClass('circle-off');
       }, 850);
     };
 
@@ -211,17 +204,10 @@ function init (isInitialLoad) {
       link.addClass('active');
       var circle = link.find('.side-nav-circle');
       var num = link.find('.side-nav-num');
-      circle.css({
-        'width': '0',
-        'height': '0',
-        'border-color': 'transparent',
-        'margin': '0'
-      });
+      circle.addClass('circle-off');
       setTimeout(function(){
-        num.css({
-          'width': '40px',
-          'left': '-12px'
-        });
+        circle.addClass('circle-off');
+        num.removeClass('num-off');
       }, 350);
     };
 
