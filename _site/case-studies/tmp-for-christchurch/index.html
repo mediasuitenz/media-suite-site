@@ -26,7 +26,12 @@
   <link rel="stylesheet" href="/css/style.css">
 
   <script type="text/javascript" src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" data-no-instant></script>
-  <script type="text/javascript" src="/js/vendor/jquery-2.1.4.min.js" data-no-instant></script>
+  <!--[if (!IE)|(gt IE 8)]><!-->
+    <script type="text/javascript" src="/js/vendor/jquery-2.1.4.min.js" data-no-instant></script>
+  <!--<![endif]-->
+  <!--[if lte IE 8]>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <![endif]-->
 
   <link rel="canonical" href="http://mediasuitenz.github.io/case-studies/tmp-for-christchurch/">
   <link rel="alternate" type="application/rss+xml" title="Media Suite" href="http://mediasuitenz.github.io/feed.xml">
