@@ -1016,6 +1016,7 @@ a {
   margin-bottom: 20px;
   font-size: 2.5rem;
   line-height: 5rem;
+  text-transform: lowercase;
 }
 
 .home-team-img {
@@ -2220,7 +2221,7 @@ address {
     border-radius: 100%;
     overflow: hidden;
     opacity: 1;
-    transition: all 300ms ease;
+    transition: all 300ms ease-in-out;
   }
 
   .side-nav-num {
@@ -2234,7 +2235,7 @@ address {
     left: 50%;
     top: 0;
     overflow: hidden;
-    transition: all 800ms ease;
+    transition: all 800ms ease-in-out;
   }
 
   #home-nav-logo {
