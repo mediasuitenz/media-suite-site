@@ -72,12 +72,24 @@ function init (isInitialLoad) {
         var target = $($(this).attr('href'));
         if(target.length) animateScrollToElement(target, 1200, 0);
       });
-    }
+    };
+
+    var _svgFallbacks = function() {
+      if (!Modernizr.svg) {
+        $("img[src$='.svg']").each(function(){
+          var t = $(this);
+          if(t.data('fallback').length) {
+            t.attr("src", t.data('fallback'));
+          }
+        });
+      }
+    };
 
     // Initialise all site-wide JS:
     var init = function () {
       _initPlugins();
       _initMenu();
+      _svgFallbacks();
       _initSmoothScroll();
       _fadeInContent();
     };
