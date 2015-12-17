@@ -882,6 +882,10 @@ a {
   Home Page: #value-panel
 ------------------------------------------------------*/
 
+#value-wheel-fallback {
+  display: none;
+}
+
 .value-wheel-wrap {
   position: relative;
 }
@@ -1836,6 +1840,10 @@ address {
 
 .lt-ie9 .covervid-wrapper img.invisible {
   visibility: visible;
+}
+
+.lt-ie9 #value-wheel-fallback {
+  display: block;
 }
 
 /*-----------------------------------------------------

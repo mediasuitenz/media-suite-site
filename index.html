@@ -130,6 +130,7 @@ ishome: true
             <div class="col col-half middle">
               <div class="value-wheel-wrap levitate">
                 {% include value-wheel.html %}
+                <img id="value-wheel-fallback" src="{{ "/img/value-wheel.png" | prepend: site.baseurl }}" alt="" />
                 <div class="value-wheel-middle fancy-pants-font lowercase">Common Budgets</div>
               </div> <!-- .value-wheel-wrap -->
               <img src="{{ "/img/wheel-shadow.png" | prepend: site.baseurl }}" alt="" class="wheel-shadow">
