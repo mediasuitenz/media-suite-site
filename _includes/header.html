@@ -3,7 +3,7 @@
 <header id="page-header"{% if(page.menutitle != 'Home') %} class="on"{% else %} class="mob-hide"{% endif %}>
   <div id="hd-inner" class="max-1200">
     <a href="{{ "/" | prepend: site.baseurl }}" id="menu-bar-logo">
-      <img src="{{ "/img/logo.svg" | prepend: site.baseurl }}" alt="Media Suite Logo" class="menu-logo">
+      <img src="{{ "/img/logo.svg" | prepend: site.baseurl }}" alt="Media Suite Logo" class="menu-logo" data-fallback="{{ "/img/logo.png" | prepend: site.baseurl }}">
     </a>
     <a href="#" id="menu-bar-trigger" class="lowercase js-menu-trigger">
       <i class="trigger-icon icon icon-menu"></i>
