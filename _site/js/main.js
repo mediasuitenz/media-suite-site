@@ -101,7 +101,7 @@ function init (isInitialLoad) {
     */
     var _initParallax = function () {
       var parallaxText = $('.js-parallax');
-      if(parallaxText.length) parallaxText.parallax();
+      if(parallaxText.length && !$('.lt-ie9').length) parallaxText.parallax();
     };
 
     /*
