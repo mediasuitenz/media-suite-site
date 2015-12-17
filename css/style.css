@@ -1755,6 +1755,7 @@ address {
 
 .services-page {
   padding-bottom: 60px;
+  overflow-x: hidden;
 }
 
 .service-icons {
