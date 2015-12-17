@@ -1016,6 +1016,7 @@ a {
   margin-bottom: 20px;
   font-size: 2.5rem;
   line-height: 5rem;
+  text-transform: lowercase;
 }
 
 .home-team-img {
@@ -2224,7 +2225,7 @@ address {
   }
 
   .side-nav-num {
-    font-family: 'chelthmitc_bk_btbold_italic', serif;
+    font-family: '#culture-col-2 ulchelthmitc_bk_btbold_italic', serif;
     font-size: 13px;
     line-height: 15px;
     text-align: center;
