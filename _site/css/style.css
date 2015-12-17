@@ -2850,7 +2850,6 @@ address {
   }
 
   .has-tri-image .service-text {
-<<<<<<< HEAD
     width: 100%;
     padding-left: 250px;
   }
@@ -2879,10 +2878,6 @@ address {
 @media only screen and (min-width: 1150px) {
 
   .has-tri-image .service-text {
-    padding-left: 150px;
-  }
-
-=======
     padding-left: 250px;
   }
 
@@ -2894,7 +2889,6 @@ address {
     padding-left: 150px;
   }
 
->>>>>>> gh-pages
   .has-tri-image.image-right .service-text {
     padding-left: 0;
     padding-right: 150px;
