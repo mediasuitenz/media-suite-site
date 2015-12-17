@@ -1212,6 +1212,30 @@ a {
   margin-bottom: 40px;
 }
 
+.case-study h1 {
+  margin-bottom: 35px;
+}
+
+.crumbs {
+  margin-bottom: 30px;
+}
+
+.crumb,
+.crumb-slash {
+  display: inline-block;
+  color: #000;
+  transition: color 400ms ease;
+}
+
+a.crumb:hover,
+.crumb-slash {
+  color: #f27c00;
+}
+
+.crumb-slash {
+  padding: 0 5px;
+}
+
 .case-studies-landing h1 {
   margin-bottom: 65px;
 }
