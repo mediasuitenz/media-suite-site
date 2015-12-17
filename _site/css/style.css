@@ -2519,6 +2519,8 @@ address {
   .value-wheel-wrap {
     position: relative;
     max-width: 445px;
+    width: 445px;
+    height: 420px;
     margin: 0 auto;
   }
 
