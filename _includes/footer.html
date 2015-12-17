@@ -11,6 +11,9 @@
 <!-- init pjax/prefetching plugin: -->
 <script type='text/javascript' src="{{ "/js/vendor/instantclick.min.js" | prepend: site.baseurl }}" data-no-instant></script>
 <script data-no-instant>
+  InstantClick.on('change', function() {
+    ga('send', 'pageview', location.pathname + location.search);
+  });
   $(document).ready(function(){
     InstantClick.on('change', onChange);
     InstantClick.init();

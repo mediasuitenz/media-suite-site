@@ -116,6 +116,11 @@ h2 {
   line-height: 1;
 }
 
+b,
+strong {
+  font-weight: 600;
+}
+
 a {
   text-decoration: none;
   color: #f27c00;
