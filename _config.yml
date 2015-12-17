@@ -9,7 +9,7 @@
 title: Media Suite
 email: studio@mediasuite.co.nz
 description: > # this means to ignore newlines until "baseurl:"
-  Build the right thing.
+  We're passionate about helping you to build the right thing. By combining thoughtful design with clever technology we build successful software, websites and apps for a range of private businesses and progressive organisations.
 permalink: pretty
 baseurl: "/media-suite-site" # the subpath of your site, e.g. /media-suite-site
 url: "http://mediasuitenz.github.io" # the base hostname & protocol for your site

@@ -10,8 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Media Suite | Case Studies</title>
 
-  <meta name="description" content="Build the right thing.
+  <meta name="description" content="We're passionate about helping you to build the right thing. By combining thoughtful design with clever technology we build successful software, websites and apps for a range of private businesses and progressive organisations.
 ">
+  <meta name="keywords" content="Node.js, JavaScript Development, NodeJS, Ember, Angular, Web design Christchurch, Mobile Apps, Software, Website, development, design, marketing, content management, CMS, advertising">
 
   <!-- Reset Styles: -->
   <link rel="stylesheet" href="/css/normalize.min.css">
@@ -29,6 +30,16 @@
 
   <link rel="canonical" href="http://mediasuitenz.github.io/case-studies/">
   <link rel="alternate" type="application/rss+xml" title="Media Suite" href="http://mediasuitenz.github.io/feed.xml">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1601711-8', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 </head>
 
@@ -152,20 +163,20 @@
       </div>  <!-- .case-study-item -->
 
       <div id="csi-forward-works" class="case-study-item clearfix">
-        <a href="/case-studies/forward-works-planner" class="item-image">
+        <a href="/case-studies/forward-works-viewer" class="item-image">
           <img src="/img/case-studies/cs-item-forward-works-planner.png" alt="" class="jiggle" />
         </a>
         <div class="item-text">
           <div class="item-text-head">
-            <h2 class="item-main-heading"><a class="text-sheen" href="/case-studies/forward-works-planner">Forward Works Planner</a></h2>
-            <h3 class="item-sub-heading"><a href="/case-studies/forward-works-planner">Land Information New Zealand</a></h3>
+            <h2 class="item-main-heading"><a class="text-sheen" href="/case-studies/forward-works-viewer">Forward Works Viewer</a></h2>
+            <h3 class="item-sub-heading"><a href="/case-studies/forward-works-viewer">Land Information New Zealand</a></h3>
           </div>
           <div class="item-text-body">
             <div class="item-icons">
               <i class="icon icon-cog tip"></i>
             </div>
             <p>Media Suite partnered with North South GIS and Jacobs Engineering Group to deliver the Forward Works Viewer as part of The Canterbury Spatial Data Infrastructure projects being developed by Land Information New Zealand.</p>
-            <a href="/case-studies/forward-works-planner" class="drop-btn orange-bg small-btn">More on this&hellip;</a>
+            <a href="/case-studies/forward-works-viewer" class="drop-btn orange-bg small-btn">More on this&hellip;</a>
           </div>
         </div> <!-- .item-text -->
       </div> <!-- .case-study-item -->
@@ -251,6 +262,9 @@
 <!-- init pjax/prefetching plugin: -->
 <script type='text/javascript' src="/js/vendor/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>
+  InstantClick.on('change', function() {
+    ga('send', 'pageview', location.pathname + location.search);
+  });
   $(document).ready(function(){
     InstantClick.on('change', onChange);
     InstantClick.init();
