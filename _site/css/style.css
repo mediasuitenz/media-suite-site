@@ -1826,6 +1826,30 @@ address {
 }
 
 /*-----------------------------------------------------
+  Terms and Conditions page
+------------------------------------------------------*/
+
+.terms-body {
+  text-align: left;
+  margin-bottom: 80px
+}
+
+.terms-body h2 {
+  font-size: 4rem;
+  margin: 40px 0 10px
+}
+
+.terms-body h3 {
+  font-size: 3rem
+}
+
+.terms-notes {
+  padding-top: 50px;
+  margin-top: 50px;
+  border-top: 1px solid #dedede
+}
+
+/*-----------------------------------------------------
   Effin IE
 ------------------------------------------------------*/
 
@@ -2569,11 +2593,6 @@ address {
     position: relative;
     padding-top: 40px;
     padding-bottom: 40px;
-  }
-
-  .has-tri-image {
-    padding-top: 25px;
-    padding-bottom: 25px;
   }
 
   .tri-image {
