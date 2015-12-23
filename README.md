@@ -2,7 +2,7 @@
 
 Uses [Jekyll](https://jekyllrb.com/) static site generator and [Gulp](http://gulpjs.com/) to build files ready for deployment.
 
-## Setup & Making Changes
+## Setup
 
 1. Install Jekyll: `gem install jekyll`
 2. Once in site directory (`src`), run `jekyll serve`. This will watch all files and compile any changes to `_site` directory. Site will be served up at `http://localhost:4000/`.
