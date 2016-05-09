@@ -1,16 +1,11 @@
-/*==============================================================================
-  Initialise JS modules on page change (https://github.com/dieulot/instantclick)
-  - triggered by instantclick.js, replaces .ready() functionality
-==============================================================================*/
-
-function onChange (isInitialLoad) {
-  init(isInitialLoad);
-}
+$(document).ready(function () {
+  init();
+});
 
 /*==============================================================================
   MODULES:
 ==============================================================================*/
-function init (isInitialLoad) {
+function init () {
 
   'use strict';
 
@@ -331,7 +326,7 @@ function init (isInitialLoad) {
       // Timeout used to reset animation on mouseout (after small delay):
       var resetRotationTimeout;
       // used to create unique animation name each iteration:
-      var animInteration = 1;
+      var animIteration = 1;
       // Segment click handler:
       $('.segment').click(function(e){
         e.preventDefault();
@@ -345,19 +340,19 @@ function init (isInitialLoad) {
         if(!isNaN(rotateTo)){
           // Define animation:
           $.keyframe.define([{
-            name: 'rotate-to-this-segment-'+animInteration, // append unique number
+            name: 'rotate-to-this-segment-'+animIteration, // append unique number
             '0%':   { 'transform': 'rotate('+ curRotation +'deg)' },
             '100%': { 'transform': 'rotate('+ rotateTo +'deg)' }
           }]);
           // Play animation:
           valueWheel.playKeyframe([{
-            name: 'rotate-to-this-segment-'+animInteration,
+            name: 'rotate-to-this-segment-'+animIteration,
             duration: '600ms',
             timingFunction: 'cubic-bezier(0.65, -0.39, 0.32, 1.34)',
             iterationCount: 1
           }]);
           // Iterate unique number for append to animation names:
-          animInteration++;
+          animIteration++;
         }
       });
 
@@ -368,19 +363,19 @@ function init (isInitialLoad) {
         resetRotationTimeout = setTimeout(function(){
           // Define animation:
           $.keyframe.define([{
-            name: 'rotate-wheel-'+animInteration, // append unique number
+            name: 'rotate-wheel-'+animIteration, // append unique number
             '0%':   { 'transform': 'rotate('+ _getCurrentRotation(document.getElementById('value-wheel')) +'deg)' },
             '100%': { 'transform': 'rotate('+ (_getCurrentRotation(document.getElementById('value-wheel'))+360) +'deg)' }
           }]);
           // Play animation:
           valueWheel.playKeyframe([{
-            name: 'rotate-wheel-'+animInteration,
+            name: 'rotate-wheel-'+animIteration,
             duration: '60s',
             timingFunction: 'linear',
             iterationCount: 'infinite'
           }]);
           // Iterate unique number for append to animation names:
-          animInteration++;
+          animIteration++;
         }, 500);
       });
     };
@@ -530,28 +525,15 @@ function init (isInitialLoad) {
     var _isoContainer = $('.js-isotope');
 
     // Setup people tiles and initialise plugin
-    var _initPeopleTiles = function (isInitialLoad) {
+    var _initPeopleTiles = function () {
       if(_isoContainer.length){
 
         // Wait until all images are loaded before initialising plugin
         _isoContainer.imagesLoaded( function() {
           // Hide loaders, make images visible (still opaque)
           $('.loader').addClass('off');
-
-          if(isInitialLoad){
-            _fadeInTiles(_isoContainer.find('img'));
-            _initIsotope(_isoContainer);
-          /*
-            If coming back to page after initial load, destroy/reinit plugin.
-            This is a work around for conflicts with instantclick.js behaviour
-          */
-          } else {
-            _initIsotope(_isoContainer);
-            setTimeout(function(){
-              _isoContainer.isotope('layout');
-              _fadeInTiles(_isoContainer.find('img'));
-            }, 400);
-          }
+          _fadeInTiles(_isoContainer.find('img'));
+          _initIsotope(_isoContainer);
         });
       }
     };
@@ -598,8 +580,8 @@ function init (isInitialLoad) {
       });
     }
 
-    var init = function (isInitialLoad) {
-      _initPeopleTiles(isInitialLoad);
+    var init = function () {
+      _initPeopleTiles();
       _initBioClickHandler();
       _initSortControls();
     };
@@ -615,10 +597,6 @@ function init (isInitialLoad) {
     Initialise Relevant Modules (based on current pathname):
   ===========================================================================*/
 
-  // Remove event listeners attached to window/document on page change:
-  $(window).off();
-  $('html, body').off();
-
   // Always fire:
   SiteWide.init();
 
@@ -630,7 +608,7 @@ function init (isInitialLoad) {
     if(main.hasClass('home-page')) HomePage.init();
 
     // People page initialisation:
-    if(main.hasClass('people-page')) PeoplePage.init(isInitialLoad);
+    if(main.hasClass('people-page')) PeoplePage.init();
 
   }
 
