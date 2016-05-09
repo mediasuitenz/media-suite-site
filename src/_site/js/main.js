@@ -1,16 +1,11 @@
-/*==============================================================================
-  Initialise JS modules on page change (https://github.com/dieulot/instantclick)
-  - triggered by instantclick.js, replaces .ready() functionality
-==============================================================================*/
-
-function onChange (isInitialLoad) {
-  init(isInitialLoad);
-}
+$(document).ready(function () {
+  init();
+});
 
 /*==============================================================================
   MODULES:
 ==============================================================================*/
-function init (isInitialLoad) {
+function init () {
 
   'use strict';
 
@@ -530,28 +525,15 @@ function init (isInitialLoad) {
     var _isoContainer = $('.js-isotope');
 
     // Setup people tiles and initialise plugin
-    var _initPeopleTiles = function (isInitialLoad) {
+    var _initPeopleTiles = function () {
       if(_isoContainer.length){
 
         // Wait until all images are loaded before initialising plugin
         _isoContainer.imagesLoaded( function() {
           // Hide loaders, make images visible (still opaque)
           $('.loader').addClass('off');
-
-          if(isInitialLoad){
-            _fadeInTiles(_isoContainer.find('img'));
-            _initIsotope(_isoContainer);
-          /*
-            If coming back to page after initial load, destroy/reinit plugin.
-            This is a work around for conflicts with instantclick.js behaviour
-          */
-          } else {
-            _initIsotope(_isoContainer);
-            setTimeout(function(){
-              _isoContainer.isotope('layout');
-              _fadeInTiles(_isoContainer.find('img'));
-            }, 400);
-          }
+          _fadeInTiles(_isoContainer.find('img'));
+          _initIsotope(_isoContainer);
         });
       }
     };
@@ -598,8 +580,8 @@ function init (isInitialLoad) {
       });
     }
 
-    var init = function (isInitialLoad) {
-      _initPeopleTiles(isInitialLoad);
+    var init = function () {
+      _initPeopleTiles();
       _initBioClickHandler();
       _initSortControls();
     };
@@ -615,10 +597,6 @@ function init (isInitialLoad) {
     Initialise Relevant Modules (based on current pathname):
   ===========================================================================*/
 
-  // Remove event listeners attached to window/document on page change:
-  $(window).off();
-  $('html, body').off();
-
   // Always fire:
   SiteWide.init();
 
@@ -630,7 +608,7 @@ function init (isInitialLoad) {
     if(main.hasClass('home-page')) HomePage.init();
 
     // People page initialisation:
-    if(main.hasClass('people-page')) PeoplePage.init(isInitialLoad);
+    if(main.hasClass('people-page')) PeoplePage.init();
 
   }
 
