@@ -326,7 +326,7 @@ function init () {
       // Timeout used to reset animation on mouseout (after small delay):
       var resetRotationTimeout;
       // used to create unique animation name each iteration:
-      var animInteration = 1;
+      var animIteration = 1;
       // Segment click handler:
       $('.segment').click(function(e){
         e.preventDefault();
@@ -340,19 +340,19 @@ function init () {
         if(!isNaN(rotateTo)){
           // Define animation:
           $.keyframe.define([{
-            name: 'rotate-to-this-segment-'+animInteration, // append unique number
+            name: 'rotate-to-this-segment-'+animIteration, // append unique number
             '0%':   { 'transform': 'rotate('+ curRotation +'deg)' },
             '100%': { 'transform': 'rotate('+ rotateTo +'deg)' }
           }]);
           // Play animation:
           valueWheel.playKeyframe([{
-            name: 'rotate-to-this-segment-'+animInteration,
+            name: 'rotate-to-this-segment-'+animIteration,
             duration: '600ms',
             timingFunction: 'cubic-bezier(0.65, -0.39, 0.32, 1.34)',
             iterationCount: 1
           }]);
           // Iterate unique number for append to animation names:
-          animInteration++;
+          animIteration++;
         }
       });
 
@@ -363,19 +363,19 @@ function init () {
         resetRotationTimeout = setTimeout(function(){
           // Define animation:
           $.keyframe.define([{
-            name: 'rotate-wheel-'+animInteration, // append unique number
+            name: 'rotate-wheel-'+animIteration, // append unique number
             '0%':   { 'transform': 'rotate('+ _getCurrentRotation(document.getElementById('value-wheel')) +'deg)' },
             '100%': { 'transform': 'rotate('+ (_getCurrentRotation(document.getElementById('value-wheel'))+360) +'deg)' }
           }]);
           // Play animation:
           valueWheel.playKeyframe([{
-            name: 'rotate-wheel-'+animInteration,
+            name: 'rotate-wheel-'+animIteration,
             duration: '60s',
             timingFunction: 'linear',
             iterationCount: 'infinite'
           }]);
           // Iterate unique number for append to animation names:
-          animInteration++;
+          animIteration++;
         }, 500);
       });
     };
