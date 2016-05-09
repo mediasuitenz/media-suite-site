@@ -1,6 +1,10 @@
 /.buildpath
 /build/
 */archive/
+node_modules
+npm-debug.log
+dist
+src/_site
 
 __MACOSX
 .DS_Store
