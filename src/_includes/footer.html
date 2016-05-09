@@ -1,0 +1,28 @@
+<!-- build:replace <script type="text/javascript" src="/js/plugins.min.js"></script> -->
+<script type="text/javascript" src="{{ "/js/concat/rem.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/concat/imgLiquid-min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/concat/covervid.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/concat/jquery.parallax.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/concat/jquery.scrollstop.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/concat/jquery.keyframes.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/concat/jquery.waypoints.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/concat/imagesloaded.pkgd.min.js" | prepend: site.baseurl }}"></script>
+<!-- /build -->
+
+<script type="text/javascript" src="{{ "/js/isotope.pkgd.min.js" | prepend: site.baseurl }}" data-no-instant></script>
+
+<!-- build:js /js/main.min.js -->
+<script type="text/javascript" src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
+<!-- /build -->
+
+<!-- init pjax/prefetching plugin: -->
+<script type='text/javascript' src="{{ "/js/instantclick.js" | prepend: site.baseurl }}" data-no-instant></script>
+<script data-no-instant>
+  InstantClick.on('change', function() {
+    ga('send', 'pageview', location.pathname + location.search);
+  });
+  $(document).ready(function(){
+    InstantClick.on('change', onChange);
+    InstantClick.init();
+  });
+</script>
