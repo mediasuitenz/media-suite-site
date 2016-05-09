@@ -41,9 +41,7 @@ Just edit stylesheets in `/css` directory. If `jekyll serve` is running, changes
 
 As with the CSS, all JavaScript can be edited directly in the `/js` directory and will be compiled with the site to  `_site/js` on save if `jekyll serve` is running.
 
-Plugins that don't need separating out due to the InstantClick plugin (see next paragraph) can be saved in the `js/concat` directory. Any files saved to this directory will be concatenated and minified by Gulp when building the files for deployment.
-
-Just be aware that the site uses [InstantClick.js](http://instantclick.io/) to pre-fetch pages when user hovers over a link, similar to pjax functionality. This means the `<head>` section and and assets load in on the initial page load and the `<body>` tag is all that swaps out on page change. Custom events to replace the likes of `$(document).ready()` etc can be found here: http://instantclick.io/scripts
+Plugins that don't need separating out can be saved in the `js/concat` directory. Any files saved to this directory will be concatenated and minified by Gulp when building the files for deployment.
 
 In `custom.js`, the JS related to each page is broken up into modules and initialised on page change depending on classes applied to the main wrapper for each page.
 
