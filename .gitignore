@@ -3,7 +3,7 @@
 */archive/
 node_modules
 npm-debug.log
-dist/*
+dist
 src/_site
 
 __MACOSX
