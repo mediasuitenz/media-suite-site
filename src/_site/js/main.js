@@ -94,6 +94,14 @@ function init () {
       animateScrollToElement: animateScrollToElement
     };
 
+    // Removes double tap on links with hover state on ios
+    
+    $('a.touch').on('click touchend', function(e) {
+      var el = $(this);
+      var link = el.attr('href');
+      window.location = link;
+    });
+
   })();
 
   /*===========================================================================
