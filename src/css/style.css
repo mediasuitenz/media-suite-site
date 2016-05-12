@@ -1918,9 +1918,8 @@ address {
 
 .service-icon i {
   display: block;
-  font-size: 3rem;
+  font-size: 5rem;
   line-height: 1;
-  margin-bottom: 15px;
 }
 
 .banner-image {
@@ -2173,6 +2172,10 @@ address {
     float: left;
     width: 50%;
     height: 170px;
+  }
+
+  .person-name-hover{
+    display: none;
   }
 
   .person .loader,
@@ -2726,6 +2729,7 @@ address {
 
   .service-icon i {
     font-size: 8rem;
+    margin-bottom: 15px;
   }
 
   .service-icon h2 {
