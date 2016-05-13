@@ -1984,6 +1984,20 @@ address {
   border-top: 1px solid #dedede
 }
 
+
+/*-----------------------------------------------------
+  404 page
+------------------------------------------------------*/
+
+.patrick-404 {
+    width: 315px;
+    float: left;
+}
+.text-404{
+  display: inline-block;
+  padding-top: 100px;
+}
+
 /*-----------------------------------------------------
   Effin IE
 ------------------------------------------------------*/
@@ -2224,6 +2238,16 @@ address {
   }
   .job-richie{
     display: none;
+  }
+  .patrick-404 {
+    width: 150px;
+    float: none;
+    display: block;
+    margin: auto;
+  }
+  .text-404{
+    display: inline-block;
+    padding-top: 10px;
   }
 
 }
