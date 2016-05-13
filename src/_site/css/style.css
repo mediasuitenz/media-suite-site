@@ -2198,6 +2198,11 @@ address {
     display: none;
   }
 
+  #person-matisse .person-image{
+    max-height: 120px;
+    width: auto;
+    margin-top: 40px;
+  }
   .bio-head {
     text-align: center;
     min-height: 0;
@@ -2712,6 +2717,9 @@ address {
     left: 50%;
     margin-left: -85px;
   }
+  .person-name-hover{
+    padding-right:60px;
+  }
 
   .bio-inner {
     position: absolute;
@@ -3184,6 +3192,10 @@ address {
 
   .person-wrap.on .bio-wrap {
     width: 455px;
+  }
+
+  .person-name-hover {
+    padding-right: 0;
   }
 
   .bio-inner {
