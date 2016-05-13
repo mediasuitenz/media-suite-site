@@ -60,6 +60,7 @@ gulp.task('minify-mainjs', function() {
 gulp.task('html', function(){
   var filesToMove = [
     './src/_site/index.html',
+    './src/_site/404/index.html',
     './src/_site/case-studies/**/*.*',
     './src/_site/careers/**/*.*',
     './src/_site/our-services/**/*.*',
