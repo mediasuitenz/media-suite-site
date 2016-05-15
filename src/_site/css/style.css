@@ -1992,6 +1992,7 @@ address {
 .patrick-404 {
     width: 315px;
     float: left;
+    padding-bottom: 20px;
 }
 .text-404{
   display: inline-block;
@@ -2197,6 +2198,11 @@ address {
     display: none;
   }
 
+  #person-matisse .person-image{
+    max-height: 120px;
+    width: auto;
+    margin-top: 40px;
+  }
   .bio-head {
     text-align: center;
     min-height: 0;
@@ -2240,14 +2246,16 @@ address {
     display: none;
   }
   .patrick-404 {
-    width: 150px;
+    width: 100px;
     float: none;
     display: block;
     margin: auto;
+    padding-bottom: 0;
   }
   .text-404{
     display: inline-block;
     padding-top: 10px;
+    padding-bottom: 20px;
   }
 
 }
@@ -2708,6 +2716,9 @@ address {
     bottom: 0;
     left: 50%;
     margin-left: -85px;
+  }
+  .person-name-hover{
+    padding-right:60px;
   }
 
   .bio-inner {
@@ -3181,6 +3192,10 @@ address {
 
   .person-wrap.on .bio-wrap {
     width: 455px;
+  }
+
+  .person-name-hover {
+    padding-right: 0;
   }
 
   .bio-inner {

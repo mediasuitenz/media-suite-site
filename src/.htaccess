@@ -1,0 +1,33 @@
+RewriteEngine On
+
+Redirect 301 /technical.php /say-hello
+Redirect 301 /creative.php /our-services
+Redirect 301 /support.php /say-hello
+Redirect 301 /rent-a-desk.php /say-hello
+Redirect 301 /front-end-developer.php /say-hello
+Redirect 301 /increase-website-traffic.php /our-services
+Redirect 301 /vision.php /our-services
+Redirect 301 /forward-works.php /case-studies/forward-works-viewer
+Redirect 301 /javascript-node-jobs-new-zealand.php /say-hello
+Redirect 301 /wdc.php /case-studies
+Redirect 301 /tmp.php /case-studies/tmp-for-christchurch
+Redirect 301 /partsworld.php /case-studies
+Redirect 301 /tdc.php /case-studies
+Redirect 301 /appraisal-connector.php /case-studies/appraisal-connector
+Redirect 301 /agile-project-manager.php /say-hello
+Redirect 301 /monsoon.php /case-studies
+
+Redirect 302 /careers.php /say-hello
+
+Redirect /pay https://supersecure.co.nz/users/4/payment.html
+Redirect /domains https://domainregistry.secureserver.co.nz/themediasuite/
+
+
+RewriteCond %{HTTP_HOST} ^mediasuite\.nz$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.mediasuite\.nz$ [OR]
+RewriteCond %{HTTP_HOST} ^mediasuite\.co\.nz$
+RewriteRule ^/?$ "https\:\/\/www\.mediasuite\.co\.nz" [R=301,L]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.mediasuite.co.nz/$1 [R,L]
+
+ErrorDocument 404     /404.html
