@@ -219,23 +219,27 @@ a {
   margin: 0;
 }
 
-.padding-100{
+.padding-100 {
   padding:100px 0;
 }
-.padding-100-top{
+
+.padding-100-top {
   padding-top:100px;
 }
-.padding-100-bottom{
+
+.padding-100-bottom {
   padding-bottom:100px;
 }
 
-.padding-50{
+.padding-50 {
   padding:50px 0;
 }
-.padding-50-top{
+
+.padding-50-top {
   padding-top:50px;
 }
-.padding-50-bottom{
+
+.padding-50-bottom {
   padding-bottom:50px;
 }
 
@@ -1360,16 +1364,19 @@ a.crumb:hover,
   padding-top: 60px;
   border-top: 5px solid #f36d21;
 }
-.other-case-studies h2{
-  font-size: 3rem
-}
-.other-case-studies .item-image img {
-    max-width: 220px;
+
+.other-case-studies h2 {
+  font-size: 3rem;
 }
 
-.tip{
+.other-case-studies .item-image img {
+  max-width: 220px;
+}
+
+.tip {
   position: relative;
 }
+
 .tip:after {
   position: absolute;
   font-size: 14px;
@@ -1387,21 +1394,24 @@ a.crumb:hover,
   pointer-events:none;
   text-align: center;
 }
+
 .tip:hover:after {
   top: -50px;
   opacity: 1;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
 }
 
-.tip.icon-desktop:after{
+.tip.icon-desktop:after {
   content: 'responsive website';
   left: -24px;
 }
-.tip.icon-mobile:after{
+
+.tip.icon-mobile:after {
   content: 'mobile app';
   left: -14px;
 }
-.tip.icon-cog:after{
+
+.tip.icon-cog:after {
   content: 'web application';
   left: -25px;
 }
@@ -1709,15 +1719,16 @@ a.crumb:hover,
   Careers Page:
 ------------------------------------------------------*/
 
-
-#should-will{
+#should-will {
   position: relative;
   display: inline-block;
   margin: 100px 0 150px;
 }
-#should-will-mobile{
+
+#should-will-mobile {
   margin: 100px 0;
 }
+
 .julia-overlay {
   height: 695px;
   position: absolute;
@@ -1726,18 +1737,23 @@ a.crumb:hover,
   top: 0px;
   z-index: 1;
 }
-#should-will .row{
+
+#should-will .row {
   margin: 20px 0;
 }
-#should-will .cell{
+
+#should-will .cell {
   width: 40%;
 }
-#should-will .division{
+
+#should-will .division {
   position: relative;
   background: url(../img/careers/dash.png) repeat-x center;
   width: 20%;
 }
-#should-will .division:before, #should-will .division:after{
+
+#should-will .division:before,
+#should-will .division:after {
   display: block;
   content: '';
   position: absolute;
@@ -1749,7 +1765,8 @@ a.crumb:hover,
   background: url(../img/careers/bracket-left.png) no-repeat;
   background-size: 27px 66px;
 }
-#should-will .division:after{
+
+#should-will .division:after {
   left: inherit;
   right: -35px;
   top: 50%;
@@ -1757,32 +1774,37 @@ a.crumb:hover,
   background: url(../img/careers/bracket-right.png) no-repeat;
   background-size: 27px 66px;
 }
+
 #should-will .cell {
   height: 65px;
   vertical-align: middle;
   font-size: 20px;
   position: relative;
 }
+
 #should-will .row .cell:first-of-type {
-    text-align: right;
-    padding-right: 75px;
-    padding-left: 10%
+  text-align: right;
+  padding-right: 75px;
+  padding-left: 10%
 }
+
 #should-will .row .cell:first-of-type .more-text-wrapper {
-  float:right;
+  float: right;
   margin-left: 90%;
 }
+
 #should-will .row .cell:last-of-type {
     text-align: left;
     padding-left: 75px;
     padding-right: 10%;
 }
 
-#should-will .more-text-wrapper{
+#should-will .more-text-wrapper {
   position: relative;
   width: 19px;
   height: 5px;
 }
+
 #should-will .more-text {
   width: 240px;
   padding: 18px;
@@ -1800,19 +1822,22 @@ a.crumb:hover,
   text-align: center;
   transition: all 500ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
   opacity: 0;
-  pointer-events:none;
+  pointer-events: none;
 }
+
 #should-will .cell:hover .more-text {
-  top:10px;
+  top: 10px;
   opacity: 1;
 }
-#should-will .ellipsis{
+
+#should-will .ellipsis {
   width: 19px;
   height: 5px;
   display: block;
   margin-top: 6px;
 }
-.should-will-title{
+
+.should-will-title {
   width: 50%;
   display: block;
   float: left;
@@ -1822,13 +1847,16 @@ a.crumb:hover,
   border-bottom: 4px solid #f36d21;
   margin-bottom: 30px;
 }
+
 .service-icon.careers i:before {
-  color:#000;
+  color: #000;
   transition: all 200ms ease-in-out;
 }
-.service-icon.careers:hover i:before{
+
+.service-icon.careers:hover i:before {
   color: #f27c00;
 }
+
 .job-richie {
   width: 300px;
   float: right;
@@ -1959,7 +1987,8 @@ address {
   line-height: 1;
   margin: 0 0 20px 0;
 }
-.service-text li{
+
+.service-text li {
   text-align: left;
 }
 
@@ -1993,9 +2022,10 @@ address {
 ------------------------------------------------------*/
 
 .patrick-404 {
-    width: 315px;
-    float: left;
+  width: 315px;
+  float: left;
 }
+
 .text-404{
   display: inline-block;
   padding-top: 100px;
@@ -2233,21 +2263,26 @@ address {
   #service-development .tri-image.careers {
     background: url(../img/careers/careers-2.jpg) no-repeat 75% 50%;
   }
-  #should-will{
+
+  #should-will {
     display: none;
   }
-  #should-will-mobile{
+
+  #should-will-mobile {
     display: block;
   }
-  .job-richie{
+
+  .job-richie {
     display: none;
   }
+
   .patrick-404 {
     width: 150px;
     float: none;
     display: block;
     margin: auto;
   }
+
   .text-404{
     display: inline-block;
     padding-top: 10px;
@@ -2285,6 +2320,7 @@ address {
     font-size: 6.2rem;
     padding: 0px 30px 0 50px;
   }
+
   .title-section {
     min-height: 75px;
   }
@@ -2878,10 +2914,12 @@ address {
     right: 50%;
     margin-right: -50vw;
   }
-  #should-will{
+
+  #should-will {
     display: block;
   }
-  #should-will-mobile{
+
+  #should-will-mobile {
     display: none;
   }
 
