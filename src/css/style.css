@@ -3325,3 +3325,13 @@ address {
   }
 
 }
+
+@media (max-width: 1024px) {
+
+  a:hover:before,
+  a:hover:after {
+    content: none !important;
+    display: none !important;
+  }
+
+}
