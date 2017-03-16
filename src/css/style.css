@@ -35,7 +35,8 @@ body {
 .clearfix:after,
 .max-1500:after,
 .max-1200:after,
-.max-1000:after {
+.max-1000:after,
+.max-620:after {
   content: "";
   display: table;
   clear: both;
@@ -45,6 +46,7 @@ body {
 .max-1200,
 .max-1000,
 .max-760,
+.max-620,
 .max-570 {
   margin-left: 20px;
   margin-right: 20px;
@@ -66,6 +68,12 @@ body {
 
 .max-760 {
   max-width: 760px;
+}
+
+.max-620 {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .max-570 {
@@ -90,17 +98,22 @@ body {
   max-width: 100%;
 }
 
-.row{
+.row {
   display: table;
   width: 100%;
 }
-.cell{
+
+.cell {
   display: table-cell;
 }
 
 .open-sans {
   font-family: 'Open Sans', serif;
   font-weight: 300;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 img {
@@ -427,6 +440,10 @@ a {
   border-top: 4px solid #f27c00;
 }
 
+#page-header.culture-header:before {
+  content: none;
+}
+
 #menu-bar-logo {
   float: left;
   height: 100%;
@@ -649,6 +666,8 @@ a {
 
 .home-page-container,
 .home-page,
+.culture-page-container,
+.culture-page,
 #banner-panel {
   height: 100%;
 }
@@ -2026,10 +2045,447 @@ address {
   float: left;
 }
 
-.text-404{
+.text-404 {
   display: inline-block;
   padding-top: 100px;
 }
+
+/*-----------------------------------------------------
+  Culture page
+------------------------------------------------------*/
+
+.grey-panel {
+  background: #f0ede8;
+}
+
+#culture-freedom-panel {
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 160px;
+  background: rgb(180,214,199);
+  background: -moz-linear-gradient(top, rgba(180,214,199,1) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(180,214,199,1) 0%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(180,214,199,1) 0%,rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4d6c7', endColorstr='#ffffff',GradientType=0 );
+}
+
+#culture-freedom-panel h2 {
+  margin-bottom: 15px;
+}
+
+#culture-freedom-panel:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  background: #eed39d;
+}
+
+#culture-freedom-panel:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  z-index: 0;
+  background: rgb(90,120,145);
+  background: -moz-linear-gradient(top, rgba(90,120,145,1) 0%, rgba(91,133,122,1) 50%, rgba(105,151,117,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(90,120,145,1) 0%,rgba(91,133,122,1) 50%,rgba(105,151,117,1) 100%);
+  background: linear-gradient(to bottom, rgba(90,120,145,1) 0%,rgba(91,133,122,1) 50%,rgba(105,151,117,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5a7891', endColorstr='#699775',GradientType=0 );
+}
+
+.svg-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.svg-content {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#dude-image {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 500px;
+  max-width: 100%;
+}
+
+@media (max-width: 1300px) {
+
+  #dude-image {
+    display: none;
+  }
+
+}
+
+#dude-svg-wrap {
+  padding-bottom: 69%;
+}
+
+#clouds-image {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+#clouds-svg-wrap {
+  padding-bottom: 48%;
+}
+
+#culture-learning-panel {
+  background: #f0ede8;
+  padding-top: 0;
+  overflow: hidden;
+}
+
+#culture-learning-panel .panel-inner {
+  padding-top: 95px;
+}
+
+#culture-learning-panel .panel-inner:before {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: 350px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 50%;
+  margin-left: -50vw;
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 70%, rgba(255,255,255,0.7) 86%, rgba(255,255,255,0) 100%);
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.9) 70%,rgba(255,255,255,0.7) 86%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0.9) 70%,rgba(255,255,255,0.7) 86%,rgba(255,255,255,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+}
+
+.svg-text-overlay {
+  position: relative;
+  z-index: 100;
+  max-width: 695px;
+  margin: 0 auto;
+}
+
+.svg-text-overlay p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+#plant-svg-wrap {
+  margin-top: -115px;
+  z-index: 0;
+  padding-bottom: 65%;
+}
+
+#culture-community-panel {
+  position: relative;
+  background: rgb(125,166,72);
+  background: -moz-linear-gradient(top,  rgba(125,166,72,1) 0%, rgba(204,218,186,1) 66%);
+  background: -webkit-linear-gradient(top,  rgba(125,166,72,1) 0%,rgba(204,218,186,1) 66%);
+  background: linear-gradient(to bottom,  rgba(125,166,72,1) 0%,rgba(204,218,186,1) 66%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7da648', endColorstr='#ccdaba',GradientType=0 );
+}
+
+#culture-community-panel .panel-inner {
+  position: relative;
+  z-index: 10;
+}
+
+#picnic-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#picnic-lady-svg {
+  width: 435px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#picnic-wheel-svg {
+  width: 155px;
+  position: absolute;
+  top: 140px;
+  left: -5px;
+}
+
+#picnic-blanket-svg {
+  width: 450px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -205px;
+}
+
+#picnic-dude-svg {
+  width: 365px;
+  position: absolute;
+  top: 0;
+  right: -105px;
+}
+
+#picnic-bbq-svg {
+  width: 550px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#picnic-baby-svg {
+  width: 490px;
+  position: absolute;
+  bottom: -50px;
+  left: 200px;
+}
+
+#culture-value-panel {
+  position: relative;
+  background: rgb(154,60,118);
+  background: -moz-linear-gradient(top,  rgba(154,60,118,1) 0%, rgba(244,218,192,1) 47%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(154,60,118,1) 0%,rgba(244,218,192,1) 47%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom,  rgba(154,60,118,1) 0%,rgba(244,218,192,1) 47%,rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a3c76', endColorstr='#ffffff',GradientType=0 );
+}
+
+#mountain-svg-wrap {
+  padding-bottom: 58%;
+}
+
+#mountain-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 92vh;
+}
+
+@media (max-width: 767px) {
+
+  #culture-intro-panel {
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
+
+  .heads-wrapper {
+    display: none;
+  }
+
+}
+
+@media (min-width: 768px) {
+
+  .culture-page .content-panel {
+    min-height: 100%;
+  }
+
+  #culture-intro-panel {
+    padding-top: 100px;
+    padding-bottom: 250px;
+    position: relative;
+    min-height: 100%;
+  }
+
+  #culture-intro-panel .panel-inner {
+    padding: 0 50px;
+  }
+
+  .heads-wrapper {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .heads-top,
+  .heads-left,
+  .heads-right {
+    display: none;
+  }
+
+  .heads-btm {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .heads-btm .head {
+    float: left;
+    width: 25%;
+    height: 170px;
+    text-align: center;
+  }
+
+  .head img {
+    display: inline-block;
+    vertical-align: bottom;
+    height: 100%;
+    width: auto;
+  }
+
+  .head:first-of-type {
+    text-align: left;
+  }
+
+  .head:last-of-type {
+    text-align: right;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  #culture-intro-panel {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+
+  .heads-top {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .heads-top .head {
+    float: left;
+    width: 45%;
+    height: 190px;
+  }
+
+  .heads-top .head:first-of-type {
+    text-align: right;
+    margin-right: 5%;
+  }
+
+  .heads-top .head:last-of-type {
+    text-align: left;
+    margin-left: 5%;
+  }
+
+  .heads-top .head,
+  .heads-btm .head {
+    height: 190px;
+  }
+
+  #culture-community-panel {
+    padding-top: 200px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  .heads-left,
+  .heads-right {
+    display: block;
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    height: calc(100% - 250px);
+  }
+
+  .heads-left {
+    left: 0;
+  }
+
+  .heads-right {
+    right: 0;
+  }
+
+  .heads-left .head,
+  .heads-right .head {
+    width: 200px;
+    height: 45%;
+  }
+
+  .heads-left .head {
+    text-align: left;
+  }
+
+  .heads-right .head {
+    text-align: right;
+  }
+
+  .heads-left .head img,
+  .heads-right .head img {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+
+  .heads-left img,
+  .heads-right img {
+    vertical-align: bottom;
+  }
+
+  .heads-left .head:first-of-type,
+  .heads-right .head:first-of-type {
+    margin-bottom: 10%;
+  }
+
+  .heads-left .head:before,
+  .heads-right .head:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+}
+
+@media (min-width: 1200px) and (min-height: 900px) {
+
+  #culture-intro-panel {
+    padding-top: 240px;
+    padding-bottom: 240px;
+  }
+
+  .heads-top .head,
+  .heads-btm .head {
+    height: 240px;
+  }
+
+  .heads-left,
+  .heads-right {
+    width: 240px;
+    top: 0;
+  }
+
+  .heads-left .head,
+  .heads-right .head {
+    width: 240px;
+  }
+
+}
+
 
 /*-----------------------------------------------------
   Effin IE
@@ -2067,7 +2523,7 @@ address {
   }
 
   #page-header {
-    height: 100px;
+    height: 85px;
   }
 
   #hd-inner {
@@ -2426,7 +2882,9 @@ address {
   }
 
   .home-page-container,
-  .home-page {
+  .home-page,
+  .culture-page-container,
+  .culture-page {
     height: 100%;
   }
 
@@ -3299,6 +3757,17 @@ address {
   .content-panel {
     height: 100%;
     padding-top: 0;
+  }
+
+  #culture-freedom-panel,
+  #culture-freedom-panel .max-760,
+  #culture-freedom-panel .max-1200 {
+    height: auto;
+    min-height: 0;
+  }
+
+  .culture-page .content-panel {
+    padding-top: 140px;
   }
 
   .content-panel .faux-table {

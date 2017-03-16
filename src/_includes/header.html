@@ -1,6 +1,6 @@
 {% include menu.html %}
 
-<header id="page-header"{% if(page.menutitle != 'Home') %} class="on"{% else %} class="mob-hide"{% endif %}>
+<header id="page-header"{% if (page.ishome) %} class="mob-hide" {% else %} class="on{% if (page.isculture) %} culture-header{% endif %}" {% endif %}>
   <div id="hd-inner" class="max-1200">
     <a href="{{ "/" | prepend: site.baseurl }}" id="menu-bar-logo">
       <img src="{{ "/img/logo.svg" | prepend: site.baseurl }}" alt="Media Suite Logo" class="menu-logo" data-fallback="{{ "/img/logo.png" | prepend: site.baseurl }}">
