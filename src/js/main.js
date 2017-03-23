@@ -614,6 +614,7 @@ function init () {
         var accountabilityCloud = f.select('#accountability-cloud')
         var flexibilityCloud = f.select('#flexibility-cloud')
         var freedomCloud = f.select('#freedom-cloud')
+
         svgEl.append(freedomCloud)
         svgEl.append(trustCloud)
         svgEl.append(flexibilityCloud)
@@ -627,13 +628,36 @@ function init () {
     }
 
     var _initPlantSVG = function () {
-      var svgEl = Snap('#plant-svg')
-      Snap.load('/img/culture/plant.svg', function (f) {
-        var plant = f.select('#plant-layer')
-        var bulbs = f.select('#bulbs-layer')
-        svgEl.append(plant)
-        svgEl.append(bulbs)
-      })
+      if ($(window).width() < 1024) {
+        var helpBulb = Snap('#help-bulb-svg')
+        Snap.load('/img/culture/bulb-help.svg', function (f) {
+          var bulb = f.select('#help-bulb')
+          helpBulb.append(bulb)
+        })
+        var teamworkBulb = Snap('#teamwork-bulb-svg')
+        Snap.load('/img/culture/bulb-teamwork.svg', function (f) {
+          var bulb = f.select('#teamwork-bulb')
+          teamworkBulb.append(bulb)
+        })
+        var improvingBulb = Snap('#improving-bulb-svg')
+        Snap.load('/img/culture/bulb-improving.svg', function (f) {
+          var bulb = f.select('#improving-bulb')
+          improvingBulb.append(bulb)
+        })
+        var passionBulb = Snap('#passion-bulb-svg')
+        Snap.load('/img/culture/bulb-passion.svg', function (f) {
+          var bulb = f.select('#passion-bulb')
+          passionBulb.append(bulb)
+        })
+      } else {
+        var svgEl = Snap('#plant-svg')
+        Snap.load('/img/culture/plant.svg', function (f) {
+          var plant = f.select('#plant-layer')
+          var bulbs = f.select('#bulbs-layer')
+          svgEl.append(plant)
+          svgEl.append(bulbs)
+        })
+      }
     }
 
     var _initPicnicSVG = function () {
