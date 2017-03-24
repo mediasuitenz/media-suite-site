@@ -129,6 +129,6 @@
 	<text transform="matrix(1 0 0 1 121.0281 208.7247)" font-family="'Open Sans'" class="bold" font-size="11px">- Ersin</text>
 	<rect x="63.8" y="118.4" fill="none" width="150" height="76"/>
 	<text transform="matrix(1 0 0 1 72.2026 126.7346)"><tspan x="0" y="0" font-family="'Open Sans'" font-size="11px">If we don’t understand why </tspan><tspan x="1.2" y="15" font-family="'Open Sans'" font-size="11px">something is done, we just </tspan><tspan x="-7.9" y="30" font-family="'Open Sans'" font-size="11px">ask so we can learn. The more </tspan><tspan x="-7.5" y="45" font-family="'Open Sans'" font-size="11px">we learn, the more we can do, </tspan><tspan x="2" y="60" font-family="'Open Sans'" font-size="11px">and the more we can surf.</tspan></text>
-	<text transform="matrix(1 0 0 1 85.0674 84.3648)" enable-background="new    "><tspan x="0" y="0" fill="#F27C00" font-family="'CheltenhamITCbyBT-BoldItalic'" font-size="22px">asking for</tspan><tspan x="30.3" y="22" fill="#F27C00" font-family="'CheltenhamITCbyBT-BoldItalic'" font-size="22px">help</tspan></text>
+	<text transform="matrix(1 0 0 1 85.0674 84.3648)" enable-background="new    "><tspan x="0" y="0" fill="#F27C00" font-family="'chelthmitc_bk_btbold_italic'" font-size="22px">asking for</tspan><tspan x="30.3" y="22" fill="#F27C00" font-family="'chelthmitc_bk_btbold_italic'" font-size="22px">help</tspan></text>
 </g>
 </svg>

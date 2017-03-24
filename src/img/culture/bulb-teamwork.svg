@@ -128,9 +128,9 @@
 	<g id="text_1_">
 		<text transform="matrix(1 0 0 1 78.7148 227.2919)" font-family="'Open Sans'" class="bold" font-size="11px">- Jonathan</text>
 
-			<text transform="matrix(1 0 0 1 55.7239 101.932)" fill="#F27C00" font-family="'CheltenhamITCbyBT-BoldItalic'" font-size="22px">teamwork</text>
+			<text transform="matrix(1 0 0 1 55.7239 101.932)" fill="#F27C00" font-family="'chelthmitc_bk_btbold_italic'" font-size="22px">teamwork</text>
 		<rect x="31.5" y="114.5" fill="none" width="150" height="98.4"/>
-		<text transform="matrix(1 0 0 1 62.7688 122.9019)"><tspan x="0" y="0" font-family="'OpenSans-Light'" font-size="11px">It’s a collaborative </tspan><tspan x="-22.3" y="14" font-family="'OpenSans-Light'" font-size="11px">organisation; if one person </tspan><tspan x="-31.1" y="28" font-family="'OpenSans-Light'" font-size="11px">has a problem, we are all keen </tspan><tspan x="-23" y="42" font-family="'OpenSans-Light'" font-size="11px">to help out. We deliver as a </tspan><tspan x="-13.3" y="56" font-family="'OpenSans-Light'" font-size="11px">team, not as a series of </tspan><tspan x="-20.4" y="70" font-family="'OpenSans-Light'" font-size="11px">individuals, which is a very </tspan><tspan x="-11.4" y="84" font-family="'OpenSans-Light'" font-size="11px">refreshing experience.</tspan></text>
+		<text transform="matrix(1 0 0 1 62.7688 122.9019)"><tspan x="0" y="0" font-family="'Open Sans'" font-size="11px">It’s a collaborative </tspan><tspan x="-22.3" y="14" font-family="'Open Sans'" font-size="11px">organisation; if one person </tspan><tspan x="-31.1" y="28" font-family="'Open Sans'" font-size="11px">has a problem, we are all keen </tspan><tspan x="-23" y="42" font-family="'Open Sans'" font-size="11px">to help out. We deliver as a </tspan><tspan x="-13.3" y="56" font-family="'Open Sans'" font-size="11px">team, not as a series of </tspan><tspan x="-20.4" y="70" font-family="'Open Sans'" font-size="11px">individuals, which is a very </tspan><tspan x="-11.4" y="84" font-family="'Open Sans'" font-size="11px">refreshing experience.</tspan></text>
 	</g>
 </g>
 </svg>

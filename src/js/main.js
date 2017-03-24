@@ -628,36 +628,56 @@ function init () {
     }
 
     var _initPlantSVG = function () {
+      var inMobileState = false
       if ($(window).width() < 1024) {
-        var helpBulb = Snap('#help-bulb-svg')
-        Snap.load('/img/culture/bulb-help.svg', function (f) {
-          var bulb = f.select('#help-bulb')
-          helpBulb.append(bulb)
-        })
-        var teamworkBulb = Snap('#teamwork-bulb-svg')
-        Snap.load('/img/culture/bulb-teamwork.svg', function (f) {
-          var bulb = f.select('#teamwork-bulb')
-          teamworkBulb.append(bulb)
-        })
-        var improvingBulb = Snap('#improving-bulb-svg')
-        Snap.load('/img/culture/bulb-improving.svg', function (f) {
-          var bulb = f.select('#improving-bulb')
-          improvingBulb.append(bulb)
-        })
-        var passionBulb = Snap('#passion-bulb-svg')
-        Snap.load('/img/culture/bulb-passion.svg', function (f) {
-          var bulb = f.select('#passion-bulb')
-          passionBulb.append(bulb)
-        })
+        inMobileState = true
+        _initMobilePlantSVG()
       } else {
-        var svgEl = Snap('#plant-svg')
-        Snap.load('/img/culture/plant.svg', function (f) {
-          var plant = f.select('#plant-layer')
-          var bulbs = f.select('#bulbs-layer')
-          svgEl.append(plant)
-          svgEl.append(bulbs)
-        })
+        _initDesktopPlantSVG()
       }
+
+      $(window).resize(function () {
+        if ($(window).width() < 1024 && !inMobileState) {
+          inMobileState = true
+          _initMobilePlantSVG()
+        } else if (inMobileState) {
+          inMobileState = false
+          _initDesktopPlantSVG()
+        }
+      })
+    }
+
+    var _initMobilePlantSVG = function () {
+      var helpBulb = Snap('#help-bulb-svg')
+      Snap.load('/img/culture/bulb-help.svg', function (f) {
+        var bulb = f.select('#help-bulb')
+        helpBulb.append(bulb)
+      })
+      var teamworkBulb = Snap('#teamwork-bulb-svg')
+      Snap.load('/img/culture/bulb-teamwork.svg', function (f) {
+        var bulb = f.select('#teamwork-bulb')
+        teamworkBulb.append(bulb)
+      })
+      var improvingBulb = Snap('#improving-bulb-svg')
+      Snap.load('/img/culture/bulb-improving.svg', function (f) {
+        var bulb = f.select('#improving-bulb')
+        improvingBulb.append(bulb)
+      })
+      var passionBulb = Snap('#passion-bulb-svg')
+      Snap.load('/img/culture/bulb-passion.svg', function (f) {
+        var bulb = f.select('#passion-bulb')
+        passionBulb.append(bulb)
+      })
+    }
+
+    var _initDesktopPlantSVG = function () {
+      var svgEl = Snap('#plant-svg')
+      Snap.load('/img/culture/plant.svg', function (f) {
+        var plant = f.select('#plant-layer')
+        var bulbs = f.select('#bulbs-layer')
+        svgEl.append(plant)
+        svgEl.append(bulbs)
+      })
     }
 
     var _initPicnicSVG = function () {

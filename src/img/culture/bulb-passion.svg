@@ -127,6 +127,6 @@
 	<text transform="matrix(1 0 0 1 84.0343 161.727)" font-family="'Open Sans'" class="bold" font-size="11px">- Pete</text>
 	<rect x="24.6" y="70.4" fill="none" width="150" height="76"/>
 	<text transform="matrix(1 0 0 1 31.5133 78.7369)"><tspan x="0" y="0" font-family="'Open Sans'" font-size="11px">Media Suite work is fun and </tspan><tspan x="18.2" y="15" font-family="'Open Sans'" font-size="11px">exciting for me. I am </tspan><tspan x="-0.6" y="30" font-family="'Open Sans'" font-size="11px">passionate and enthusiastic </tspan><tspan x="0.2" y="45" font-family="'Open Sans'" font-size="11px">about working again for the </tspan><tspan x="16.7" y="60" font-family="'Open Sans'" font-size="11px">first time in 10 years.</tspan></text>
-	<text transform="matrix(1 0 0 1 59.8011 54.3671)" fill="#F27C00" font-family="'CheltenhamITCbyBT-BoldItalic'" font-size="22px">passion</text>
+	<text transform="matrix(1 0 0 1 59.8011 54.3671)" fill="#F27C00" font-family="'chelthmitc_bk_btbold_italic'" font-size="22px">passion</text>
 </g>
 </svg>
