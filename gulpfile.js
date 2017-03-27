@@ -66,7 +66,8 @@ gulp.task('html', function(){
     './src/_site/our-services/**/*.*',
     './src/_site/people/**/*.*',
     './src/_site/say-hello/**/*.*',
-    './src/_site/terms/**/*.*'
+    './src/_site/terms/**/*.*',
+    './src/_site/culture/**/*.*'
   ];
   return gulp.src(filesToMove, { base: './src/_site' })
   .pipe(processhtml())
