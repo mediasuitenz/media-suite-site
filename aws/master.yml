@@ -1,0 +1,120 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: Media Suite Website
+
+Resources:
+
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: media-suite-site
+      VersioningConfiguration:
+        Status: Enabled
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: "*"
+            Action:
+              - s3:GetObject
+            Resource:
+              - !Sub arn:aws:s3:::${SiteBucket}/staging/*
+              - !Sub arn:aws:s3:::${SiteBucket}/production/*
+
+  LogsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: media-suite-site-logs
+      VersioningConfiguration:
+        Status: Enabled
+
+  StagingDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        # Origin Settings
+        Origins:
+          - DomainName: !GetAtt SiteBucket.DomainName
+            OriginPath: /staging
+            Id: !Sub S3-${SiteBucket}/staging
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+        # Default Cache Behavior Settings
+        DefaultCacheBehavior:
+          TargetOriginId: !Sub S3-${SiteBucket}/staging
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            Cookies:
+              Forward: none
+            QueryString: false
+          Compress: false
+        # Distribution Settings
+        PriceClass: PriceClass_All
+        Aliases:
+          - mediasuite-staging.msapp.co.nz
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+        HttpVersion: http2
+        DefaultRootObject: index.html
+        Logging:
+          Bucket: !GetAtt LogsBucket.DomainName
+          Prefix: staging
+          IncludeCookies: false
+        Enabled: true
+
+  ProductionDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        # Origin Settings
+        Origins:
+          - DomainName: !GetAtt SiteBucket.DomainName
+            OriginPath: /production
+            Id: !Sub S3-${SiteBucket}/production
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+        # Default Cache Behavior Settings
+        DefaultCacheBehavior:
+          TargetOriginId: !Sub S3-${SiteBucket}/production
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            Cookies:
+              Forward: none
+            QueryString: false
+          Compress: false
+        # Distribution Settings
+        PriceClass: PriceClass_All
+        Aliases:
+          - mediasuite.co.nz
+          - www.mediasuite.co.nz
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+        HttpVersion: http2
+        DefaultRootObject: index.html
+        Logging:
+          Bucket: !GetAtt LogsBucket.DomainName
+          Prefix: production
+          IncludeCookies: false
+        Enabled: false
+
+Outputs:
+
+  StagingDomainName:
+    Description: Staging domain name
+    Value: !GetAtt StagingDistribution.DomainName
+
+  ProductionDomainName:
+    Description: Production domain name
+    Value: !GetAtt ProductionDistribution.DomainName
