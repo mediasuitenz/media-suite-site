@@ -107,7 +107,7 @@ Resources:
           Bucket: !GetAtt LogsBucket.DomainName
           Prefix: production
           IncludeCookies: false
-        Enabled: false
+        Enabled: true
 
 Outputs:
 
