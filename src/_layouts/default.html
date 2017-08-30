@@ -11,9 +11,9 @@
     {% include header.html %}
 
     <div id="container"
-          {% if(page.ishome) %} class="home-page-container" {% endif %}
-          {% if(page.isfullheight) %} class="full-height" {% endif %}
-          {% if(page.isculture) %} class="culture-page-container" {% endif %}>
+          {% if page.ishome %} class="home-page-container" {% endif %}
+          {% if page.isfullheight %} class="full-height" {% endif %}
+          {% if page.isculture %} class="culture-page-container" {% endif %}>
 
       {{ content }}
 
