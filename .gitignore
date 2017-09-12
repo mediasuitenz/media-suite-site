@@ -4,6 +4,7 @@
 node_modules
 npm-debug.log
 dist
+!dist/.gitkeep
 src/_site
 
 __MACOSX
