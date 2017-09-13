@@ -14,7 +14,7 @@
         <li><a href="{{ p.url | prepend: site.baseurl }}" class="touch menu-link{% if p.url == page.url %} active{% endif %}">{{ p.menutitle }}</a></li>
         {% endif %}
         {% if p.menutitle == "Careers"%}
-          <li><a href="http://suite.as" class="touch menu-link">Blog</a></li>
+          <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="touch menu-link">Blog</a></li>
         {% endif %}
       {% endfor %}
       </ul>
