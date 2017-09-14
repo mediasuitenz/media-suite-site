@@ -4,7 +4,7 @@ Uses [Jekyll](https://jekyllrb.com/) static site generator and [Gulp](http://gul
 
 ## Setup
 
-1. Install Jekyll: `gem install jekyll`
+1. Install Jekyll: `bundle install`
 2. Once in site directory (`src`), run `jekyll serve`. This will watch all files and compile any changes to `_site` directory. Site will be served up at `http://localhost:4000/`.
 
 \* `baseurl` setting in `_config.yml` will need editing if not serving site up from root of domain. For example, when publishing site to `http://mediasuitenz.github.io/media-suite-site/`, `baseurl` needs to be set to `"/media-suite-site"`. To edit and serve site up locally without modifying this setting, run `jekyll serve --baseurl ''`.
