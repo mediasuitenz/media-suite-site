@@ -5,7 +5,7 @@
 html,
 body {
   height: 100%;
-  width: 100%;
+  width: 100%;©
 }
 
 html {
@@ -1538,20 +1538,20 @@ a.crumb:hover,
 }
 
 .bio-heading {
-  display: inline-block;
+  display: block;
   font-size: 3rem;
-  line-height: 1.4;
-  margin: 25px 0 5px 0;
+  line-height: 1.1;
+  margin: 25px 0 0;
   width: auto;
   padding-left: 3px;
-  padding-right: 10px;
+  padding-right: 130px;
 }
 
 .bio-sub {
   display: inline-block;
   font-size: 1.6rem;
   line-height: 1;
-  margin: 0;
+  margin: 0 0 8px;
   color: #f36d21;
   width: 100%;
   padding-left: 3px;
@@ -1559,9 +1559,7 @@ a.crumb:hover,
 }
 
 .linkedin-container {
-  position: relative;
-  top: 3px;
-
+  padding-left: 3px;
 }
 
 .bio-real-image {
