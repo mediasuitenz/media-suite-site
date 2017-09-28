@@ -463,6 +463,18 @@ function init () {
       }
     }
 
+    var _fetchBlogPosts = function () {
+      var postContainers = $('.js-load-blog-post')
+      var postIndex = 0
+      postContainers.each(function () {
+        var t = $(this)
+        var linkURL = 'https://www.mediasuite.co.nz/blog'
+        t.load(linkURL + ' #post-' + postIndex++, function( response, status, xhr ) {
+          t.find('.js-image-fill a, .author-avatar').imgLiquid()
+        })
+      })
+    }
+
     // Initialise home page plugins:
     var _initPlugins = function () {
       _initCoverVideo()
@@ -475,6 +487,7 @@ function init () {
       _initPlugins()
       _initValueWheelAnimations()
       _initSideNavControl()
+      _fetchBlogPosts()
     }
 
     return {
@@ -581,10 +594,22 @@ function init () {
       })
     }
 
+    var _fetchBlogLinks = function () {
+      var linkContainers = $('.js-blog-link')
+      linkContainers.each(function () {
+        var t = $(this)
+        var linkURL = 'https://www.mediasuite.co.nz/blog' + t.data('blog-link')
+        t.load(linkURL + ' #ms-site-latest-blog-link', function( response, status, xhr ) {
+          $('#ms-site-latest-blog-link').removeAttr('id')
+        })
+      })
+    }
+
     var init = function () {
       _initPeopleTiles()
       _initBioClickHandler()
       _initSortControls()
+      _fetchBlogLinks()
     }
 
     return {

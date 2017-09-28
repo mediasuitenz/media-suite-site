@@ -2,6 +2,17 @@
   Base Styles & Helper Classes:
 ------------------------------------------------------*/
 
+@font-face {
+  font-family: 'chelthmitc_bk_btbold_italic';
+  src: url('../fonts/cheltnhmitc_bt-webfont.eot');
+  src: url('../fonts/cheltnhmitc_bt-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/cheltnhmitc_bt-webfont.woff2') format('woff2'),
+       url('../fonts/cheltnhmitc_bt-webfont.woff') format('woff'),
+       url('../fonts/cheltnhmitc_bt-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
@@ -213,6 +224,7 @@ a {
 
 .faux-table {
   display: table;
+  table-layout: fixed;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -338,6 +350,51 @@ a {
   left: 100%;
   opacity: 1;
 }
+
+
+/*-----------------------------------------------------
+  Fontello icons:
+------------------------------------------------------*/
+
+@font-face {
+  font-family: 'mediasuite';
+  src: url('../fonts/icons/mediasuite.eot?93625601');
+  src: url('../fonts/icons/mediasuite.eot?93625601#iefix') format('embedded-opentype'),
+       url('../fonts/icons/mediasuite.woff?93625601') format('woff'),
+       url('../fonts/icons/mediasuite.ttf?93625601') format('truetype'),
+       url('../fonts/icons/mediasuite.svg?93625601#mediasuite') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "mediasuite";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before { content: '\e800'; } /* '' */
+.icon-facebook-squared:before { content: '\e801'; } /* '' */
+.icon-close:before { content: '\e802'; } /* '' */
+.icon-cog:before { content: '\e803'; } /* '' */
+.icon-mobile:before { content: '\e804'; } /* '' */
+.icon-spin:before { content: '\e805'; } /* '' */
+.icon-down-open-big:before { content: '\e806'; } /* '' */
+.icon-desktop:before { content: '\e807'; } /* '' */
+.icon-clipboard-01:before { content: '\e808'; } /* '' */
+
 
 /*-----------------------------------------------------
   Jiggle Animations:
@@ -1131,6 +1188,96 @@ a {
   margin-bottom: 16px;
 }
 
+
+/*-----------------------------------------------------
+  Home Page: #blog-panel
+------------------------------------------------------*/
+
+.blog-posts {
+  padding: 30px 0 0 0;
+}
+
+.blog-post {
+  width: 100%;
+  max-width: 320px;
+  min-height: 100px;
+  margin: 0 auto 50px auto;
+  text-align: left;
+  position: relative;
+}
+
+.blog-list-item__image a {
+  display: block;
+  width: 100%;
+  height: 185px;
+  margin-bottom: 10px;
+}
+
+.blog-list-item__heading {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.blog-list-item__sub-heading {
+  display: none;
+}
+
+.blog-list-item__intro-text {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.author-avatar {
+  display: inline-block;
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.author-element__meta {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .blog-post {
+    float: left;
+    width: 48%;
+    margin-left: 4%;
+    max-width: none;
+  }
+
+  .blog-post:nth-child(2n+1) {
+    margin-left: 0;
+  }
+
+  .blog-post:nth-child(3n) {
+    display: none;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  .blog-post {
+    float: left;
+    width: 30%;
+    margin-left: 5%;
+  }
+
+  .blog-post:nth-child(3n+1) {
+    margin-left: 0;
+  }
+
+}
+
+
 /*-----------------------------------------------------
   Home Page: #hello-panel
 ------------------------------------------------------*/
@@ -1144,8 +1291,8 @@ a {
   display: inline-block;
   position: relative;
   vertical-align: middle;
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   border-radius: 100%;
   overflow: hidden;
 }
@@ -1190,7 +1337,7 @@ a {
   color: #fff;
   font-size: 4rem;
   line-height: 1;
-  margin: 115px 0 0 0;
+  margin: 105px 0 0 0;
   text-shadow: -1px 2px 1px rgba(0,0,0,0.5);
   pointer-events: none;
 }
@@ -1576,6 +1723,19 @@ a.crumb:hover,
   text-align: left;
   font-size: 1.4rem;
   line-height: 1.5;
+}
+
+.latest-post-text {
+  color: #000;
+}
+
+.latest-post-link {
+  display: block;
+  width: 100%;
+  max-width: 455px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grid-sizer {
