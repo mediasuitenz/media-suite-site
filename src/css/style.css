@@ -1538,7 +1538,7 @@ a.crumb:hover,
 }
 
 .bio-heading {
-  display: block;
+  display: inline-block;
   font-size: 3rem;
   line-height: 1.1;
   margin: 25px 0 0;
