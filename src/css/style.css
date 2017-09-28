@@ -857,6 +857,37 @@ a {
   margin: 0 2%;
 }
 
+ /*We're hiring bubble */
+
+ .hiring-bubble {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  height: 152px;
+  width: 148px;
+  background: url(../img/hiring-bubble.png) no-repeat 0 0;
+  color: #fff;
+  text-align: center;
+  padding-right: 8px;
+  z-index: 110;
+ }
+
+ .hiring-text {
+  display: block;
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1;
+  margin: 2.6rem 0 .6rem 0;
+  text-transform: lowercase;
+ }
+
+ .apply-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+ }
+
 /*-----------------------------------------------------
   Home Page: #work-panel
 ------------------------------------------------------*/
@@ -1509,9 +1540,9 @@ a.crumb:hover,
 .bio-heading {
   display: inline-block;
   font-size: 3rem;
-  line-height: 1.4;
-  margin: 25px 0 5px 0;
-  width: 100%;
+  line-height: 1.1;
+  margin: 25px 0 0;
+  width: auto;
   padding-left: 3px;
   padding-right: 130px;
 }
@@ -1520,11 +1551,15 @@ a.crumb:hover,
   display: inline-block;
   font-size: 1.6rem;
   line-height: 1;
-  margin: 0;
+  margin: 0 0 8px;
   color: #f36d21;
   width: 100%;
   padding-left: 3px;
   padding-right: 130px;
+}
+
+.linkedin-container {
+  padding-left: 3px;
 }
 
 .bio-real-image {
@@ -2128,6 +2163,12 @@ address {
     display: block;
     height: 100%;
     width: auto;
+  }
+
+  .hiring-bubble {
+    right: 30px;
+    bottom: 50vh;
+    transform: translateY(76px);
   }
 
 }
