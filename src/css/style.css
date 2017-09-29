@@ -400,11 +400,13 @@ a {
   Jiggle Animations:
 ------------------------------------------------------*/
 
-.jiggle {
+.jiggle,
+.hiring-bubble {
   transform: scale(1);
 }
 
-.jiggle:hover {
+.jiggle:hover,
+.hiring-bubble:hover {
   animation-name: jiggle;
   animation-duration: .75s;
   animation-direction: alternate;
@@ -914,22 +916,28 @@ a {
   margin: 0 2%;
 }
 
- /*We're hiring bubble */
+ /* We're hiring bubble */
 
- .hiring-bubble {
+.hiring-bubble-container {
   position: absolute;
   right: 30px;
   bottom: 30px;
+  height: 152px;
+  width: 148px;
+  z-index: 110;
+}
+
+.hiring-bubble {
+  display: inline-block;
   height: 152px;
   width: 148px;
   background: url(../img/hiring-bubble.png) no-repeat 0 0;
   color: #fff;
   text-align: center;
   padding-right: 8px;
-  z-index: 110;
- }
+}
 
- .hiring-text {
+.hiring-text {
   display: block;
   font-family: 'chelthmitc_bk_btbold_italic', serif;
   font-weight: 400;
@@ -937,13 +945,13 @@ a {
   line-height: 1;
   margin: 2.6rem 0 .6rem 0;
   text-transform: lowercase;
- }
+}
 
- .apply-text {
+.apply-text {
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;
- }
+}
 
 /*-----------------------------------------------------
   Home Page: #work-panel
