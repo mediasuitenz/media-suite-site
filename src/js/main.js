@@ -41,6 +41,7 @@ function init () {
       When panel scrolled into view, activate fade in animation
     */
     var _initFadeInAnimation = function () {
+      // Based on scroll offset:
       var faderInnerers = $('.js-fade-in-up')
       faderInnerers.each(function () {
         var section = $(this)
@@ -54,6 +55,12 @@ function init () {
           offset: '50%'
         })
       })
+
+      // Based on timeout
+      var timedFaderInnerers = $('.js-fade-in-up-delayed')
+      setTimeout(function () {
+        timedFaderInnerers.addClass('show')
+      }, 1000)
     }
 
     // Return side nav link element given the panel it links to
@@ -463,6 +470,18 @@ function init () {
       }
     }
 
+    var _fetchBlogPosts = function () {
+      var postContainers = $('.js-load-blog-post')
+      var postIndex = 0
+      postContainers.each(function () {
+        var t = $(this)
+        var linkURL = 'https://www.mediasuite.co.nz/blog'
+        t.load(linkURL + ' #post-' + postIndex++, function( response, status, xhr ) {
+          t.find('.js-image-fill a, .author-avatar').imgLiquid()
+        })
+      })
+    }
+
     // Initialise home page plugins:
     var _initPlugins = function () {
       _initCoverVideo()
@@ -475,6 +494,7 @@ function init () {
       _initPlugins()
       _initValueWheelAnimations()
       _initSideNavControl()
+      _fetchBlogPosts()
     }
 
     return {
@@ -581,10 +601,22 @@ function init () {
       })
     }
 
+    var _fetchBlogLinks = function () {
+      var linkContainers = $('.js-blog-link')
+      linkContainers.each(function () {
+        var t = $(this)
+        var linkURL = 'https://www.mediasuite.co.nz/blog' + t.data('blog-link')
+        t.load(linkURL + ' #ms-site-latest-blog-link', function( response, status, xhr ) {
+          $('#ms-site-latest-blog-link').removeAttr('id')
+        })
+      })
+    }
+
     var init = function () {
       _initPeopleTiles()
       _initBioClickHandler()
       _initSortControls()
+      _fetchBlogLinks()
     }
 
     return {

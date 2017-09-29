@@ -19,7 +19,6 @@ Redirect 301 /monsoon.php /case-studies
 
 Redirect 302 /careers.php /say-hello
 
-Redirect /pay https://supersecure.co.nz/users/4/payment.html
 Redirect /domains https://domainregistry.secureserver.co.nz/themediasuite/
 
 
