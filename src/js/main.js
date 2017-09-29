@@ -41,6 +41,7 @@ function init () {
       When panel scrolled into view, activate fade in animation
     */
     var _initFadeInAnimation = function () {
+      // Based on scroll offset:
       var faderInnerers = $('.js-fade-in-up')
       faderInnerers.each(function () {
         var section = $(this)
@@ -54,6 +55,12 @@ function init () {
           offset: '50%'
         })
       })
+
+      // Based on timeout
+      var timedFaderInnerers = $('.js-fade-in-up-delayed')
+      setTimeout(function () {
+        timedFaderInnerers.addClass('show')
+      }, 1000)
     }
 
     // Return side nav link element given the panel it links to

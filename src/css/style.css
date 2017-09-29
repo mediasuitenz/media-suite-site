@@ -3687,6 +3687,7 @@ address {
   }
 
   .js-fade-in-up,
+  .js-fade-in-up-delayed,
   .internal-page {
     opacity: 0;
     transform: translateY(30px);
@@ -3694,7 +3695,8 @@ address {
   }
 
   .js-fade-in-up.show,
-  .internal-page.show {
+  .internal-page.show,
+  .js-fade-in-up-delayed.show {
     opacity: 1;
     transform: translateY(0);
   }
