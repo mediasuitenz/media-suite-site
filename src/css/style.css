@@ -1529,6 +1529,12 @@ a.crumb:hover,
   margin-bottom: 30px;
 }
 
+.case-study-image-right {
+  float: right;
+  width: 231px;
+  margin: 0 0 40px 40px;
+}
+
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -2300,7 +2306,8 @@ address {
 
   .heads-top,
   .heads-left,
-  .heads-right {
+  .heads-right,
+  .case-study-image-right {
     display: none;
   }
 
