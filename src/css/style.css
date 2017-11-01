@@ -1411,6 +1411,24 @@ a {
   color: #f36d21;
 }
 
+.multi-col-list {
+  padding: 0;
+}
+
+.multi-col-list li {
+  list-style-position: inside;
+  padding-left: 20px;
+  text-indent: -23px;
+}
+
+@media (min-width: 768px) {
+
+  .two-col-list {
+    column-count: 2;
+  }
+
+}
+
 /*-----------------------------------------------------
   Individual Case Study Page:
 ------------------------------------------------------*/

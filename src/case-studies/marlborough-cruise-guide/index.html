@@ -32,22 +32,56 @@ casestudyid: 0
     <img src="{{ "/img/case-studies/cruise-guide-1.jpg" | prepend: site.baseurl }}" alt="Marlborough Cruise Guide" class="case-study-image image-max-100 space-below-please" />
 
     <div class="max-1000 align-left space-below-please">
-      <img src="{{ "/img/case-studies/cruise-guide-2.jpg" | prepend: site.baseurl }}" alt="Marlborough Cruise Guide" class="case-study-image-right" />
+      <img src="{{ "/img/case-studies/cruise-guide-2.jpg" | prepend: site.baseurl }}" alt="Marlborough Cruise Guide on Android" class="case-study-image-right" />
 
       <h2 class="lowercase">The Challenge</h2>
-      <p class="space-below-please">Marlborough District Council wanted to know how people were using the Marlborough Sounds, so they could improve services and facilities in the area and get a better picture of user needs. The council had a pile of interesting data that did not work well on a static map.</p>
+      <p>Marlborough District Council (MDC) wanted to better understand how people use the Marlborough Sounds - so that they can continue to develop district plans, build facilities and deliver improved services to meet and protect the needs of their community.</p>
+      <p>MDC asked Media Suite to turn a vast amount of data into an engaging and interactive app, providing boaties, holidaymakers and locals with a handy tool for making the most of their time in the Marlborough Sounds.</p>
 
-      <p>They asked Media Suite to turn the data into an interactive app, and then a website. They wanted boaties, holidaymakers and locals to have a handy tool for enjoying their time in the Marlborough Sounds. The app, Cruise Guide, had to be as useful and user-friendly as possible.</p>
+      <h2 class="lowercase">Key Features</h2>
+      <ul class="multi-col-list two-col-list">
+        <li>Bays and safe anchorages</li>
+        <li>Swimming spots</li>
+        <li>Recreational areas</li>
+        <li>Private and Club moorings</li>
+        <li>Wharfs, jetties and boat ramps</li>
+        <li>Toilets</li>
+        <li>Picnic areas</li>
+        <li>Water-filling facilities</li>
+        <li>Petrol filling stations</li>
+        <li>Live camera feeds</li>
+        <li>Videos and 360-degree images</li>
+        <li>Tide predictions for each bay</li>
+        <li>Navigation warnings</li>
+        <li>Buoys, lights and beacons</li>
+        <li>Marine farms</li>
+        <li>Navigational charts</li>
+        <li>Topographical maps, including walking tracks</li>
+        <li>Satellite and aerial Imagery</li>
+        <li>Marine reserves</li>
+        <li>Safe boating guides</li>
+        <li>Fishing rules</li>
+        <li>Marine biosecurity</li>
+        <li>Emergency information</li>
+        <li>Calendar of events</li>
+        <li>Visitor information</li>
+      </ul>
 
       <h2 class="lowercase">The Hurdles</h2>
-      <p>Cellphone service is patchy in the Sounds, and users might not have online access to the app at all times. Maps had to be downloadable to the user’s phone so they could be used offline. The maps themselves were complicated and there was a lot of data to squeeze in.</p>
+      <p>Mobile coverage is patchy in the Sounds, so the app needed to work offline if needed. To solve this, we collected various nautical charts, aerial photographs and topographical maps, and stitched them together to create a tileserver which operates within the user’s device rather than over the internet (like Google Maps). </p>
 
-      <p>Media Suite collected nautical charts, Land Information New Zealand aerial and topographical maps, tide data and charts. At least 25 Open Data sources were used. A drone was used to capture beautiful images of the Marlborough Sounds and the best swimming spots were plotted.
+      <p>We created a backend management system which augments approximately 25 open data sets with supplementary information contributed by MDC administrators and app users. When the app starts up, it pulls all the latest data through.</p>
 
-      <p>Usually, tidal information is only gathered at main centres like Picton. The app calculates secondary tidal information, meaning boaties can check the details of smaller bays and moorings without having to do annoying calculations for every spot they intend to visit.</p>
+      <p>The app has been deployed for both iOS and Android. We also created a mobile responsive website to cater for users who want to use a browser rather than download an App.</p>
+
+      <p>Tidal information is usually limited to the main centres like Picton, so for boaties and travellers exploring the far reaches of the Sounds, tide times are often out by a significant margin. To combat this, we enabled the app to calculate tide offsets for each bay, meaning boaties can check the details of any bay without needing to do complex tidal offset calculations for every spot they intend to visit. Two years of tide predictions are downloaded to the device too, so app users don’t need to be connected to the internet to check the day’s tides.</p>
 
       <h2 class="lowercase">We Loved</h2>
-      <p>The Media Suite team is proud of this project; the challenge of combining data sets, tackling user problems then using the same code base to make the app into a slick website (<a href="http://www.cruiseguide.co.nz">www.cruiseguide.co.nz</a>). We couldn't resist heading up to the Sounds in summer to &ldquo;test&rdquo; the app over a few beers, barbecue tongs in hand.</p>
+      <p>The Media Suite team is proud of this project; the challenge of combining datasets, tackling user problems then using the same code base to convert the app into a website (<a href="http://www.cruiseguide.co.nz">www.cruiseguide.co.nz</a>) was deeply satisfying.</p>
+
+      <p>We used an agile development process with a fixed budget and flexible scope to deliver the project in seven sprints of two weeks. We were proud of the number of features we managed to complete in a short amount of time.</p>
+
+      <p>And of course we couldn't resist heading up to the Sounds in summer to &ldquo;test&rdquo; the app over a few beers, barbecue tongs in hand.</p>
     </div>
 
     {% include other-case-studies.html %}
