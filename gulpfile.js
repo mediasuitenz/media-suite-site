@@ -64,7 +64,6 @@ gulp.task('html', function () {
     './src/_site/favicon.ico',
     './src/_site/404/index.html',
     './src/_site/case-studies/**/*.*',
-    './src/_site/careers/**/*.*',
     './src/_site/our-services/**/*.*',
     './src/_site/people/**/*.*',
     './src/_site/say-hello/**/*.*',
