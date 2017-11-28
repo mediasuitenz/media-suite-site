@@ -4466,8 +4466,8 @@ address {
 }
 
 @media screen and (max-height: 500px) {
-  /* Smaller menu font size on shorter view  */
-  .ms-menu-list {
+  /* Force smaller menu font size on shorter view  */
+  #menu-list {
     font-size: 3.2rem;
   }
 }
