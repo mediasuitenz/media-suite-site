@@ -204,7 +204,7 @@ a {
 }
 
 .text-semi {
-  font-weight: 600;
+  font-weight: 600 ;
 }
 
 .align-center {
@@ -349,6 +349,27 @@ a {
 .text-sheen:hover:after {
   left: 100%;
   opacity: 1;
+}
+
+/* inline image containers */
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.half {
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 
@@ -2194,7 +2215,6 @@ address {
   border-top: 1px solid #dedede
 }
 
-
 /*-----------------------------------------------------
   404 page
 ------------------------------------------------------*/
@@ -2730,10 +2750,6 @@ address {
   z-index: 10;
 }
 
-#community-main-text {
-  height: auto;
-}
-
 .community-text-cols {
   margin-top: 30px;
   margin-bottom: 60px;
@@ -3141,6 +3157,205 @@ address {
   }
 
 }
+
+/* Mindset over skillset panel */
+
+@media (max-width: 767px) {
+
+  #culture-mindset-panel .image-container {
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #culture-mindset-panel .right {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 0;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 70px;
+
+  }
+}
+
+@media (min-width: 1200px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 140px;
+
+  }
+}
+
+@media (min-width: 2010px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 160px;
+  }
+
+}
+
+/* Trust our people panel */
+
+#culture-trust-panel .image-container img {
+  display: block;
+}
+
+.trust-mountain-text-container {
+  background-color: transparent;
+  color: #000;
+  text-align: center;
+  position: relative;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.trust-mountain-text {
+  width: 100%;
+}
+
+.trust-mountain-bg-fill {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+
+  #culture-trust-panel {
+    padding-top: 40px;
+  } 
+
+  #culture-trust-panel .panel-inner {
+    max-width: 1200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: auto;
+  }
+
+  .trust-mountain-text-container {
+    position: absolute;
+    color: #fff;
+    bottom: 45px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: right;
+    z-index: 10;
+  }
+
+  .trust-mountain-text {
+    margin-left: auto;
+    width: 50%;
+    padding-right: 8%;
+    padding-bottom: 0;
+  }
+
+  .trust-mountain-bg-fill {
+    display: block;
+    background: #000;
+    min-height: 80px;
+    position: relative;
+    top: -1px;
+    z-index: 1;
+  }
+
+
+
+}
+
+/*.trust-mountain-text-container {
+  background-color: #000;
+  color: #fff;
+  text-align: right;
+  position: relative;
+}*/
+/*
+.trust-mountain-text-container:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: rotate(1.5deg);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAoCAIAAABINPzXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDMzNzEwN0REMzBGMTFFN0E3MDY5MTNDNUMxMEZBNzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDMzNzEwN0VEMzBGMTFFN0E3MDY5MTNDNUMxMEZBNzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMzM3MTA3QkQzMEYxMUU3QTcwNjkxM0M1QzEwRkE3NCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowMzM3MTA3Q0QzMEYxMUU3QTcwNjkxM0M1QzEwRkE3NCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pky8lesAAAAhSURBVHjaYmAYBaOAPoDx////eKSZ8OselR6VJl4aIMAAbHMDJYzwcyEAAAAASUVORK5CYII=;);
+  background-image: url(../img/culture/black-white.png);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+}
+
+.trust-mountain-text {
+  margin-left: auto;
+  width: 50%;
+  padding-right: 8%;
+  padding-bottom: 8%;
+}*/
+
+/* teaching and learning panel */
+
+@media (max-width: 767px) {
+
+  #culture-teaching-panel .image-container {
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #culture-teaching-panel .right {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+
+  #culture-teaching-panel .right {
+    text-align: left;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  #culture-teaching-panel .right {
+    margin-top: -30px;
+
+  }
+}
+
+@media (min-width: 1200px) {
+
+  #culture-teaching-panel .right {
+    margin-top: -60px;
+
+  }
+}
+
+@media (min-width: 2010px) {
+
+  #culture-teaching-panel .right {
+    margin-top: 160px;
+  }
+
+}
+
+/* unashamed geeks panel */
+
+#culture-geeks-panel.content-panel {
+  padding-bottom: 0;
+  height: calc(100vh - 140px);
+}
+
+#culture-geeks-panel .image-container img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  }
 
 /*-----------------------------------------------------
   Effin IE
