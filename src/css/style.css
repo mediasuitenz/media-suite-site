@@ -511,8 +511,8 @@ a {
 }
 
 #page-header.culture-header:before {
-  content: none;
-}
+/*  content: none;
+*/}
 
 #menu-bar-logo {
   float: left;
@@ -914,8 +914,16 @@ a {
 }
 
 .col-half {
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+
+@media (min-width: 768px) {
+  
+.col-half {
   width: 45%;
   margin: 0 2%;
+}
 }
 
  /* We're hiring bubble */
@@ -2233,6 +2241,11 @@ address {
   Culture page
 ------------------------------------------------------*/
 
+/*last item has no padding so geek hands can align bottom*/
+#culture-geeks-panel {
+  padding-bottom: 0;
+}
+
 /*
   SVG Helper classes:
   Allows for repsonsive sizing of SVG based on viewbox
@@ -3185,6 +3198,7 @@ address {
 
   #culture-mindset-panel .right {
     margin-top: 70px;
+    padding-right: 5vw;
 
   }
 }
@@ -3211,24 +3225,70 @@ address {
   display: block;
 }
 
+
 .trust-mountain-text-container {
-  background-color: transparent;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   text-align: center;
   position: relative;
-  margin-left: 50px;
-  margin-right: 50px;
+  padding-bottom: 20px;
+  top: -1px; /* so there is no faint gap of white between this and .img-container */
+  /*background-image: url(../img/culture/mountain-bottom-white.svg);*/
+  background-repeat: no-repeat;
+  background-position: -6px 100.2%; /* Make sure bg image overlaps underlying black  */
 }
 
 .trust-mountain-text {
-  width: 100%;
+  line-height: 1.4;
+  position: relative;
+  top: -20px;
 }
 
-.trust-mountain-bg-fill {
-  display: none;
+.trust-mountain-text p {
+  font-weight: 400;
 }
 
-@media (min-width: 1200px) {
+.mountain-bottom {
+  position: relative;
+  overflow: hidden; /* to rotate background image of pseudo element */
+  height: 40px;
+  top: -1px;
+}
+
+.mountain-bottom:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  background-image: url(../img/culture/black-bg.png);  /* svg didn't render well in chrome - jagged edges */
+  background-position: 0 0;
+  transform: rotate(1.8deg);
+  width: 1210px;
+  height: 40px;
+}
+
+@media (min-width: 768px) {
+
+  .trust-mountain-text-container {
+    background-position: -8px 101%; 
+  }
+
+  .trust-mountain-text {
+    top: -60px;
+    padding-right: 70px;
+    padding-left: 70px;
+  }
+
+}
+
+@media (min-width: 860px) {
+  #culture-trust-panel {
+    padding-top: 100px;
+  }
+}
+
+
+@media (min-width: 1024px) {
 
   #culture-trust-panel {
     padding-top: 40px;
@@ -3242,60 +3302,28 @@ address {
   }
 
   .trust-mountain-text-container {
-    position: absolute;
-    color: #fff;
-    bottom: 45px;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: right;
-    z-index: 10;
+    max-height: 180px;
   }
 
   .trust-mountain-text {
-    margin-left: auto;
-    width: 50%;
-    padding-right: 8%;
-    padding-bottom: 0;
+/*    transform: translate(60px, -140px);*/    
+    top: -140px;
+    left: 60px;
+    text-align: right;
+    padding-left: 50px;
+    padding-right: 50px;
   }
-
-  .trust-mountain-bg-fill {
-    display: block;
-    background: #000;
-    min-height: 80px;
-    position: relative;
-    top: -1px;
-    z-index: 1;
-  }
-
-
 
 }
 
-/*.trust-mountain-text-container {
-  background-color: #000;
-  color: #fff;
-  text-align: right;
-  position: relative;
-}*/
-/*
-.trust-mountain-text-container:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: rotate(1.5deg);
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAoCAIAAABINPzXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDMzNzEwN0REMzBGMTFFN0E3MDY5MTNDNUMxMEZBNzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDMzNzEwN0VEMzBGMTFFN0E3MDY5MTNDNUMxMEZBNzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMzM3MTA3QkQzMEYxMUU3QTcwNjkxM0M1QzEwRkE3NCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowMzM3MTA3Q0QzMEYxMUU3QTcwNjkxM0M1QzEwRkE3NCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pky8lesAAAAhSURBVHjaYmAYBaOAPoDx////eKSZ8OselR6VJl4aIMAAbHMDJYzwcyEAAAAASUVORK5CYII=;);
-  background-image: url(../img/culture/black-white.png);
-  background-position: 0 0;
-  background-repeat: repeat-x;
-}
+@media (min-width: 1200px) {
+  .trust-mountain-text {
+    /*transform: translate(100px, -160px);*/
+    top: -160px;
+    left: 100px;
 
-.trust-mountain-text {
-  margin-left: auto;
-  width: 50%;
-  padding-right: 8%;
-  padding-bottom: 8%;
-}*/
+  }
+}
 
 /* teaching and learning panel */
 
@@ -3314,7 +3342,7 @@ address {
 
 @media (min-width: 768px) {
 
-  #culture-teaching-panel .right {
+  #culture-teaching-panel .left {
     text-align: left;
   }
 
@@ -3324,8 +3352,12 @@ address {
 
   #culture-teaching-panel .right {
     margin-top: -30px;
-
   }
+
+  #culture-teaching-panel .left {
+    padding-left: 5vw;
+  }
+
 }
 
 @media (min-width: 1200px) {
@@ -3344,18 +3376,57 @@ address {
 
 }
 
-/* unashamed geeks panel */
+/* unashamed geeks panel 
+   most of these rules are about getting the 
+   geek-hands image to stick to the bottom
+*/
 
-#culture-geeks-panel.content-panel {
-  padding-bottom: 0;
-  height: calc(100vh - 140px);
+#culture-geeks-panel,
+#culture-geeks-panel.panel-inner {
+  height: auto;
+  min-height: 0;
 }
 
-#culture-geeks-panel .image-container img {
-  display: block;
-  position: absolute;
+#culture-geeks-panel .panel-inner p:last-of-type {
+  padding-bottom: 15vh;
+
+}
+
+.geek-hands {
+  position: relative;
   bottom: 0;
+  height: 135px;
+  display: table;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.geek-hands .image-container {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.geek-hands img {
+  display: block;
+}
+
+@media (min-width: 768px) {
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 90px;
   }
+}
+
+
+@media (min-width: 1024px) {
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 140px;
+  }
+
+}
+
 
 /*-----------------------------------------------------
   Effin IE
@@ -3469,10 +3540,7 @@ address {
     margin: 0 30px 5px 30px;
   }
 
-  .col-half {
-    width: 100%;
-    margin: 0 0 30px 0;
-  }
+
 
   #work-panel .cols-wrap {
     margin-top: 30px;
@@ -4685,4 +4753,28 @@ address {
   #menu-list {
     font-size: 3.2rem;
   }
+}
+
+@media (max-height: 640px) {
+
+  .content-panel:not(last) {
+    padding-top: 40px;
+  }
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 40px;
+  }
+  
+}
+
+@media (max-height: 740px) {
+
+  .content-panel:not(last) {
+    padding-top: 60px;
+  }
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 60px;
+  }
+  
 }
