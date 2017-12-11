@@ -3526,6 +3526,10 @@ address {
     line-height: 1.2;
   }
 
+  .text-size-55 {
+    font-size: 5.5rem;
+  }
+
   .grid-item {
     width: 49%;
   }
@@ -3539,8 +3543,6 @@ address {
     padding: 10px 0;
     margin: 0 30px 5px 30px;
   }
-
-
 
   #work-panel .cols-wrap {
     margin-top: 30px;
@@ -3981,6 +3983,16 @@ address {
     font-size: 1.8rem;
     line-height: 1.2;
   }
+
+/* introduced for the culture page heading 12/17 */
+  .text-size-27 {
+    font-size: 27px;
+  }
+
+  .kern-2 {
+    letter-spacing: -2px;
+  }
+  /* end */
 
   .disabled-onepage-scroll .onepage-wrapper .section {
     margin-bottom: 100px !important;
