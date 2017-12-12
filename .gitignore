@@ -39,3 +39,7 @@ Thumbs.db
 *.jar
 *.rar
 *.tar
+
+# Workspace #
+################
+*.code-workspace

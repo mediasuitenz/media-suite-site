@@ -47,7 +47,7 @@ body {
 .max-1500:after,
 .max-1200:after,
 .max-1000:after,
-.max-620:after {
+.max-610-1000-responsive:after {
   content: "";
   display: table;
   clear: both;
@@ -57,7 +57,7 @@ body {
 .max-1200,
 .max-1000,
 .max-760,
-.max-620,
+.max-610-1000-responsive,
 .max-570 {
   margin-left: 20px;
   margin-right: 20px;
@@ -81,10 +81,8 @@ body {
   max-width: 760px;
 }
 
-.max-620 {
-  max-width: 620px;
-  margin-left: auto;
-  margin-right: auto;
+.max-610-1000-responsive {
+  max-width: 610px;
 }
 
 .max-570 {
@@ -920,10 +918,11 @@ a {
 
 @media (min-width: 768px) {
   
-.col-half {
-  width: 45%;
-  margin: 0 2%;
-}
+  .col-half {
+    width: 45%;
+    margin: 0 2%;
+  }
+
 }
 
  /* We're hiring bubble */
@@ -2406,7 +2405,7 @@ address {
 @media (min-width: 1024px) {
 
   #culture-intro-panel {
-    padding-top: 200px;
+    padding-top: 240px;
     padding-bottom: 200px;
   }
 
@@ -2509,7 +2508,7 @@ address {
 @media (min-width: 1200px) and (min-height: 900px) {
 
   #culture-intro-panel {
-    padding-top: 240px;
+    padding-top: 280px;
     padding-bottom: 240px;
   }
 
@@ -2745,6 +2744,8 @@ address {
   }
 
 }
+
+
 
 /* Picnic panel */
 
@@ -3693,6 +3694,7 @@ address {
   .max-1200,
   .max-1000,
   .max-760,
+  .max-610-1000-responsive,
   .max-570 {
     margin-left: 25px;
     margin-right: 25px;
@@ -3707,6 +3709,7 @@ address {
   .max-1200,
   .max-1000,
   .max-760,
+  .max-610-1000-responsive,
   .max-570 {
     margin-left: 50px;
     margin-right: 50px;
@@ -3807,6 +3810,15 @@ address {
 @media screen and (min-width: 610px) {
 
   .max-570 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@media (min-width: 690px) {
+
+  .max-610-1000-responsive {
     margin-left: auto;
     margin-right: auto;
   }
@@ -3989,7 +4001,7 @@ address {
     font-size: 27px;
   }
 
-  .kern-2 {
+  .kern-2-768-1400 {
     letter-spacing: -2px;
   }
   /* end */
@@ -4639,6 +4651,19 @@ address {
 
 }
 
+/* wide enough to let culture page heading breeeeathe */
+
+@media screen and (min-width: 1420px) {
+
+  .max-610-1000-responsive {
+    max-width: 1000px;
+  }
+  .kern-2-768-1400 {
+    letter-spacing: 0;
+  }
+
+}
+
 @media screen and (min-width: 1300px) {
 
   .max-1200 {
@@ -4790,3 +4815,5 @@ address {
   }
   
 }
+
+
