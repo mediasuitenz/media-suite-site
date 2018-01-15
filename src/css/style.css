@@ -47,7 +47,7 @@ body {
 .max-1500:after,
 .max-1200:after,
 .max-1000:after,
-.max-620:after {
+.max-610-1000-responsive:after {
   content: "";
   display: table;
   clear: both;
@@ -57,7 +57,7 @@ body {
 .max-1200,
 .max-1000,
 .max-760,
-.max-620,
+.max-610-1000-responsive,
 .max-570 {
   margin-left: 20px;
   margin-right: 20px;
@@ -81,10 +81,8 @@ body {
   max-width: 760px;
 }
 
-.max-620 {
-  max-width: 620px;
-  margin-left: auto;
-  margin-right: auto;
+.max-610-1000-responsive {
+  max-width: 610px;
 }
 
 .max-570 {
@@ -204,7 +202,7 @@ a {
 }
 
 .text-semi {
-  font-weight: 600;
+  font-weight: 600 ;
 }
 
 .align-center {
@@ -351,6 +349,27 @@ a {
   opacity: 1;
 }
 
+/* inline image containers */
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.half {
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 
 /*-----------------------------------------------------
   Fontello icons:
@@ -487,10 +506,6 @@ a {
   height: 130px;
   background: linear-gradient(to bottom, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 100%);
   border-top: 4px solid #f27c00;
-}
-
-#page-header.culture-header:before {
-  content: none;
 }
 
 #menu-bar-logo {
@@ -893,8 +908,17 @@ a {
 }
 
 .col-half {
-  width: 45%;
-  margin: 0 2%;
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+
+@media (min-width: 768px) {
+  
+  .col-half {
+    width: 45%;
+    margin: 0 2%;
+  }
+
 }
 
  /* We're hiring bubble */
@@ -2194,7 +2218,6 @@ address {
   border-top: 1px solid #dedede
 }
 
-
 /*-----------------------------------------------------
   404 page
 ------------------------------------------------------*/
@@ -2212,6 +2235,11 @@ address {
 /*-----------------------------------------------------
   Culture page
 ------------------------------------------------------*/
+
+/*last item has no padding so geek hands can align bottom*/
+#culture-geeks-panel {
+  padding-bottom: 0;
+}
 
 /*
   SVG Helper classes:
@@ -2373,7 +2401,7 @@ address {
 @media (min-width: 1024px) {
 
   #culture-intro-panel {
-    padding-top: 200px;
+    padding-top: 240px;
     padding-bottom: 200px;
   }
 
@@ -2476,7 +2504,7 @@ address {
 @media (min-width: 1200px) and (min-height: 900px) {
 
   #culture-intro-panel {
-    padding-top: 240px;
+    padding-top: 280px;
     padding-bottom: 240px;
   }
 
@@ -2713,6 +2741,8 @@ address {
 
 }
 
+
+
 /* Picnic panel */
 
 #culture-community-panel {
@@ -2728,10 +2758,6 @@ address {
 #culture-community-panel .panel-inner {
   position: relative;
   z-index: 10;
-}
-
-#community-main-text {
-  height: auto;
 }
 
 .community-text-cols {
@@ -3142,6 +3168,263 @@ address {
 
 }
 
+/* Mindset over skillset panel */
+
+@media (max-width: 767px) {
+
+  #culture-mindset-panel .image-container {
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #culture-mindset-panel .right {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 0;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 70px;
+    padding-right: 5vw;
+
+  }
+}
+
+@media (min-width: 1200px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 140px;
+
+  }
+}
+
+@media (min-width: 2010px) {
+
+  #culture-mindset-panel .right {
+    margin-top: 160px;
+  }
+
+}
+
+/* Trust our people panel */
+
+#culture-trust-panel .image-container img {
+  display: block;
+}
+
+
+.trust-mountain-text-container {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+  top: -1px; /* so there is no faint gap of white between this and .img-container */
+  /*background-image: url(../img/culture/mountain-bottom-white.svg);*/
+  background-repeat: no-repeat;
+  background-position: -6px 100.2%; /* Make sure bg image overlaps underlying black  */
+}
+
+.trust-mountain-text {
+  line-height: 1.4;
+  position: relative;
+  top: -20px;
+}
+
+.trust-mountain-text p {
+  font-weight: 400;
+}
+
+.mountain-bottom {
+  position: relative;
+  overflow: hidden; /* to rotate background image of pseudo element */
+  height: 40px;
+  top: -1px;
+}
+
+.mountain-bottom:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  background-image: url(../img/culture/black-bg.png);  /* svg didn't render well in chrome - jagged edges */
+  background-position: 0 0;
+  transform: rotate(1.8deg);
+  width: 1210px;
+  height: 40px;
+}
+
+@media (min-width: 768px) {
+
+  .trust-mountain-text-container {
+    background-position: -8px 101%; 
+  }
+
+  .trust-mountain-text {
+    top: -60px;
+    padding-right: 70px;
+    padding-left: 70px;
+  }
+
+}
+
+@media (min-width: 860px) {
+  #culture-trust-panel {
+    padding-top: 100px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+
+  #culture-trust-panel {
+    padding-top: 40px;
+  } 
+
+  #culture-trust-panel .panel-inner {
+    max-width: 1200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: auto;
+  }
+
+  .trust-mountain-text-container {
+    max-height: 180px;
+  }
+
+  .trust-mountain-text {
+/*    transform: translate(60px, -140px);*/    
+    top: -140px;
+    left: 60px;
+    text-align: right;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .trust-mountain-text {
+    /*transform: translate(100px, -160px);*/
+    top: -160px;
+    left: 100px;
+
+  }
+}
+
+/* teaching and learning panel */
+
+@media (max-width: 767px) {
+
+  #culture-teaching-panel .image-container {
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #culture-teaching-panel .right {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+
+  #culture-teaching-panel .left {
+    text-align: left;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  #culture-teaching-panel .right {
+    margin-top: -30px;
+  }
+
+  #culture-teaching-panel .left {
+    padding-left: 5vw;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  #culture-teaching-panel .right {
+    margin-top: -60px;
+
+  }
+}
+
+@media (min-width: 2010px) {
+
+  #culture-teaching-panel .right {
+    margin-top: 160px;
+  }
+
+}
+
+/* unashamed geeks panel 
+   most of these rules are about getting the 
+   geek-hands image to stick to the bottom
+*/
+
+#culture-geeks-panel,
+#culture-geeks-panel.panel-inner {
+  height: auto;
+  min-height: 0;
+}
+
+#culture-geeks-panel .panel-inner p:last-of-type {
+  padding-bottom: 15vh;
+
+}
+
+.geek-hands {
+  position: relative;
+  bottom: 0;
+  height: 135px;
+  display: table;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.geek-hands .image-container {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.geek-hands img {
+  display: block;
+}
+
+@media (min-width: 768px) {
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 90px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 140px;
+  }
+
+}
+
+
 /*-----------------------------------------------------
   Effin IE
 ------------------------------------------------------*/
@@ -3240,6 +3523,10 @@ address {
     line-height: 1.2;
   }
 
+  .text-size-55 {
+    font-size: 5.5rem;
+  }
+
   .grid-item {
     width: 49%;
   }
@@ -3252,11 +3539,6 @@ address {
     display: block;
     padding: 10px 0;
     margin: 0 30px 5px 30px;
-  }
-
-  .col-half {
-    width: 100%;
-    margin: 0 0 30px 0;
   }
 
   #work-panel .cols-wrap {
@@ -3408,6 +3690,7 @@ address {
   .max-1200,
   .max-1000,
   .max-760,
+  .max-610-1000-responsive,
   .max-570 {
     margin-left: 25px;
     margin-right: 25px;
@@ -3422,6 +3705,7 @@ address {
   .max-1200,
   .max-1000,
   .max-760,
+  .max-610-1000-responsive,
   .max-570 {
     margin-left: 50px;
     margin-right: 50px;
@@ -3522,6 +3806,15 @@ address {
 @media screen and (min-width: 610px) {
 
   .max-570 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@media (min-width: 690px) {
+
+  .max-610-1000-responsive {
     margin-left: auto;
     margin-right: auto;
   }
@@ -3698,6 +3991,16 @@ address {
     font-size: 1.8rem;
     line-height: 1.2;
   }
+
+/* introduced for the culture page heading 12/17 */
+  .text-size-27 {
+    font-size: 27px;
+  }
+
+  .kern-2-768-1400 {
+    letter-spacing: -2px;
+  }
+  /* end */
 
   .disabled-onepage-scroll .onepage-wrapper .section {
     margin-bottom: 100px !important;
@@ -4344,6 +4647,19 @@ address {
 
 }
 
+/* wide enough to let culture page heading breeeeathe */
+
+@media screen and (min-width: 1420px) {
+
+  .max-610-1000-responsive {
+    max-width: 1000px;
+  }
+  .kern-2-768-1400 {
+    letter-spacing: 0;
+  }
+
+}
+
 @media screen and (min-width: 1300px) {
 
   .max-1200 {
@@ -4471,3 +4787,29 @@ address {
     font-size: 3.2rem;
   }
 }
+
+@media (max-height: 640px) {
+
+  .content-panel:not(last) {
+    padding-top: 40px;
+  }
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 40px;
+  }
+  
+}
+
+@media (max-height: 740px) {
+
+  .content-panel:not(last) {
+    padding-top: 60px;
+  }
+
+  #culture-geeks-panel .panel-inner p:last-of-type {
+    padding-bottom: 60px;
+  }
+  
+}
+
+
