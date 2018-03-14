@@ -1846,6 +1846,12 @@ a.crumb:hover,
   height: auto;
 }
 
+@media (max-width: 480px) { 
+  #person-matisse .person-image { 
+    width: 85%;
+  }
+}
+
 #person-matisse .burst-wrap {
   margin-top: 55px;
 }
