@@ -97,6 +97,6 @@ gulp.task('deploy', function () {
       archive: true,
       clean: true,
       recursive: true,
-      exclude: ['.htaccess', 'cash4code']
+      exclude: ['.htaccess']
     }))
 })
