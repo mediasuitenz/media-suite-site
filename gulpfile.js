@@ -97,6 +97,6 @@ gulp.task('deploy', function () {
       archive: true,
       clean: true,
       recursive: true,
-      exclude: ['.htaccess']
+      exclude: ['.htaccess', 'email_sig']
     }))
 })
