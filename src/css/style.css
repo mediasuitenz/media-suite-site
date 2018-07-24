@@ -913,7 +913,7 @@ a {
 }
 
 @media (min-width: 768px) {
-  
+
   .col-half {
     width: 45%;
     margin: 0 2%;
@@ -1846,8 +1846,8 @@ a.crumb:hover,
   height: auto;
 }
 
-@media (max-width: 480px) { 
-  #person-matisse .person-image { 
+@media (max-width: 480px) {
+  #person-matisse .person-image {
     width: 85%;
   }
 }
@@ -3273,7 +3273,7 @@ address {
 @media (min-width: 768px) {
 
   .trust-mountain-text-container {
-    background-position: -8px 101%; 
+    background-position: -8px 101%;
   }
 
   .trust-mountain-text {
@@ -3295,7 +3295,7 @@ address {
 
   #culture-trust-panel {
     padding-top: 40px;
-  } 
+  }
 
   #culture-trust-panel .panel-inner {
     max-width: 1200px;
@@ -3309,7 +3309,7 @@ address {
   }
 
   .trust-mountain-text {
-/*    transform: translate(60px, -140px);*/    
+/*    transform: translate(60px, -140px);*/
     top: -140px;
     left: 60px;
     text-align: right;
@@ -3379,8 +3379,8 @@ address {
 
 }
 
-/* unashamed geeks panel 
-   most of these rules are about getting the 
+/* unashamed geeks panel
+   most of these rules are about getting the
    geek-hands image to stick to the bottom
 */
 
@@ -4012,7 +4012,8 @@ address {
     margin-bottom: 100px !important;
   }
 
-  #hello-panel .panel-inner {
+  #hello-panel .panel-inner,
+  #blog-panel .panel-inner {
     padding-top: 70px;
   }
 
@@ -4803,7 +4804,7 @@ address {
   #culture-geeks-panel .panel-inner p:last-of-type {
     padding-bottom: 40px;
   }
-  
+
 }
 
 @media (max-height: 740px) {
@@ -4815,7 +4816,7 @@ address {
   #culture-geeks-panel .panel-inner p:last-of-type {
     padding-bottom: 60px;
   }
-  
+
 }
 
 
