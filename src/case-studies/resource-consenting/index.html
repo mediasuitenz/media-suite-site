@@ -1,0 +1,92 @@
+---
+layout: default
+title: Case Studies | Resource Consenting
+casestudyname: Resource Consenting
+casestudyid: 6
+---
+<div id="main-wrap" class="internal-page case-study">
+
+  <div class="max-1200 align-center clearfix">
+    <h1 class="lowercase underline-orange">Resource Consenting</h1>
+    {% include crumbs.html %}
+    <div class="case-study-intro max-1000">
+      <p>Resource Consenting delivers a quality user experience while providing valuable, timely data for local and central government.</p>
+    </div>
+
+    <div class="case-study-icons">
+      <div class="case-study-tech">
+        <span class="tech-icon tech-icon-html"><img src="{{ "/img/case-studies/tech-html-css.png" | prepend: site.baseurl }}" alt="HTML/CSS" /></span>
+        <span title="Ember" class="tech-icon tech-icon-ember"><img src="{{ "/img/case-studies/tech-ember.png" | prepend: site.baseurl }}" alt="Ember" /></span>
+        <span title="Django" class="tech-icon tech-icon-django"><img src="{{ "/img/case-studies/tech-django.png" | prepend: site.baseurl }}" alt="Django" /></span>
+        <span title="Postgres" class="tech-icon tech-icon-postgres"><img src="{{ "/img/case-studies/tech-postgres.png" | prepend: site.baseurl }}" alt="Postgres" /></span>
+      </div>
+      <div class="case-study-platforms">
+        <i class="icon icon-cog tip"></i>
+      </div>
+    </div>
+
+    <img src="{{ "/img/case-studies/resc-1.jpg" | prepend: site.baseurl }}" alt="Resource Consenting" class="case-study-image image-max-100 space-below-please" />
+
+    <div class="max-1000 align-left space-below-please">
+
+      <p>Media Suite and Marlborough District Council partnered to change the way Resource Consents are applied for and processed. The application supports the council’s vision for improved transparency and efficiency, moving the end-to-end process into a digital framework. The result is a streamlined experience designed to educate and guide applicants through the complex Resource Management Act (RMA), producing standardised digital documentation.</p>
+      <p>Beyond solving some process headaches for council and applicants, the system works to improve the quality of data collected. Information will now be more readily accessible for all stakeholders including public, iwi and resource users as well as local and central government. Access to the same quality information should allow all parties to make more informed decisions.</p>
+      <p>The public-facing application portal is now live, with the council processing engine going live at the end of 2018.</p>
+
+      <h2 class="lowercase">The Challenges</h2>
+      <p>The resource management domain is complex, and the system needed to solve a number of connected problems, or pain points.</p>
+      <p>At a base level, the application process needed improvement. The previous process allowed PDFs to be submitted without any standardised formatting or validation. Due to the complexity and breadth of the RMA legislation, applicants often fell short of providing the relevant information to allow consenting officers to assess or process their applications. Members of the public found it difficult to interpret the Act and supply the correct information in the appropriate format. MDC needed a framework which guided the applicant, educating them on the Act at the same time.</p>
+      <p>At the council end, PDFs were proving cumbersome, and could not be easily mined for data. Officers had to manually transpose information into the council systems, using valuable man hours just in content transfer time. Incomplete applications meant time was wasted asking the applicant for further information. PDFs did not provide an easy mechanism for version control.</p>
+      <p>The RMA, National Environment Standards, and regional/district plan review cycles mean the rules that govern the process are continually changing. However, applications usually have to be processed based on the legislation current at the time they were submitted. This meant the system had to be able to process applications in a dynamic way.</p>
+      <p>At a higher level, Resource Consent applications also feed into a larger pool of data, which impacts central and local government decisions on things like the environment, district planning, allocation of resources and future legislation. Currently, data can take years to capture, collect and process, leaving national and regional decision makers with little data at crucial junctures.</p>
+
+      <img src="{{ "/img/case-studies/resc-2.png" | prepend: site.baseurl }}" alt="RMA legislation infographic" class="case-study-image image-max-100 space-below-please" />
+      <div class="align-center">
+        <a href="/case-studies/resource-consenting/RMA-legislation-diagram.pdf" target="_blank" class="drop-btn orange-bg">Download PDF</a>
+      </div>
+
+      <h2 class="lowercase">Creating Solutions</h2>
+      <p>Given the complexity, breadth and dynamic nature of the RMA, the build had several technical challenges to overcome. It also had to serve the needs of many different stakeholders, while also meeting the standards defined in the Act.</p>
+      <p>Applicants and agents now apply for their consent using a web-based form, ensuring all information required, is captured. The form dynamically responds to the user’s unique submission criteria, prompting for the required information. A dynamic form engine preserves the original application content, as well as the format in which it was submitted, in line with the applicable legislation version. It can then be recreated at any time from data - marking an end to the reliance on paper-based archives or PDF records.</p>
+      <p>Council officers receive complete applications in a consistent format, allowing for faster processing. The output data is compatible with council systems, eliminating manual transfers. The interface is fully responsive, meaning council officers have access on any device.</p>
+      <p>With standardised data being collected in real time, data can be collated more efficiently. Access to better and more recent data means decision makers can be reliably informed, both at a regional and national level. In Marlborough, such data can now be handled more rapidly, providing a more current picture.</p>
+
+      <div class="quote-section clearfix">
+        <img src="{{ "/img/case-studies/resc-3.png" | prepend: site.baseurl }}" alt="Ewen Cumming" class="quote-image" />
+        <div class="quote-container">
+          <h2 class="quote-heading lowercase">Technically Speaking</h2>
+          <p class="quote-opening">Moving the consent application process to an online digital solution presented several key technical challenges, the greatest of which involved incorporating changes to the RMA into new applications, while not changing anything for those already started.</p>
+          <p>To tackle the problem, we built a dynamic forms system driven entirely by configuration, that can version forms and recreate them with their original data based on any version. This allows us to preserve the forms as they were at the time of entry and handle the changing consent application process. By capturing the data as it was entered in key points of the process, council officers are able to easily track and compare re-submitted applications, as well as providing very detailed reporting options for every stage of the consent application process.</p>
+          <p>On top of the dynamic forms system, we’ve provided a modern single page application using EmberJS and a Python/Django API, giving a great user experience.</p>
+          <p class="quote-closing">
+            <span class="quote-closing-text">Ewen Cumming, Technical Lead</span>
+          </p>
+        </div>
+      </div>
+
+      <h2 class="lowercase">We Loved&hellip;</h2>
+      <p>Solving complex technical problems in the council’s domain. We work with MDC on a number of projects aimed at improving systems, increasing efficiency and promoting transparency. We found the technical, scientific and regulatory domain of the council to be a challenging and rewarding area to work in. The system solves problems faced by all New Zealand councils and we hope other councils can learn from MDC’s digital transformation journey.</p>
+      <p>Data with this level of clarity and standardisation, provided in a short time frame, is a game changer at a regional and national level. Media Suite loves contributing to the social good, in this case by building a tool which allows society to make better decisions based on more relevant and recent data, as well as improving the experience for consent applicants, agents and council staff.</p>
+
+      <div class="quote-section clearfix">
+        <img src="{{ "/img/case-studies/resc-4.png" | prepend: site.baseurl }}" alt="Marlborough District Council" class="quote-image" />
+        <div class="quote-container">
+          <h2 class="quote-heading lowercase">The council says&hellip;</h2>
+          <p class="quote-opening">I’ve found the project team to be extremely professional, helpful and suggestive, and more than adaptive to the changing scope of work - especially important given the project, by nature, is very, very complex.</p>
+          <p>We are, through good design, simplifying the [application] process, and improving understanding through intuitive design and smart, clean user experiences.</p>
+          <p>By virtue of the agile nature in which we work, changes are seamlessly picked up and melded with the work - all combining to form, at this early stage, a project that’s delivering and hitting expectations early and hard.</p>
+          <p class="quote-closing">
+            <span class="quote-closing-text">
+              Jamie Sigmund, Project Product Manager &amp; People and Communication Manager<br>
+              Marlborough District Council
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {% include other-case-studies.html %}
+
+  </div> <!-- .max-1200 -->
+
+</div> <!-- #main-wrap -->

@@ -1,0 +1,70 @@
+---
+layout: default
+title: Case Studies | eWater
+casestudyname: eWater
+casestudyid: 5
+---
+<div id="main-wrap" class="internal-page case-study">
+
+  <div class="max-1200 align-center clearfix">
+    <h1 class="underline-orange">eWater</h1>
+    {% include crumbs.html %}
+    <div class="case-study-intro max-1000">
+      <p>Marlborough’s water has never been more accessible.</p>
+    </div>
+
+    <div class="case-study-icons">
+      <div class="case-study-tech">
+        <span class="tech-icon tech-icon-html"><img src="{{ "/img/case-studies/tech-html-css.png" | prepend: site.baseurl }}" alt="HTML/CSS" /></span>
+        <span title="Ember" class="tech-icon tech-icon-ember"><img src="{{ "/img/case-studies/tech-ember.png" | prepend: site.baseurl }}" alt="Ember" /></span>
+        <span title="D3" class="tech-icon tech-icon-ember"><img src="{{ "/img/case-studies/tech-d3.png" | prepend: site.baseurl }}" alt="D3" /></span>
+        <span title="Node" class="tech-icon tech-icon-node"><img src="{{ "/img/case-studies/tech-node.png" | prepend: site.baseurl }}" alt="Node" /></span>
+        <span title="Postgres" class="tech-icon tech-icon-postgres"><img src="{{ "/img/case-studies/tech-postgres.png" | prepend: site.baseurl }}" alt="Postgres" /></span>
+      </div>
+      <div class="case-study-platforms">
+        <i class="icon icon-cog tip"></i>
+      </div>
+    </div>
+
+    <img src="{{ "/img/case-studies/ewater-1.jpg" | prepend: site.baseurl }}" alt="eWater" class="case-study-image image-max-100 space-below-please" />
+
+    <div class="max-1000 align-left space-below-please">
+
+      <p>Management of a region’s water is a complex balancing act. Regional councils around New Zealand are responsible for water use and allocation, balancing economic needs against environmental preservation for present and future generations.</p>
+      <p>In Marlborough, the regional plan reserves water for maintaining the environment. In the majority of the region, water above that ‘reserved for the environment’ baseline has now been allocated to the economy, supporting wineries, agriculture, farming and the like. This means new permits are not able to be issued. However, the region’s real water use is often lower than the allocated total - meaning some permit holders are not using their full allocation.</p>
+      <p>Marlborough District Council partnered with Media Suite to help improve the systems for utilising and protecting its most valuable natural resource. eWater is designed to provide clarity around how much of the region’s water is being used, identifying unused water that could be utilised.</p>
+      <p>The transparency of the system means permit holders and members of the public across the region have the tools to manage water use amongst themselves, with less need for council involvement.</p>
+
+      <h2 class="lowercase">How it works</h2>
+      <p>eWater improves systems at two levels. In a purely functional sense, it provides better water use information for current permit holders and council officers. At a higher level, it allows the people of Marlborough to take ownership of their water.</p>
+      <p>Accountability for, and ownership of water use across the region means huge progress can be made, both economically and environmentally. eWater provides the tools for this change to occur.</p>
+      <p>Using the eWater system, anyone can view the current use and allocation of a particular permit. Thanks to council-mandated conditions on more recent water permits, a user’s Take and Use are now both digitally measured and reflected in eWater in real time. With transparency over how much water is allocated and used by any permit holder, water users can begin to effect change, without the need for council involvement.</p>
+      <p>Users from the same catchment area can transfer part of their water allocation to another permit holder. If Farmer A is using only 80% of his allocation this month, a neighbour, who is running short of water, can ask to transfer the remaining 20%, thus maximising the available water within their catchment. Users can manage any financial transaction between themselves, if required. If water users work together to share this resource around, it will create economic capacity that was previously limited by the water allocation system.</p>
+      <p>eWater also helps to automatically preserve a baseline water volume for environmental use. Marlborough’s water sources are fitted with sensors which automatically communicate water levels and flows. These readings are then reflected in eWater, altering the user’s maximum allocation during times of drought, to ensure appropriate water levels in rivers and aquifers are maintained.</p>
+      <p>At a functional level, eWater has revolutionised the council’s access to information about the region’s water. Council staff can search, view and edit any permit and monitor use. Permit histories are stored within the system using version control, and staff have access to all meter and flow records to assist with permit enforcement.</p>
+
+      <!-- Andrew's graphic to go here when ready -->
+
+      <h2 class="lowercase">Facilitating Change</h2>
+      <p>All data recorded by eWater is standardised, digital, and easily accessed for analysis. The region’s water use can now be monitored more efficiently, with collected data being more rapidly available. Real-time monitoring and high-quality data is essential for decision makers at a local and national level.</p>
+      <p>The system puts the issue of water use and allocation into the hands of the Marlborough public. As such, this resource can now be maximised for the benefit of individual permit holders and as part of the region’s economy.</p>
+      <p>The system was co-funded by Marlborough District Council and the Ministry for the Environment with a view to it being made available to other regional councils in New Zealand.</p>
+
+      <div class="quote-section clearfix">
+        <img src="{{ "/img/case-studies/resc-3.png" | prepend: site.baseurl }}" alt="Ewen Cumming" class="quote-image" />
+        <div class="quote-container">
+          <h2 class="quote-heading lowercase">Technically Speaking</h2>
+          <p class="quote-opening">eWater consumes an API providing up to date monitoring for water meters, river flow rates, and aquifer levels. Based on this data and permit information it calculates current and historical data on available water allocation and use. Allocation amounts will account for any water restrictions that were in place over the period and give users total visibility over water usage.</p>
+          <p>We've used Node on the server side to provide an API to an EmberJS single page application. The charts within eWater have been built using the D3 library.</p>
+          <p class="quote-closing">
+            <span class="quote-closing-text">Ewen Cumming, Technical Lead</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {% include other-case-studies.html %}
+
+  </div> <!-- .max-1200 -->
+
+</div> <!-- #main-wrap -->
