@@ -1380,6 +1380,10 @@ a {
   max-width: 428px;
 }
 
+#csi-ewater .item-image img {
+  max-width: 343px;
+}
+
 #csi-tfc .item-image img {
   max-width: 361px;
 }
@@ -1534,6 +1538,11 @@ a.crumb:hover,
   margin-bottom: 30px;
 }
 
+.case-study-image-left {
+  float: left;
+  margin: 0 40px 40px 0;
+}
+
 .case-study-image-right {
   float: right;
   width: 231px;
@@ -1622,6 +1631,75 @@ a.crumb:hover,
 .tip.icon-cog:after {
   content: 'web application';
   left: -25px;
+}
+
+.quote-section {
+  margin: 50px 0;
+}
+
+.quote-image {
+  display: block;
+  width: 182px;
+  height: auto;
+  margin: 20px auto;
+}
+
+.quote-heading {
+  margin: 0 0 25px 0;
+}
+
+.quote-opening,
+.quote-closing {
+  padding-left: 40px;
+  min-height: 51px;
+  background-repeat: no-repeat;
+  background-position: 0 5px;
+  background-size: 30px;
+}
+
+.quote-opening {
+  background-image: url(/img/open-quote.png);
+}
+
+.quote-closing {
+  background-image: url(/img/close-quote.png);
+  font-weight: bold;
+}
+
+.quote-closing-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.quote-closing:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 51px;
+}
+
+@media (min-width: 768px) {
+
+  .quote-image {
+    float: left;
+    margin: 0 40px 40px 0;
+  }
+
+  .quote-container {
+    float: left;
+    width: calc(100% - 225px);
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  .quote-opening,
+  .quote-closing {
+    background-size: auto auto;
+    padding-left: 75px;
+  }
+
 }
 
 
@@ -3581,6 +3659,7 @@ address {
     padding: 0;
     border-right: none;
     margin: 0 0 20px 0;
+    line-height: 1;
   }
 
   .tech-icon {
