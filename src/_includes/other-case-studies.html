@@ -15,6 +15,21 @@
   </div>  <!-- .case-study-item -->
   {% endif %}
 
+  {% if page.casestudyid != 7 %}
+  <div class="case-study-item clearfix">
+    <a href="{{ "/case-studies/myworksites" | prepend: site.baseurl }}" class="item-image">
+      <img src="{{ "/img/case-studies/cs-item-myworksites.jpg" | prepend: site.baseurl }}" alt="" class="jiggle" />
+    </a>
+    <div class="item-text">
+      <div class="item-text-head">
+        <h2 class="item-main-heading"><a class="text-sheen" href="{{ "/case-studies/myworksites" | prepend: site.baseurl }}">MyWorksites</a></h2>
+        <h3 class="item-sub-heading"><a href="{{ "/case-studies/myworksites" | prepend: site.baseurl }}">NZ Road Controlling Authorities</a></h3><br>
+        <a href="{{ "/case-studies/myworksites" | prepend: site.baseurl }}" class="drop-btn orange-bg small-btn">More on this&hellip;</a>
+      </div>
+    </div> <!-- .item-text -->
+  </div> <!-- .case-study-item -->
+  {% endif %}
+
   {% if page.casestudyid != 5 %}
   <div class="case-study-item clearfix">
     <a href="{{ "/case-studies/ewater" | prepend: site.baseurl }}" class="item-image">
@@ -85,21 +100,6 @@
         <h2 class="item-main-heading"><a class="text-sheen" href="{{ "/case-studies/appraisal-connector" | prepend: site.baseurl }}">Appraisal Connector</a></h2>
         <h3 class="item-sub-heading"><a href="{{ "/case-studies/appraisal-connector" | prepend: site.baseurl }}">Interlead Consultants</a></h3><br>
         <a href="{{ "/case-studies/appraisal-connector" | prepend: site.baseurl }}" class="drop-btn orange-bg small-btn">More on this&hellip;</a>
-      </div>
-    </div> <!-- .item-text -->
-  </div> <!-- .case-study-item -->
-  {% endif %}
-
-  {% if page.casestudyid != 4 %}
-  <div class="case-study-item clearfix">
-    <a href="{{ "/case-studies/tmp-for-christchurch" | prepend: site.baseurl }}" class="item-image">
-      <img src="{{ "/img/case-studies/cs-item-tmp-for-christchurch.jpg" | prepend: site.baseurl }}" alt="" class="jiggle" />
-    </a>
-    <div class="item-text">
-      <div class="item-text-head">
-        <h2 class="item-main-heading"><a class="text-sheen" href="{{ "/case-studies/tmp-for-christchurch" | prepend: site.baseurl }}">TMP for Christchurch</a></h2>
-        <h3 class="item-sub-heading"><a href="{{ "/case-studies/tmp-for-christchurch" | prepend: site.baseurl }}">Christchurch City Council / NZTA</a></h3><br>
-        <a href="{{ "/case-studies/tmp-for-christchurch" | prepend: site.baseurl }}" class="drop-btn orange-bg small-btn">More on this&hellip;</a>
       </div>
     </div> <!-- .item-text -->
   </div> <!-- .case-study-item -->
