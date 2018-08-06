@@ -63,7 +63,18 @@ excerpt: Media Suite partnered with roadworking authorities to build MyWorksites
       <h2 class="lowercase">Seeing the future</h2>
       <p>While MyWorksites provides an essential set of tools for everyone working on New Zealand roads, it also serves a higher purpose, providing a real time picture of a city’s roads and public spaces. This data can be used to minimise traffic congestion, plan for events that significantly impact the city’s traffic movement, and allow contractors across company and sector lines to collaborate before they dig.</p>
       <p>By sharing information, contractors could work together to reduce spend and minimise disruption. Using MyWorksites, expected roadworks (maintenance, planned works etc) could be scheduled years in advance. A clear picture of future works would assist councils to allocate budgets in long term plans, collaborate on larger works, and anticipate traffic impacts.</p>
-      <p><strong>Register for a MyWorksites account <a href="https://manage.myworksites.co.nz" target="_blank">here</a>.</strong></p>
+
+      <div class="quote-section clearfix">
+        <img src="{{ "/img/case-studies/mws-3.png" | prepend: site.baseurl }}" alt="Jonathan Prince" class="quote-image" />
+        <div class="quote-container">
+          <h2 class="quote-heading lowercase">Technically Speaking</h2>
+          <p class="quote-opening">A lot of useful functionality in this application is provided through maps. The foundation for our mapping is the Leaflet framework. We build on this using custom UI components to provide a tailored experience in order to meet the varying needs of each use-case. We couple this with some clever geospatial wrangling on the backend, with our good friend PostGIS taking care of the heavy lifting. We also use information and tools from the OpenStreetMaps project for detailed information on road specifications and routing.</p>
+          <p>Our backend is built around a NodeJS server and PostgreSQL/GIS database. Alongside the main application server are several smaller services set up to handle PDF generation, street routing and a mail queue. We run all backend services inside Docker containers, running as a cluster on the Amazon Container Service.</p>
+          <p class="quote-closing">
+            <span class="quote-closing-text">Jonathan Prince, Technical Lead</span>
+          </p>
+        </div>
+      </div>
 
     </div>
 
