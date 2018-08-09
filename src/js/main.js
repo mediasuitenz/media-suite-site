@@ -277,7 +277,7 @@ function init () {
       // Check screen size and load in video if at least 768px wide
       if (Modernizr.mq('(min-width: 768px)')) {
         if (!$('.js-covervid-video source').length) {
-          $('.js-covervid-video').append('<source src="https://85d137da1e54f786fead-53b266e97c0af9c711d72e69e4af35ea.ssl.cf4.rackcdn.com/looped.mp4" type="video/mp4">')
+          $('.js-covervid-video').append('<source src="https://85d137da1e54f786fead-53b266e97c0af9c711d72e69e4af35ea.ssl.cf4.rackcdn.com/ms-home-page-video.mp4" type="video/mp4">')
         }
         // Attach listener for video load
         var v = document.getElementsByTagName("video")[0]
