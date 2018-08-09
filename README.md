@@ -7,8 +7,6 @@ Uses [Jekyll](https://jekyllrb.com/) static site generator and [Gulp](http://gul
 1. Install Jekyll: `bundle install`
 2. Once in site directory (`src`), run `jekyll serve`. This will watch all files and compile any changes to `_site` directory. Site will be served up at `http://localhost:4000/`.
 
-\* `baseurl` setting in `_config.yml` will need editing if not serving site up from root of domain. For example, when publishing site to `http://mediasuitenz.github.io/media-suite-site/`, `baseurl` needs to be set to `"/media-suite-site"`. To edit and serve site up locally without modifying this setting, run `jekyll serve --baseurl ''`.
-
 ## Making Changes
 
 As a rule, don't make changes to anything in `_site` directory as it will just get overwritten when changes are made and site is compiled into the `_site` directory.
@@ -48,6 +46,8 @@ In `custom.js`, the JS related to each page is broken up into modules and initia
 ## Deploying Site
 
 Gulp is used to generate a version of the files ready to deploy to the live site. To generate these files, navigate to the root folder of the project and run `gulp`. This will output the required files to the `dist` directory, ready to upload to the server.
+
+To deploy changes (anything in the `dist` directory) to the live site, run `gulp deploy` after running `gulp`.
 
 ### Gulp
 
