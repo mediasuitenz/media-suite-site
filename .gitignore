@@ -6,6 +6,7 @@ npm-debug.log
 dist
 !dist/.gitkeep
 src/_site
+vendor
 
 __MACOSX
 .DS_Store
