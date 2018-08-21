@@ -4898,4 +4898,21 @@ address {
 
 }
 
+.social{
+  color: #f27c00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.social__logo{
+  color: #f27c00;
+  display: block;
+  padding: 5px;
+  line-height: 0;
+}
+
+.social__logo:hover,
+.social__logo:focus {
+  color: #ff632e;
+}
