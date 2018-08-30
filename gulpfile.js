@@ -59,24 +59,23 @@ gulp.task('minify-mainjs', function () {
 
 // Process html pages (inserting correct asset links) and move to dist
 gulp.task('html', function () {
-  const filesToMove = [
-    './src/_site/index.html',
-    './src/_site/favicon.ico',
-    './src/_site/404/index.html',
-    './src/_site/case-studies/**/*.*',
-    './src/_site/our-services/**/*.*',
-    './src/_site/people/**/*.*',
-    './src/_site/say-hello/**/*.*',
-    './src/_site/terms/**/*.*',
-    './src/_site/culture/**/*.*'
-  ]
-  return gulp.src(filesToMove, { base: './src/_site' })
+  return gulp.src([
+    './src/_site/**/*.html'
+  ], { base: './src/_site' })
   .pipe(processhtml())
   .pipe(gulp.dest('./dist'))
 })
 
 // Move other assets to dist
-gulp.task('move-assets', ['move-images', 'move-fonts'])
+gulp.task('move-assets', ['move-images', 'move-favicon', 'move-fonts'])
+
+gulp.task('move-favicon', function () {
+  return gulp.src([
+    './src/_site/*.{png,svg,ico,webmanifest}',
+    './src/_site/browserconfig.xml',
+  ], { base: './src/_site' })
+  .pipe(gulp.dest('./dist'))
+})
 
 gulp.task('move-images', function () {
   return gulp.src('./src/_site/img/**/*.*')
