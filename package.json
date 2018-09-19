@@ -2,6 +2,10 @@
   "name": "media-suite-site",
   "version": "0.0.1",
   "description": "The Gulp build process for the Media Suite website",
+  "scripts": {
+    "watch": "cd src && jekyll serve",
+    "deploy": "gulp && gulp deploy"
+  },
   "private": true,
   "devDependencies": {
     "del": "^2.2.0",
