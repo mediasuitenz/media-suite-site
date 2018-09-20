@@ -7,6 +7,7 @@ const autoprefixer = require('gulp-autoprefixer')
 const processhtml = require('gulp-processhtml')
 const del = require('del')
 const rsync = require('gulp-rsync')
+const chmod = require('gulp-chmod');
 
 // Default task - run 'gulp' to generate all site files ready for deploy
 gulp.task('default', ['clean'], function () {
@@ -79,6 +80,7 @@ gulp.task('move-favicon', function () {
 
 gulp.task('move-images', function () {
   return gulp.src('./src/_site/img/**/*.*')
+  .pipe(chmod(644))
   .pipe(gulp.dest('./dist/img'))
 })
 
