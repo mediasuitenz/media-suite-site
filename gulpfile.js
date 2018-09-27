@@ -80,7 +80,7 @@ gulp.task('move-favicon', function () {
 
 gulp.task('move-images', function () {
   return gulp.src('./src/_site/img/**/*.*')
-  .pipe(chmod(644))
+  .pipe(chmod(0o644))
   .pipe(gulp.dest('./dist/img'))
 })
 
