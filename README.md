@@ -5,7 +5,11 @@ Uses [Jekyll](https://jekyllrb.com/) static site generator and [Gulp](http://gul
 ## Setup
 
 1. Install Jekyll: `bundle install`
-2. Once in site directory (`src`), run `jekyll serve`. This will watch all files and compile any changes to `_site` directory. Site will be served up at `http://localhost:4000/`.
+
+## Development
+
+1. Once Jekyll is installed.  Run `npm run watch`. This will watch all files and compile any changes to `_site` directory.
+1. Open your browser up to `http://localhost:4000/`.
 
 ## Making Changes
 
@@ -33,11 +37,11 @@ Page templates use [Liquid](http://liquidmarkup.org/). Each template starts with
 
 ### Editing CSS
 
-Just edit stylesheets in `/css` directory. If `jekyll serve` is running, changes will be compiled to `_site/css` on save.
+Just edit stylesheets in `/css` directory. If `npm run watch` is running, changes will be compiled to `_site/css` on save.
 
 ### Editing JavaScript
 
-As with the CSS, all JavaScript can be edited directly in the `/js` directory and will be compiled with the site to  `_site/js` on save if `jekyll serve` is running.
+As with the CSS, all JavaScript can be edited directly in the `/js` directory and will be compiled with the site to  `_site/js` on save if `npm run watch` is running.
 
 Plugins that don't need separating out can be saved in the `js/concat` directory. Any files saved to this directory will be concatenated and minified by Gulp when building the files for deployment.
 
@@ -47,7 +51,7 @@ In `custom.js`, the JS related to each page is broken up into modules and initia
 
 Gulp is used to generate a version of the files ready to deploy to the live site. To generate these files, navigate to the root folder of the project and run `gulp`. This will output the required files to the `dist` directory, ready to upload to the server.
 
-To deploy changes (anything in the `dist` directory) to the live site, run `gulp deploy` after running `gulp`.
+To deploy changes run `npm run deploy`.
 
 ### Gulp
 
