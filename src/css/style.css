@@ -1221,6 +1221,7 @@ a {
   width: 35px;
   height: 35px;
   margin-right: 5px;
+  border-radius: 100%;
 }
 
 .author-element__meta {
