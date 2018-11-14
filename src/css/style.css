@@ -137,7 +137,7 @@ h1, h2, h3, h4,
 .fancy-pants-font,
 .emphasis {
   font-family: 'chelthmitc_bk_btbold_italic', serif;
-  font-weight:400;
+  font-weight: 400;
 }
 
 h1,
@@ -1679,7 +1679,87 @@ a.crumb:hover,
   height: 51px;
 }
 
+.standy-outy-text {
+  margin: 30px 0;
+  padding: 20px 0;
+  border-top: 2px solid #f27c00;
+  border-bottom: 2px solid #f27c00;
+  font-size: 20px;
+  line-height: 1.4;
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+  font-weight: 400;
+}
+
+.standy-outy-text p {
+  margin: 0;
+}
+
+.tooltip-trigger {
+  position: relative;
+  border-bottom: 2px dotted #f48700;
+  cursor: default;
+}
+
+.tooltip-content {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  font-size: 14px;
+  line-height: 1.4;
+  width: 250px;
+  padding: 18px;
+  background-color: #f48700;
+  color: #fff;
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+  font-weight: 400;
+  border-radius: 5px;
+  transform: translate(-125px, 5px);
+  pointer-events: none;
+  opacity: 0;
+  transition: all 300ms ease;
+}
+
+.tooltip-trigger:hover .tooltip-content {
+  opacity: 1;
+  transform: translate(-125px, 0);
+}
+
+.footnote {
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'chelthmitc_bk_btbold_italic', serif;
+}
+
+.footnote-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+  height: 40px;
+}
+
+.footnote-image img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
 @media (min-width: 768px) {
+
+  .standy-outy-text {
+    max-width: 300px;
+    padding: 20px 0;
+  }
+
+  .standy-outy-text--left {
+    float: left;
+    margin: 20px 40px 20px 0;
+  }
+
+  .standy-outy-text--right {
+    float: right;
+    margin: 20px 0 20px 40px;
+  }
 
   .quote-image {
     float: left;
