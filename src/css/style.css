@@ -1385,7 +1385,8 @@ a {
   max-width: 343px;
 }
 
-#csi-tfc .item-image img {
+#csi-tfc .item-image img,
+#csi-dgnz .item-image img {
   max-width: 361px;
 }
 
