@@ -1390,6 +1390,10 @@ a {
   max-width: 361px;
 }
 
+#csi-uc img {
+  max-width: 300px;
+}
+
 #csi-forward-works .item-image img {
   max-width: 353px;
 }
@@ -4642,6 +4646,13 @@ address {
   .third-col {
     width: 21%;
     max-width: 222px;
+  }
+
+  .third-col--full{
+    width: 33%;
+    padding: 0px 2%;
+    float: left;
+    max-width: inherit;
   }
 
   #culture-col-1 {
