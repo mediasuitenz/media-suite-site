@@ -1,0 +1,48 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:6
+    working_directory: ~/media-suite-site
+    steps:
+      - checkout
+      - run:
+          name: Update list of available packages
+          command: sudo apt update
+      - run:
+          name: Install ruby
+          command: sudo apt install ruby-full
+      - run:
+          name: Update PATH
+          command: echo 'export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"' >> $BASH_ENV
+      - restore_cache:
+          key: dependency-cache-v0-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
+      - run: 
+          name: Install bundler
+          command: gem install bundler --user-install --no-doc
+      - run:
+          name: Install Jekyll
+          command: bundle install --path $HOME/.gem
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-v0-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
+          paths:
+            - $HOME/.gem
+            - ~/node_modules
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      build:
+        filters:
+          branches:
+            only:
+              - master
+              - add-circleci-config
