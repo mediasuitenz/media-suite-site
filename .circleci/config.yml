@@ -25,9 +25,6 @@ jobs:
           name: Install Jekyll
           command: bundle install --path $HOME/.gem
       - run:
-          name: Update npm
-          command: 'sudo npm install -g npm@latest'
-      - run:
           name: Install dependencies
           command: npm install
       - save_cache:
