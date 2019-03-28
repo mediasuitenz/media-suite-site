@@ -9,9 +9,6 @@ const del = require('del')
 const rsync = require('gulp-rsync')
 const chmod = require('gulp-chmod')
 
-const hostname = process.env.RSYNC_HOST || 'media-suite-site'
-const username = process.env.RSYNC_USER || 'bitnami'
-
 // Default task - run 'gulp' to generate all site files ready for deploy
 gulp.task('default', ['clean'], function () {
   gulp.start('styles', 'scripts', 'html', 'move-assets')
@@ -96,8 +93,7 @@ gulp.task('deploy', function () {
   return gulp.src('dist/**')
     .pipe(rsync({
       root: 'dist/',
-      hostname: hostname,
-      username: username,
+      hostname: 'mediasuite.co.nz',
       destination: 'htdocs/',
       archive: true,
       clean: true,
