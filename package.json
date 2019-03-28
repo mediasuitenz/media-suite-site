@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "The Gulp build process for the Media Suite website",
   "scripts": {
+    "build": "cd src && jekyll build",
     "watch": "cd src && jekyll serve",
     "deploy": "gulp && gulp deploy"
   },
