@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build:
+  build_deploy:
     docker:
       - image: circleci/node:6
     working_directory: ~/media-suite-site
@@ -35,12 +35,19 @@ jobs:
       - run:
           name: Jekyll build
           command: npm run build
+      - add_ssh_keys:
+          fingerprints:
+            # SSH Key in Broken Jandal circleci.pem
+            - "de:7b:22:2c:42:22:97:fe:f0:68:df:f1:38:2c:58:c2"
+      - deploy:
+          name: Deploy to remote host
+          command: npm run deploy
 
 workflows:
   version: 2
   build_deploy:
     jobs:
-      - build:
+      - build_deploy:
           filters:
             branches:
               only:

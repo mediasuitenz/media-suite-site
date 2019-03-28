@@ -7,7 +7,10 @@ const autoprefixer = require('gulp-autoprefixer')
 const processhtml = require('gulp-processhtml')
 const del = require('del')
 const rsync = require('gulp-rsync')
-const chmod = require('gulp-chmod');
+const chmod = require('gulp-chmod')
+
+const hostname = process.env.RSYNC_HOST || 'media-suite-site'
+const username = process.env.RSYNC_USER || 'bitnami'
 
 // Default task - run 'gulp' to generate all site files ready for deploy
 gulp.task('default', ['clean'], function () {
@@ -93,7 +96,8 @@ gulp.task('deploy', function () {
   return gulp.src('dist/**')
     .pipe(rsync({
       root: 'dist/',
-      hostname: 'media-suite-site',
+      hostname: hostname,
+      username: username,
       destination: 'htdocs/',
       archive: true,
       clean: true,
