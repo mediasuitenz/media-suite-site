@@ -17,7 +17,7 @@ jobs:
           name: Update PATH
           command: echo 'export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"' >> $BASH_ENV
       - restore_cache:
-          key: dependency-cache-v0-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
+          key: dependency-cache-v0-1-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
       - run: 
           name: Install bundler
           command: gem install bundler --user-install --no-doc
@@ -28,9 +28,9 @@ jobs:
           name: Install dependencies
           command: npm install
       - save_cache:
-          key: dependency-cache-v0-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
+          key: dependency-cache-v0-1-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
           paths:
-            - $HOME/.gem
+            - /home/circleci/.gem
             - ~/node_modules
       - run:
           name: Jekyll build
