@@ -32,6 +32,9 @@ jobs:
           paths:
             - $HOME/.gem
             - ~/node_modules
+      - run:
+          name: Jekyll build
+          command: npm run build
 
 workflows:
   version: 2
