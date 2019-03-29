@@ -91,7 +91,9 @@ gulp.task('move-fonts', function () {
   .pipe(gulp.dest('./dist/fonts'))
 })
 
-gulp.task('deploy', ['rsync-dist', 'cloudflare-purge-cache'])
+gulp.task('deploy', ['rsync-dist'], function () {
+  gulp.start('cloudflare-purge-cache')
+})
 
 gulp.task('rsync-dist', function () {
   return gulp.src('dist/**')
