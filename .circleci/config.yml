@@ -40,7 +40,7 @@ jobs:
             # SSH Key in Broken Jandal circleci.pem
             - "de:7b:22:2c:42:22:97:fe:f0:68:df:f1:38:2c:58:c2"
       - run:
-          name: Add host to SSH config
+          name: Add host to ssh config
           command: |
             cat >> ~/.ssh/config <<-EOF
             Host mediasuite.co.nz
@@ -61,4 +61,3 @@ workflows:
             branches:
               only:
                 - master
-                - add-circleci-config
