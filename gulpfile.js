@@ -7,7 +7,9 @@ const autoprefixer = require('gulp-autoprefixer')
 const processhtml = require('gulp-processhtml')
 const del = require('del')
 const rsync = require('gulp-rsync')
-const chmod = require('gulp-chmod');
+const chmod = require('gulp-chmod')
+const request = require('request')
+const log = require('fancy-log')
 
 // Default task - run 'gulp' to generate all site files ready for deploy
 gulp.task('default', ['clean'], function () {
@@ -89,15 +91,50 @@ gulp.task('move-fonts', function () {
   .pipe(gulp.dest('./dist/fonts'))
 })
 
-gulp.task('deploy', function () {
+gulp.task('deploy', ['rsync-dist'], function () {
+  gulp.start('cloudflare-purge-cache')
+})
+
+gulp.task('rsync-dist', function () {
   return gulp.src('dist/**')
     .pipe(rsync({
       root: 'dist/',
-      hostname: 'media-suite-site',
+      hostname: 'mediasuite.co.nz',
       destination: 'htdocs/',
       archive: true,
       clean: true,
       recursive: true,
       exclude: ['.htaccess']
     }))
+})
+
+gulp.task('cloudflare-purge-cache', function () {
+  const zoneId = process.env.CLOUDFLARE_ZONE_ID
+  const authEmail = process.env.CLOUDFLARE_AUTH_EMAIL
+  const authKey = process.env.CLOUDFLARE_AUTH_KEY
+
+  if (!zoneId || !authEmail || !authKey) return log.error('Missing Cloudflare environment variables')
+
+  const options = {
+    url: `https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`,
+    headers: {
+      'X-Auth-Email': authEmail,
+      'X-Auth-Key': authKey
+    },
+    json: {
+      purge_everything: true
+    }
+  }
+  request.delete(options, function (err, res, body) {
+    if (err) {
+      log.error(err.message)
+    }
+    if (res.statusCode !== 200 || res.body.result === 'error') {
+      let errorMessage = 'Not able to purge cache.'
+      if (res.body && res.body.msg) {
+        errorMessage = res.body.msg
+      }
+      log.error(errorMessage)
+    }
+  })
 })

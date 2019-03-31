@@ -1,0 +1,63 @@
+version: 2
+
+jobs:
+  build_deploy:
+    docker:
+      - image: circleci/node:6
+    working_directory: ~/mediasuite.co.nz
+    steps:
+      - checkout
+      - run:
+          name: Update list of available packages
+          command: sudo apt update
+      - run:
+          name: Install packages
+          command: sudo apt install rsync ruby-full
+      - run:
+          name: Update PATH
+          command: echo 'export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"' >> $BASH_ENV
+      - restore_cache:
+          key: dependency-cache-v0-3-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
+      - run: 
+          name: Install bundler
+          command: gem install bundler --user-install --no-doc
+      - run:
+          name: Install Jekyll
+          command: bundle install --path $HOME/.gem
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-v0-3-{{ checksum "Gemfile.lock" }}-{{ checksum "package-lock.json" }}
+          paths:
+            - /home/circleci/.gem
+            - ./node_modules
+      - run:
+          name: Jekyll build
+          command: npm run build
+      - add_ssh_keys:
+          fingerprints:
+            # SSH Key in Broken Jandal circleci.pem
+            - "de:7b:22:2c:42:22:97:fe:f0:68:df:f1:38:2c:58:c2"
+      - run:
+          name: Add host to ssh config
+          command: |
+            cat >> ~/.ssh/config <<-EOF
+            Host mediasuite.co.nz
+              HostName $RSYNC_HOST
+              User $RSYNC_USER
+              StrictHostKeyChecking no
+            EOF
+      - deploy:
+          name: Deploy to remote host
+          command: npm run deploy
+
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build_deploy:
+          filters:
+            branches:
+              only:
+                - master
