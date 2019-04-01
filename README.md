@@ -1,5 +1,7 @@
 # Media Suite Website
 
+[![CircleCI](https://circleci.com/gh/mediasuitenz/mediasuite.co.nz/tree/master.svg?style=svg&circle-token=0aa6f0d0339d2e5dc42cfcfab1bbe239c1e48f7d)](https://circleci.com/gh/mediasuitenz/mediasuite.co.nz/tree/master)
+
 Uses [Jekyll](https://jekyllrb.com/) static site generator and [Gulp](http://gulpjs.com/) to build files ready for deployment.
 
 ## Setup
@@ -8,7 +10,7 @@ Uses [Jekyll](https://jekyllrb.com/) static site generator and [Gulp](http://gul
 
 ## Development
 
-1. Once Jekyll is installed.  Run `npm run watch`. This will watch all files and compile any changes to `_site` directory.
+1. Once Jekyll is installed. Run `npm run watch`. This will watch all files and compile any changes to `_site` directory.
 1. Open your browser up to `http://localhost:4000/`.
 
 ## Making Changes
@@ -49,9 +51,11 @@ In `custom.js`, the JS related to each page is broken up into modules and initia
 
 ## Deploying Site
 
-Gulp is used to generate a version of the files ready to deploy to the live site. To generate these files, navigate to the root folder of the project and run `gulp`. This will output the required files to the `dist` directory, ready to upload to the server.
+Merging pull requests into the master branch will trigger a CircleCI workflow to build and deploy to the live site.
 
-To deploy changes run `npm run deploy`.
+CircleCI runs `npm run build` which uses Jekyll to build all files and compile any changes to `_site` directory. Next `npm run deploy` runs the default Gulp task and the deploy task. Files are copied to the `dist` directory and rsynced to the server. The Gulp deploy task also purges the Cloudflare cache.
+
+The CircleCI workflow takes less that 1 minute to complete.
 
 ### Gulp
 
