@@ -4309,6 +4309,8 @@ address {
     overflow: hidden;
     opacity: 0;
     transition: opacity 1200ms ease;
+    box-shadow: -15px 0 15px #ffffffa3;
+    background: #ffffffa3;
   }
 
   .person-wrap.on .person {
