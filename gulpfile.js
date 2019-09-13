@@ -102,7 +102,7 @@ const rsyncDist = () => {
     }))
 }
 
-const cloudflarePurgeCache = () => {
+const cloudflarePurgeCache = (cb) => {
   const zoneId = process.env.CLOUDFLARE_ZONE_ID
   const authEmail = process.env.CLOUDFLARE_AUTH_EMAIL
   const authKey = process.env.CLOUDFLARE_AUTH_KEY
@@ -131,6 +131,7 @@ const cloudflarePurgeCache = () => {
       log.error(errorMessage)
     }
   })
+  cb()
 }
 
 const deploy = gulp.series(rsyncDist, cloudflarePurgeCache)
