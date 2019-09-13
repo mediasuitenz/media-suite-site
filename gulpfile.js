@@ -11,91 +11,85 @@ const chmod = require('gulp-chmod')
 const request = require('request')
 const log = require('fancy-log')
 
-// Default task - run 'gulp' to generate all site files ready for deploy
-gulp.task('default', ['clean'], function () {
-  gulp.start('styles', 'scripts', 'html', 'move-assets')
-})
+const dir = {
+  src: 'src/',
+  dist: 'dist/'
+}
 
-// Clean dist directory before regenerating files
-gulp.task('clean', function () {
-  return del('./dist/**/*')
-})
+const clean = () => del([dir.dist])
+clean.description = 'clean dist directory before regenerating files'
 
 // Minify CSS, add vendor prefixes, save to /dist/css folder
-gulp.task('styles', function () {
-  return gulp.src('./src/_site/css/*.css', { base: './src' })
+const styles = () => {
+  return gulp.src('./src/_site/css/*.css', { base: dir.src })
     .pipe(concat('style.css'))
-    .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
+    .pipe(autoprefixer({ cascade: false }))
     .pipe(cleanCSS())
     .pipe(rename('style.min.css'))
     .pipe(gulp.dest('./dist/css'))
-})
-
-// Combine and minify scripts, save to /dist/js folder
-gulp.task('scripts', ['scripts-plugins', 'scripts-other'])
+}
 
 // Combine, minify, rename and save plugin scripts to /dist/js folder
-gulp.task('scripts-plugins', function () {
-  return gulp.src('./src/_site/js/concat/*.js', { base: './src' })
+const scriptsPlugins = () => {
+  return gulp.src('./src/_site/js/concat/*.js', { base: dir.src })
     .pipe(concat('.js'))
     .pipe(uglify())
     .pipe(rename('plugins.min.js'))
     .pipe(gulp.dest('./dist/js'))
-})
+}
+
+// Minify main js file and save to /dist/js folder
+const minifyMainjs = () => {
+  return gulp.src('./src/_site/js/main.js')
+    .pipe(uglify())
+    .pipe(rename('main.min.js'))
+    .pipe(gulp.dest('./dist/js'))
+}
 
 // Minify scripts that need to stay separate and save to /dist/js folder
-gulp.task('scripts-other', ['minify-mainjs'], function () {
-  return gulp.src([
+const scriptsOther = gulp.series(minifyMainjs, () =>
+  gulp.src([
     './src/_site/js/*.js',
     '!./src/_site/js/main.js'
   ])
-  .pipe(gulp.dest('./dist/js'))
-})
+    .pipe(gulp.dest('./dist/js'))
+)
 
-// Minify main js file and save to /dist/js folder
-gulp.task('minify-mainjs', function () {
-  return gulp.src('./src/_site/js/main.js')
-  .pipe(uglify())
-  .pipe(rename('main.min.js'))
-  .pipe(gulp.dest('./dist/js'))
-})
+// Combine and minify scripts, save to /dist/js folder
+const scripts = gulp.series(scriptsPlugins, scriptsOther)
 
 // Process html pages (inserting correct asset links) and move to dist
-gulp.task('html', function () {
+const html = () => {
   return gulp.src([
     './src/_site/**/*.html'
   ], { base: './src/_site' })
-  .pipe(processhtml())
-  .pipe(gulp.dest('./dist'))
-})
+    .pipe(processhtml())
+    .pipe(gulp.dest('./dist'))
+}
 
-// Move other assets to dist
-gulp.task('move-assets', ['move-images', 'move-favicon', 'move-fonts'])
+const moveImages = () => {
+  return gulp.src('./src/_site/img/**/*.*')
+    .pipe(chmod(0o644))
+    .pipe(gulp.dest('./dist/img'))
+}
 
-gulp.task('move-favicon', function () {
+const moveFavicon = () => {
   return gulp.src([
     './src/_site/*.{png,svg,ico,webmanifest}',
-    './src/_site/browserconfig.xml',
+    './src/_site/browserconfig.xml'
   ], { base: './src/_site' })
-  .pipe(gulp.dest('./dist'))
-})
+    .pipe(gulp.dest('./dist'))
+}
 
-gulp.task('move-images', function () {
-  return gulp.src('./src/_site/img/**/*.*')
-  .pipe(chmod(0o644))
-  .pipe(gulp.dest('./dist/img'))
-})
-
-gulp.task('move-fonts', function () {
+const moveFonts = () => {
   return gulp.src('./src/_site/fonts/**/*.*')
-  .pipe(gulp.dest('./dist/fonts'))
-})
+    .pipe(gulp.dest('./dist/fonts'))
+}
 
-gulp.task('deploy', ['rsync-dist'], function () {
-  gulp.start('cloudflare-purge-cache')
-})
+const moveAssets = gulp.parallel(moveImages, moveFavicon, moveFonts)
+moveAssets.description = 'move other assets to dist'
 
-gulp.task('rsync-dist', function () {
+const rsyncDist = () => {
   return gulp.src('dist/**')
     .pipe(rsync({
       root: 'dist/',
@@ -106,9 +100,9 @@ gulp.task('rsync-dist', function () {
       recursive: true,
       exclude: ['.htaccess']
     }))
-})
+}
 
-gulp.task('cloudflare-purge-cache', function () {
+const cloudflarePurgeCache = () => {
   const zoneId = process.env.CLOUDFLARE_ZONE_ID
   const authEmail = process.env.CLOUDFLARE_AUTH_EMAIL
   const authKey = process.env.CLOUDFLARE_AUTH_KEY
@@ -137,4 +131,13 @@ gulp.task('cloudflare-purge-cache', function () {
       log.error(errorMessage)
     }
   })
-})
+}
+
+const deploy = gulp.series(rsyncDist, cloudflarePurgeCache)
+
+// Default task - run 'gulp' to generate all site files ready for deploy
+const defaultTasks = gulp.series(clean, gulp.parallel(styles, scripts, html, moveAssets))
+
+exports.clean = clean
+exports.deploy = deploy
+exports.default = defaultTasks
