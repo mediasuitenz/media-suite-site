@@ -107,6 +107,10 @@ body {
   max-width: 100%;
 }
 
+.image-centre{
+  margin: auto;
+}
+
 .row {
   display: table;
   width: 100%;
@@ -1579,6 +1583,10 @@ a.crumb:hover,
   margin-bottom: 100px;
 }
 
+.wrap-fix{
+  overflow: auto;
+}
+
 .case-study h2 {
   font-size: 3.5rem;
 }
@@ -1657,7 +1665,7 @@ a.crumb:hover,
 .quote-opening,
 .quote-closing {
   padding-left: 40px;
-  min-height: 51px;
+  min-height: 57px;
   background-repeat: no-repeat;
   background-position: 0 5px;
   background-size: 30px;
@@ -1682,6 +1690,11 @@ a.crumb:hover,
   display: inline-block;
   vertical-align: middle;
   height: 51px;
+}
+
+.quote-by-text{
+  text-align: right;
+  font-weight: bold;
 }
 
 .standy-outy-text {
@@ -1774,6 +1787,9 @@ a.crumb:hover,
   .quote-container {
     float: left;
     width: calc(100% - 225px);
+  }
+  .quote-container--no-image {
+    width: 100%;
   }
 
 }
