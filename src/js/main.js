@@ -534,7 +534,7 @@ function init () {
         var interval = 0
         imgs.each(function () {
           var img = $(this)
-          interval += 50
+          interval += 20
           setTimeout(function () {
             img.parent('.person').addClass('loaded')
           }, interval)
